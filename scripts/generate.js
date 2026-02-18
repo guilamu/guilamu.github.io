@@ -118,7 +118,7 @@ async function getProjectMetadata(repo, model, cache) {
     Langage: ${repo.language}
     
     Tâche:
-    1. Catégorise ce projet dans UNE SEULE de ces catégories : "Gravity Forms", "IA", "Wordpress", "Outils", "Données".
+    1. Catégorise ce projet dans une ou plusieurs ces catégories : "Gravity Forms", "IA", "Wordpress", "Outils", "Données".
     2. Rédige une très courte description (max 20 mots) en français, accrocheuse.
     
     Format de réponse attendu (JSON uniquement):
@@ -155,10 +155,10 @@ async function getReleasePost(repo, release, model, cache) {
     ${release.body}
     
     Consignes:
-    - Rédige simplement quelques paragraphes de texte.
+    - Rédige simplement quelques paragraphes de texte (3 maximum).
     - PAS d'icônes ni d'émojis ni de listes à puces.
     - Reste accessible et pas trop technique.
-    - Reste concis (env. 100-150 mots).
+    - Reste concis (env. 100 mots).
     `;
 
   const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
