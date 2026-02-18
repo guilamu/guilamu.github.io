@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activités & Projets - guilamu</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; --badge-bg: #1f6feb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
+    h1 { text-align: center; margin-bottom: 2rem; color: var(--accent); }
+    
+    /* Filters */
+    .filters { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .filter-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+    
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; }
+    
+    /* Card */
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.2s; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    
+    .card-header { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
+    .card h2 { font-size: 1.25rem; margin: 0; }
+    .card h2 a { color: var(--accent); text-decoration: none; }
+    .card h2 a:hover { text-decoration: underline; }
+    
+    .badges { display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+    .badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+    .category-badge { background: #30363d; color: #8b949e; border: 1px solid #6e7681; }
+    .version-badge { background: #238636; color: white; }
+    
+    .description { color: #8b949e; font-size: 0.95rem; flex-grow: 1; }
+    
+    .actions { display: flex; gap: 0.5rem; margin-top: auto; }
+    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--accent); text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; width: 100%; text-align: center; transition: background 0.2s; }
+    .btn-secondary:hover { background: rgba(88, 166, 255, 0.1); }
+    
+    .meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: #6e7681; padding-top: 1rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+    
+    footer { text-align: center; margin-top: 4rem; color: #6e7681; font-size: 0.8rem; }
+  </style>
+  <script>
+    function filter(category) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector(`button[data-cat="${category}"]`).classList.add('active');
+        
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (category === 'All' || card.dataset.category === category) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+  </script>
+</head>
+<body>
+  <h1>🚀 Labo & Projets</h1>
+  
+  <div class="filters">
+    <button class="filter-btn active" data-cat="All" onclick="filter('All')">Tout</button>
+    <button class="filter-btn" data-cat="Gravity Forms,IA,WordPress,Outils,Données" onclick="filter('Gravity Forms,IA,WordPress,Outils,Données')">Gravity Forms,IA,WordPress,Outils,Données</button><button class="filter-btn" data-cat="Gravity Forms,WordPress,Outils,Données" onclick="filter('Gravity Forms,WordPress,Outils,Données')">Gravity Forms,WordPress,Outils,Données</button><button class="filter-btn" data-cat="Gravity Forms,Wordpress" onclick="filter('Gravity Forms,Wordpress')">Gravity Forms,Wordpress</button><button class="filter-btn" data-cat="Gravity Forms,Wordpress,Données" onclick="filter('Gravity Forms,Wordpress,Données')">Gravity Forms,Wordpress,Données</button><button class="filter-btn" data-cat="Gravity Forms,Wordpress,Données" onclick="filter('Gravity Forms,Wordpress,Données')">Gravity Forms,Wordpress,Données</button><button class="filter-btn" data-cat="Gravity Forms,Wordpress,Outils" onclick="filter('Gravity Forms,Wordpress,Outils')">Gravity Forms,Wordpress,Outils</button><button class="filter-btn" data-cat="Gravity Forms,Wordpress,Outils" onclick="filter('Gravity Forms,Wordpress,Outils')">Gravity Forms,Wordpress,Outils</button><button class="filter-btn" data-cat="Gravity Forms,Wordpress,Outils" onclick="filter('Gravity Forms,Wordpress,Outils')">Gravity Forms,Wordpress,Outils</button><button class="filter-btn" data-cat="IA,Outils" onclick="filter('IA,Outils')">IA,Outils</button><button class="filter-btn" data-cat="Outils" onclick="filter('Outils')">Outils</button><button class="filter-btn" data-cat="WordPress" onclick="filter('WordPress')">WordPress</button><button class="filter-btn" data-cat="WordPress,IA,Outils" onclick="filter('WordPress,IA,Outils')">WordPress,IA,Outils</button><button class="filter-btn" data-cat="Wordpress" onclick="filter('Wordpress')">Wordpress</button><button class="filter-btn" data-cat="Wordpress,Outils" onclick="filter('Wordpress,Outils')">Wordpress,Outils</button>
+  </div>
+
+  <div class="grid">
+    
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/guilamu.github.io" target="_blank">guilamu.github.io</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        
+      </div>
+    </div>
+    <p class="description">Portfolio personnel showcasing projects, from polished work to creative experiments.</p>
+    <div class="actions">
+       
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 JavaScript</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-external-choices" target="_blank">gf-external-choices</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.0.1</span>
+      </div>
+    </div>
+    <p class="description">Alimentez vos formulaires Gravity Forms avec données externes CSV, JSON ou XLSX.</p>
+    <div class="actions">
+       <a href="blog-gf-external-choices.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/distillpress" target="_blank">distillpress</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.2.0</span>
+      </div>
+    </div>
+    <p class="description">Résumé intelligent d'articles avec catégorisation automatique alimentée par l'IA.</p>
+    <div class="actions">
+       <a href="blog-distillpress.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="WordPress">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control" target="_blank">Advanced-Menu-Items-Visibility-Control</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">WordPress</span>
+        <span class="badge version-badge">v1.3.0</span>
+      </div>
+    </div>
+    <p class="description">Contrôlez la visibilité des menus selon le statut utilisateur et les rôles WordPress.</p>
+    <div class="actions">
+       <a href="blog-Advanced-Menu-Items-Visibility-Control.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/quickjump-admin" target="_blank">quickjump-admin</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.1.1</span>
+      </div>
+    </div>
+    <p class="description">Naviguez plus rapidement dans WordPress avec des raccourcis intelligents vers vos pages.</p>
+    <div class="actions">
+       <a href="blog-quickjump-admin.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gravity-forms-iban-extractor" target="_blank">gravity-forms-iban-extractor</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.3.2</span>
+      </div>
+    </div>
+    <p class="description">Extension WordPress validant et extrayant les données IBAN en temps réel pour Gravity Forms.</p>
+    <div class="actions">
+       <a href="blog-gravity-forms-iban-extractor.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/guilamu-bug-reporter" target="_blank">guilamu-bug-reporter</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.2.1</span>
+      </div>
+    </div>
+    <p class="description">Signalement unifié de bugs pour plugins Guilamu avec réponses IA instantanées.</p>
+    <div class="actions">
+       <a href="blog-guilamu-bug-reporter.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Wordpress">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/advanced-pdf-embedder" target="_blank">advanced-pdf-embedder</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Wordpress</span>
+        <span class="badge version-badge">v1.2.1</span>
+      </div>
+    </div>
+    <p class="description">Plugin WordPress moderne pour intégrer et visualiser des PDF avec un lecteur élégant.</p>
+    <div class="actions">
+       <a href="blog-advanced-pdf-embedder.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/GF-Advanced-Conditional-Choices" target="_blank">GF-Advanced-Conditional-Choices</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.0.0</span>
+      </div>
+    </div>
+    <p class="description">Ajoutez de la logique conditionnelle avancée aux choix de vos formulaires Gravity Forms.</p>
+    <div class="actions">
+       <a href="blog-GF-Advanced-Conditional-Choices.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-chained-select-enhancer" target="_blank">gf-chained-select-enhancer</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.7.2</span>
+      </div>
+    </div>
+    <p class="description">Améliorez vos formulaires Gravity Forms avec des sélections en cascade intelligentes et fluides.</p>
+    <div class="actions">
+       <a href="blog-gf-chained-select-enhancer.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 1</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-merge-tag-autocomplete" target="_blank">gf-merge-tag-autocomplete</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.0.0</span>
+      </div>
+    </div>
+    <p class="description">Autocomplétion instantanée des merge tags Gravity Forms en tapant `{`</p>
+    <div class="actions">
+       <a href="blog-gf-merge-tag-autocomplete.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 JavaScript</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gravity-extract" target="_blank">gravity-extract</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.0.3</span>
+      </div>
+    </div>
+    <p class="description">Plugin WordPress exploitant l'IA pour extraire automatiquement les données des documents uploadés.</p>
+    <div class="actions">
+       <a href="blog-gravity-extract.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-french-schools" target="_blank">gf-french-schools</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.8.1</span>
+      </div>
+    </div>
+    <p class="description">Extension Gravity Forms pour rechercher et sélectionner des établissements scolaires français officiels.</p>
+    <div class="actions">
+       <a href="blog-gf-french-schools.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-conditional-compass" target="_blank">gf-conditional-compass</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.2.3</span>
+      </div>
+    </div>
+    <p class="description">Plugin JavaScript pour gérer intelligemment les champs conditionnels dans Gravity Forms.</p>
+    <div class="actions">
+       <a href="blog-gf-conditional-compass.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 JavaScript</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/liste-des-Recteurs-et-retrices-des-acad-mies-francaises-toujours-jour" target="_blank">liste-des-Recteurs-et-retrices-des-acad-mies-francaises-toujours-jour</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        
+      </div>
+    </div>
+    <p class="description">Liste des recteurs et retrices des académies françaises toujours à jour</p>
+    <div class="actions">
+       
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 JavaScript</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/free-transactional-email-services-comparison" target="_blank">free-transactional-email-services-comparison</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        
+      </div>
+    </div>
+    <p class="description">Always up to date free transactional email services comparison</p>
+    <div class="actions">
+       
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 JavaScript</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/reddit-gdpr-export-viewer" target="_blank">reddit-gdpr-export-viewer</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        <span class="badge version-badge">v1.1</span>
+      </div>
+    </div>
+    <p class="description">A modern, standalone offline viewer for your Reddit GDPR data export files.</p>
+    <div class="actions">
+       <a href="blog-reddit-gdpr-export-viewer.html" class="btn-secondary">📰 Voir les mises à jour</a>
+    </div>
+    <div class="meta">
+      <span>⭐ 3</span>
+      <span>🔧 JavaScript</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gravity-forms-shortcode-builder" target="_blank">gravity-forms-shortcode-builder</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        
+      </div>
+    </div>
+    <p class="description">Easily build and manage complex Gravity Forms shortcodes via a user-friendly interface in the Form Settings panel.</p>
+    <div class="actions">
+       
+    </div>
+    <div class="meta">
+      <span>⭐ 4</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/mini-plugin" target="_blank">mini-plugin</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        
+      </div>
+    </div>
+    <p class="description">test plugin</p>
+    <div class="actions">
+       
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 PHP</span>
+    </div>
+  </div>
+
+  <div class="card" data-category="Outils">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/mail_cleanup" target="_blank">mail_cleanup</a></h2>
+      <div class="badges">
+        <span class="badge category-badge">Outils</span>
+        
+      </div>
+    </div>
+    <p class="description">Automatically deletes emails from multiple POP3 accounts while preserving the ability to forward emails and send outbound mail.</p>
+    <div class="actions">
+       
+    </div>
+    <div class="meta">
+      <span>⭐ 0</span>
+      <span>🔧 Python</span>
+    </div>
+  </div>
+  </div>
+
+  <footer>
+    Généré avec ❤️ par une IA (Claude Haiku) et GitHub Actions.<br>
+    Dernière màj: 18/02/2026
+  </footer>
+</body>
+</html>
