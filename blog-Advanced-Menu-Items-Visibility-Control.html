@@ -38,9 +38,7 @@
       <h2>Version v1.3.0</h2>
       <span class="date">18 janvier 2026</span>
     </div>
-    <div class="content"><h2>Advanced-Menu-Items-Visibility-Control v1.3.0</h2>
-
-<p>Cette version introduit l'intégration du système Guilamu Bug Reporter et ajoute un lien de signalement de bug directement dans la liste des extensions. La gestion des versions est désormais centralisée via une constante dédiée.</p></div>
+    <div class="content"><p>La version 1.3.0 intègre le support de Guilamu Bug Reporter et ajoute un lien "Signaler un bug" directement dans la liste des extensions. Une constante de version a également été introduite afin de centraliser la gestion du numéro de version du plugin.</p></div>
     <a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/Advanced-Menu-Items-Visibility-Control.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
@@ -48,9 +46,7 @@
       <h2>Version v1.2.4</h2>
       <span class="date">1 janvier 2026</span>
     </div>
-    <div class="content"><h2>Mise à jour v1.2.4 - Advanced-Menu-Items-Visibility-Control</h2>
-
-<p>Cette version corrige un problème critique affectant la vérification des niveaux d'accès RCP qui ne fonctionnait pas correctement. Le système de contrôle de visibilité des éléments de menu basé sur les permissions RCP est désormais opérationnel.</p></div>
+    <div class="content"><p>La version 1.2.4 du projet « Advanced-Menu-Items-Visibility-Control » corrige un bug critique affectant la vérification des niveaux d'accès RCP, fonctionnalité qui était jusqu'alors non opérationnelle.</p></div>
     <a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/Advanced-Menu-Items-Visibility-Control.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
@@ -58,49 +54,7 @@
       <h2>Version v1.2.3</h2>
       <span class="date">30 décembre 2025</span>
     </div>
-    <div class="content"><h1>Mise à jour v1.2.3 - Advanced-Menu-Items-Visibility-Control</h1>
-
-<p>Cette version corrige un problème critique de détection des niveaux d'adhésion RCP causé par un bug de cache dans l'API RCP, en implémentant une requête directe à la base de données. Des vérifications de compatibilité ont également été ajoutées pour éviter les erreurs fatales sur certaines versions de RCP, et la comparaison des niveaux d'adhésion utilise désormais les noms plutôt que les identifiants pour une fiabilité accrue.</p></div>
-    <a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/Advanced-Menu-Items-Visibility-Control.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
-  </article>
-  <article>
-    <div class="article-header">
-      <h2>Version v1.2.2</h2>
-      <span class="date">30 décembre 2025</span>
-    </div>
-    <div class="content"><h2>Advanced-Menu-Items-Visibility-Control v1.2.2</h2>
-
-<p>La version 1.2.2 a été publiée avec des améliorations de stabilité et des corrections de bugs. Cette mise à jour est recommandée pour tous les utilisateurs.</p></div>
-    <a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/Advanced-Menu-Items-Visibility-Control.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
-  </article>
-  <article>
-    <div class="article-header">
-      <h2>Version v1.2.1</h2>
-      <span class="date">26 novembre 2025</span>
-    </div>
-    <div class="content"><h2>Mise à jour v1.2.1 - Advanced-Menu-Items-Visibility-Control</h2>
-
-<p>La version 1.2.1 d'Advanced-Menu-Items-Visibility-Control est désormais disponible. Cette mise à jour apporte des corrections et améliorations au fonctionnement général du plugin.</p></div>
-    <a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/Advanced-Menu-Items-Visibility-Control.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
-  </article>
-  <article>
-    <div class="article-header">
-      <h2>Version v1.1</h2>
-      <span class="date">26 novembre 2025</span>
-    </div>
-    <div class="content"><h2>Mise à jour v1.1 - Advanced-Menu-Items-Visibility-Control</h2>
-
-<p>La version 1.1 introduit le support multilingue, permettant une utilisation du plugin dans plusieurs langues. Cette fonctionnalité élargit l'accessibilité de l'outil pour les utilisateurs internationaux.</p></div>
-    <a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/Advanced-Menu-Items-Visibility-Control.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
-  </article>
-  <article>
-    <div class="article-header">
-      <h2>Version 1.0</h2>
-      <span class="date">26 novembre 2025</span>
-    </div>
-    <div class="content"><h2>Advanced-Menu-Items-Visibility-Control 1.0</h2>
-
-<p>La version 1.0 du projet Advanced-Menu-Items-Visibility-Control est maintenant disponible. Cette première version stable offre les fonctionnalités de base pour contrôler la visibilité des éléments de menu.</p></div>
+    <div class="content"><p>La version 1.2.3 du projet Advanced-Menu-Items-Visibility-Control corrige un problème critique lié à la détection du niveau d'adhésion RCP, qui renvoyait des données obsolètes issues du cache. Une requête directe sur les adhésions a été mise en place afin de contourner le bug de mise en cache présent dans la fonction <code>rcp_get_customer_membership_level_names()</code> de l'API RCP. Un contrôle via <code>function_exists()</code> a été ajouté pour la fonction <code>rcp_user_has_access_level()</code>, afin d'éviter des erreurs fatales sur certaines versions de RCP. Enfin, la comparaison des niveaux d'adhésion a été modifiée pour reposer sur les noms plutôt que sur les identifiants, dans le but d'améliorer la fiabilité de la correspondance.</p></div>
     <a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/Advanced-Menu-Items-Visibility-Control.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
 </body>
