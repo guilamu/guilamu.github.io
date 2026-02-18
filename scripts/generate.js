@@ -182,7 +182,7 @@ function buildCard(repo, release, aiMeta) {
   const tags = (aiMeta?.tags && Array.isArray(aiMeta.tags)) ? aiMeta.tags : ['Outils'];
   // data-tags is a JSON array string for JS filtering
   const dataTagsAttr = JSON.stringify(tags);
-  const releaseUrl = release ? release.html_url : null;
+  const releaseUrl = release ? `https://github.com/${USERNAME}/${repo.name}/releases/download/${release.tag_name}/${repo.name}.zip` : null;
 
   return `
   <div class="card" data-tags='${dataTagsAttr}'>
@@ -239,7 +239,7 @@ async function main() {
               version: release.tag_name,
               date: release.published_at,
               content: postContent,
-              releaseUrl: release.html_url
+              releaseUrl: `https://github.com/${USERNAME}/${repo.name}/releases/download/${release.tag_name}/${repo.name}.zip`
             });
           }
         } catch (err) {
@@ -248,7 +248,7 @@ async function main() {
       }
 
       const latestRelease = releases.length > 0 ? releases[0] : null;
-      const latestReleaseUrl = latestRelease ? latestRelease.html_url : null;
+      const latestReleaseUrl = latestRelease ? `https://github.com/${USERNAME}/${repo.name}/releases/download/${latestRelease.tag_name}/${repo.name}.zip` : null;
 
       if (blogPosts.length > 0) {
         const blogHtml = generateBlogPage(repo, blogPosts, aiMeta, latestReleaseUrl);
