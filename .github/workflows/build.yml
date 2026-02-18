@@ -30,7 +30,16 @@ jobs:
       - name: Generate index.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POE_API_KEY: ${{ secrets.POE_API_KEY }}
         run: node scripts/generate.js
+
+      - name: Commit AI Cache
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add ai_cache.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update AI cache [skip ci]"
+          git push
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -38,4 +47,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           publish_branch: gh-pages
-          exclude_assets: '.github,scripts'
+          exclude_assets: '.github,scripts,ai_cache.json'
