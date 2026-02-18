@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>guilamu — Extensions & Plugins</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #0d1117; color: #c9d1d9; padding: 2rem; }
+    h1 { text-align: center; margin-bottom: 0.5rem; color: #58a6ff; }
+    .subtitle { text-align: center; color: #8b949e; margin-bottom: 2rem; font-size: 0.9rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .card-header { display: flex; justify-content: space-between; align-items: center; }
+    .card h2 { font-size: 1.1rem; } .card h2 a { color: #58a6ff; text-decoration: none; }
+    .card h2 a:hover { text-decoration: underline; }
+    .badge { background: #238636; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; }
+    .badge.no-release { background: #30363d; }
+    .description { color: #8b949e; font-size: 0.9rem; }
+    .btn-download { display: inline-block; background: #238636; color: #fff; padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; width: fit-content; }
+    .btn-download:hover { background: #2ea043; }
+    details summary { cursor: pointer; color: #58a6ff; font-size: 0.85rem; }
+    .changelog { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 0.75rem; margin-top: 0.5rem; font-size: 0.8rem; max-height: 200px; overflow-y: auto; }
+    .changelog h4, .changelog h5 { color: #58a6ff; margin: 0.5rem 0 0.25rem; }
+    .changelog ul { padding-left: 1.2rem; }
+    .meta { display: flex; gap: 1rem; font-size: 0.75rem; color: #8b949e; margin-top: auto; padding-top: 0.5rem; border-top: 1px solid #21262d; }
+    footer { text-align: center; margin-top: 3rem; color: #8b949e; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <h1>🔌 Mes Extensions & Plugins</h1>
+  <p class="subtitle">Mis à jour le 18 février 2026 à 10:27</p>
+  <div class="grid">
+    
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/guilamu.github.io" target="_blank">guilamu.github.io</a></h2>
+      <span class="badge no-release">Pas de release</span>
+    </div>
+    <p class="description">All my work, vibe coded or not!</p>
+    
+    
+    <div class="meta">
+      <span>🔧 JavaScript</span>
+      
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-french-schools" target="_blank">gf-french-schools</a></h2>
+      <span class="badge">v1.8.1</span>
+    </div>
+    <p class="description">Extension Gravity Forms permettant aux utilisateurs de rechercher et sélectionner un établissement scolaire français via l'API officielle du Ministère de l'Éducation Nationale</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.1/gf-french-schools.zip">
+      ⬇ Télécharger gf-french-schools.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog"><ul><li>Correction de la recherche de villes avec article : "les pa" trouve désormais "Les Pavillons Sous Bois", "les l" trouve "Les Lilas", etc.</li><br><li>La recherche distante (API) et la base locale effectuent désormais une correspondance mot par mot : chaque mot saisi doit apparaître dans le nom de la ville, au lieu d'un test de sous-chaîne continue qui échouait dès qu'un espace séparait deux mots.</li><br><li>Compatibilité gwcopycat (GP Copy Cat) : les sous-champs cachés déclenchent désormais un événement jQuery `change` lors de la sélection d'un établissement, permettant leur copie vers d'autres champs.</li></ul></div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 18/02/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/liste-des-Recteurs-et-retrices-des-acad-mies-francaises-toujours-jour" target="_blank">liste-des-Recteurs-et-retrices-des-acad-mies-francaises-toujours-jour</a></h2>
+      <span class="badge no-release">Pas de release</span>
+    </div>
+    <p class="description">Liste des recteurs et retrices des académies françaises toujours à jour</p>
+    
+    
+    <div class="meta">
+      <span>🔧 JavaScript</span>
+      
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/free-transactional-email-services-comparison" target="_blank">free-transactional-email-services-comparison</a></h2>
+      <span class="badge no-release">Pas de release</span>
+    </div>
+    <p class="description">Always up to date free transactional email services comparison</p>
+    
+    
+    <div class="meta">
+      <span>🔧 JavaScript</span>
+      
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-conditional-compass" target="_blank">gf-conditional-compass</a></h2>
+      <span class="badge">v1.2.3</span>
+    </div>
+    <p class="description">Gravity Forms Conditional Compass</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/gf-conditional-compass/releases/download/v1.2.3/gf-conditional-compass.zip">
+      ⬇ Télécharger gf-conditional-compass.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog"><ul><li><strong>New:</strong> "Hide condition summaries" toggle in the Copy/Paste modal — uses the native Gravity Forms toggle to show or hide existing condition text per field</li></ul></div>
+    </details>
+    <div class="meta">
+      <span>🔧 JavaScript</span>
+      <span>📅 16/02/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gravity-extract" target="_blank">gravity-extract</a></h2>
+      <span class="badge">v1.0.3</span>
+    </div>
+    <p class="description">A WordPress plugin that integrates with Gravity Forms to automatically extract data from uploaded documents using AI vision models.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/gravity-extract/releases/download/v1.0.3/gravity-extract.zip">
+      ⬇ Télécharger gravity-extract.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog"><ul><li>  <strong>Minor fixes</strong></li></ul></div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 16/02/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-merge-tag-autocomplete" target="_blank">gf-merge-tag-autocomplete</a></h2>
+      <span class="badge">v1.0.0</span>
+    </div>
+    <p class="description">Inline merge tag autocomplete for Gravity Forms — type `{` to instantly search and insert tags without clicking the merge tag button.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/gf-merge-tag-autocomplete/releases/download/v1.0.0/gf-merge-tag-autocomplete.zip">
+      ⬇ Télécharger gf-merge-tag-autocomplete.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">Initial release<br>Robust { trigger detection for plain inputs and TinyMCE<br>Accent-insensitive search matching<br>Automatic GitHub update integration<br>Guilamu Bug Reporter integration</div>
+    </details>
+    <div class="meta">
+      <span>🔧 JavaScript</span>
+      <span>📅 15/02/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/reddit-gdpr-export-viewer" target="_blank">reddit-gdpr-export-viewer</a></h2>
+      <span class="badge">v1.1</span>
+    </div>
+    <p class="description">A modern, standalone offline viewer for your Reddit GDPR data export files.</p>
+    
+    <a class="btn-download" href="https://api.github.com/repos/guilamu/reddit-gdpr-export-viewer/zipball/v1.1">
+      ⬇ Télécharger Source (.zip)
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">Fixed: Date range slider now works independently per tab (Posts, Comments, Messages) - thanks to Reddit user [steap](https://www.reddit.com/user/steap) for the bug report!<br>Improved: Each tab's slider only uses dates from its own content type</div>
+    </details>
+    <div class="meta">
+      <span>🔧 JavaScript</span>
+      <span>📅 18/01/2026</span>
+      <span>⭐ 3</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-chained-select-enhancer" target="_blank">gf-chained-select-enhancer</a></h2>
+      <span class="badge">v1.7.2</span>
+    </div>
+    <p class="description">Chained Select Enhancer for Gravity Forms</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.7.2/gf-chained-select-enhancer.zip">
+      ⬇ Télécharger gf-chained-select-enhancer.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">Fixed: PHP 7.4 compatibility — replaced str_ends_with() (PHP 8+) with substr() in GitHub updater<br>Fixed: Off-by-one loop in XLSX import array_values_recursive()<br>Fixed: License mismatch between plugin header and README (now AGPL-3.0 everywhere)<br></div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 05/02/2026</span>
+      <span>⭐ 1</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/GF-Advanced-Conditional-Choices" target="_blank">GF-Advanced-Conditional-Choices</a></h2>
+      <span class="badge">v1.0.0</span>
+    </div>
+    <p class="description">Add conditional logic to individual choices within Gravity Forms Radio, Checkbox, Dropdown, Multi-Select, and Multiple Choice fields.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/GF-Advanced-Conditional-Choices/releases/download/v1.0.0/gf-advanced-conditional-choices.zip">
+      ⬇ Télécharger gf-advanced-conditional-choices.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">Initial release<br>Conditional logic for individual choices in Radio, Checkbox, Dropdown, Multi-Select, and Multiple Choice fields<br>ALL/ANY logic types with unlimited rules per choice<br>Full operator set: Is, Is Not, Contains, Starts With, Ends With, >, <, >=, <=, Is Empty, Is Not Empty<br>Cross-field and cross-page condition support<br>Server-side validation for hidden choices<br>Visual indicator for choices with active logic<br>French translation included<br>GitHub auto-updater integration</div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 03/02/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gravity-forms-shortcode-builder" target="_blank">gravity-forms-shortcode-builder</a></h2>
+      <span class="badge no-release">Pas de release</span>
+    </div>
+    <p class="description">Easily build and manage complex Gravity Forms shortcodes via a user-friendly interface in the Form Settings panel.</p>
+    
+    
+    <div class="meta">
+      <span>🔧 PHP</span>
+      
+      <span>⭐ 4</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/advanced-pdf-embedder" target="_blank">advanced-pdf-embedder</a></h2>
+      <span class="badge">v1.2.1</span>
+    </div>
+    <p class="description">A modern, feature-rich WordPress plugin for embedding PDF documents with a beautiful viewer powered by EmbedPDF.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/advanced-pdf-embedder/releases/download/v1.2.1/advanced-pdf-embedder.zip">
+      ⬇ Télécharger advanced-pdf-embedder.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog"><br>    New: Added customizable background colors for PDF viewer<br>    New: Background color settings in admin panel (App Background and Surface Background)<br>    New: Background color controls in Gutenberg block editor<br>    New: Shortcode attributes background_app and background_surface for custom colors<br></div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 26/01/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/mini-plugin" target="_blank">mini-plugin</a></h2>
+      <span class="badge no-release">Pas de release</span>
+    </div>
+    <p class="description">test plugin</p>
+    
+    
+    <div class="meta">
+      <span>🔧 PHP</span>
+      
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/guilamu-bug-reporter" target="_blank">guilamu-bug-reporter</a></h2>
+      <span class="badge">v1.2.1</span>
+    </div>
+    <p class="description">Unified bug reporting for all Guilamu plugins with AI-powered instant responses.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/guilamu-bug-reporter/releases/download/v1.2.1/guilamu-bug-reporter.zip">
+      ⬇ Télécharger guilamu-bug-reporter.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">Security: Upgraded to fine-grained GitHub token restricted to guilamu repositories only<br>New: Smart README extraction for AI context (FAQ, Requirements, Known Issues)<br>Improved: AI responses now leverage plugin documentation for better troubleshooting<br></div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 19/01/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gravity-forms-iban-extractor" target="_blank">gravity-forms-iban-extractor</a></h2>
+      <span class="badge">v1.3.2</span>
+    </div>
+    <p class="description">A WordPress plugin that adds an IBAN (International Bank Account Number) extractor field type to Gravity Forms. Validates IBANs locally and extracts detailed bank information in real-time.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/gravity-forms-iban-extractor/releases/download/v1.3.2/gravity-forms-iban-extractor.zip">
+      ⬇ Télécharger gravity-forms-iban-extractor.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog"><strong>Improved:</strong> Completed French translations for Document Extraction settings</div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 19/01/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/quickjump-admin" target="_blank">quickjump-admin</a></h2>
+      <span class="badge">v1.1.1</span>
+    </div>
+    <p class="description">Navigate faster in WordPress admin with intelligent shortcuts to your recently and frequently accessed pages.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/quickjump-admin/releases/download/v1.1.1/quickjump-admin.zip">
+      ⬇ Télécharger quickjump-admin.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">New: Integrated Guilamu Bug Reporter support<br>New: Added "Report a Bug" link in plugins list</div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 19/01/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control" target="_blank">Advanced-Menu-Items-Visibility-Control</a></h2>
+      <span class="badge">v1.3.0</span>
+    </div>
+    <p class="description">Control menu item visibility based on Login Status, WordPress User Roles, Restrict Content Pro Membership and Restrict Content Pro Access Levels.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/Advanced-Menu-Items-Visibility-Control/releases/download/v1.3.0/advanced-menu-items-visibility-control.zip">
+      ⬇ Télécharger advanced-menu-items-visibility-control.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">New: Integrated Guilamu Bug Reporter support<br>New: Added "Report a Bug" link in plugins list<br>Improved: Added version constant for centralized version management<br></div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 18/01/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/distillpress" target="_blank">distillpress</a></h2>
+      <span class="badge">v1.2.0</span>
+    </div>
+    <p class="description">AI-powered article summarization and automatic category selection using POE API. Distill your content to its essence.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/distillpress/releases/download/v1.2.0/distillpress.zip">
+      ⬇ Télécharger distillpress.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog">v1.2.0</div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 29/12/2025</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/gf-external-choices" target="_blank">gf-external-choices</a></h2>
+      <span class="badge">v1.0.1</span>
+    </div>
+    <p class="description">Populate Gravity Forms Multiple Choice fields from external CSV, JSON, or XLSX data sources.</p>
+    
+    <a class="btn-download" href="https://github.com/guilamu/gf-external-choices/releases/download/v1.0.1/gf-external-choices.zip">
+      ⬇ Télécharger gf-external-choices.zip
+    </a>
+    
+    <details>
+      <summary>📋 Voir le changelog</summary>
+      <div class="changelog"><em>Aucun changelog disponible.</em></div>
+    </details>
+    <div class="meta">
+      <span>🔧 PHP</span>
+      <span>📅 14/01/2026</span>
+      <span>⭐ 0</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2><a href="https://github.com/guilamu/mail_cleanup" target="_blank">mail_cleanup</a></h2>
+      <span class="badge no-release">Pas de release</span>
+    </div>
+    <p class="description">Automatically deletes emails from multiple POP3 accounts while preserving the ability to forward emails and send outbound mail.</p>
+    
+    
+    <div class="meta">
+      <span>🔧 Python</span>
+      
+      <span>⭐ 0</span>
+    </div>
+  </div>
+  </div>
+  <footer>Généré automatiquement via GitHub Actions · <a href="https://github.com/guilamu" style="color:#58a6ff">github.com/guilamu</a></footer>
+</body>
+</html>
