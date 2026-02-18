@@ -1,10 +1,10 @@
 const fs = require('fs');
-const path = require('path');
 
 const USERNAME = 'guilamu';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const POE_API_KEY = process.env.POE_API_KEY;
 const CACHE_FILE = 'ai_cache.json';
+const VALID_TAGS = ['Gravity Forms', 'IA', 'Wordpress', 'Outils', 'Données'];
 
 // --- UTILITAIRES ---
 
@@ -34,17 +34,13 @@ async function poeApiCall(model, messages) {
         'Authorization': `Bearer ${POE_API_KEY}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        model: model,
-        messages: messages,
-        temperature: 0.7
-      })
+      body: JSON.stringify({ model, messages, temperature: 0.5 })
     });
 
     if (!response.ok) {
       const err = await response.text();
       console.error(`POE API Error: ${response.status}`, err);
-      return null; // Fail gracefully
+      return null;
     }
 
     const data = await response.json();
@@ -56,7 +52,7 @@ async function poeApiCall(model, messages) {
 }
 
 async function getLatestAIModel() {
-  if (!POE_API_KEY) return 'gpt-4o'; // Fallback for testing without key
+  if (!POE_API_KEY) return 'Claude-3-Haiku';
 
   try {
     const response = await fetch('https://api.poe.com/v1/models', {
@@ -65,38 +61,34 @@ async function getLatestAIModel() {
     if (!response.ok) throw new Error('Failed to fetch models');
 
     const data = await response.json();
-    // Prefer Haiku for the first run as requested, but keep logic generic enough
-    const models = data.data
-      .filter(m => m.metadata && m.metadata.display_name && m.metadata.display_name.includes('Claude') && m.metadata.display_name.includes('Haiku'))
+    const haikuModels = data.data
+      .filter(m => m.metadata?.display_name?.includes('Claude') && m.metadata?.display_name?.includes('Haiku'))
       .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
 
-    if (models.length > 0) {
-      console.log(`🤖 Using model: ${models[0].metadata.display_name} (${models[0].id})`);
-      return models[0].id;
+    if (haikuModels.length > 0) {
+      console.log(`🤖 Using model: ${haikuModels[0].metadata.display_name} (${haikuModels[0].id})`);
+      return haikuModels[0].id;
     }
 
-    // Fallback to Sonnet if Haiku not found
     const sonnetModels = data.data
-      .filter(m => m.metadata && m.metadata.display_name && m.metadata.display_name.includes('Claude') && m.metadata.display_name.includes('Sonnet'))
+      .filter(m => m.metadata?.display_name?.includes('Claude') && m.metadata?.display_name?.includes('Sonnet'))
       .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
 
     if (sonnetModels.length > 0) {
-      console.log(`🤖 Using fallback model: ${sonnetModels[0].metadata.display_name} (${sonnetModels[0].id})`);
+      console.log(`🤖 Using fallback model: ${sonnetModels[0].metadata.display_name}`);
       return sonnetModels[0].id;
     }
-
   } catch (e) {
     console.error('Error fetching models:', e);
   }
-  return 'Claude-3-Haiku'; // Fallback known ID
+  return 'Claude-3-Haiku';
 }
-
 
 // --- CACHE ---
 
 function loadCache() {
   if (fs.existsSync(CACHE_FILE)) {
-    return JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+    try { return JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8')); } catch (e) { }
   }
   return {};
 }
@@ -105,7 +97,7 @@ function saveCache(cache) {
   fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2));
 }
 
-// --- GENERATION AI ---
+// --- AI GENERATION ---
 
 async function getProjectMetadata(repo, model, cache) {
   const cacheKey = `meta_${repo.id}`;
@@ -113,38 +105,45 @@ async function getProjectMetadata(repo, model, cache) {
 
   console.log(`🧠 Generating metadata for ${repo.name}...`);
   const prompt = `
-    Projet: ${repo.name}
-    Description actuelle: ${repo.description || "Aucune"}
-    Langage: ${repo.language}
-    
-    Tâche:
-    1. Catégorise ce projet dans UNE SEULE de ces catégories : "Gravity Forms", "IA", "Wordpress", "Outils", "Données".
-    2. Rédige une très courte description (max 20 mots) en français, accrocheuse.
-    
-    Format de réponse attendu (JSON uniquement):
-    {
-      "category": "Catégorie choisie",
-      "description_fr": "Description générée"
-    }
-    `;
+Projet GitHub: ${repo.name}
+Description actuelle: ${repo.description || 'Aucune'}
+Langage: ${repo.language || 'Inconnu'}
+
+Tâche:
+1. Attribue à ce projet UN OU PLUSIEURS tags parmi cette liste UNIQUEMENT : "Gravity Forms", "IA", "Wordpress", "Outils", "Données". Un projet peut avoir plusieurs tags.
+2. Rédige une très courte description (max 20 mots) en français.
+
+Réponds UNIQUEMENT avec ce JSON (pas d'autre texte) :
+{
+  "tags": ["Tag1", "Tag2"],
+  "description_fr": "Description courte"
+}
+  `;
 
   try {
     const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
-    if (!content) return { category: 'Outils', description_fr: repo.description };
+    if (!content) return { tags: ['Outils'], description_fr: repo.description || repo.name };
 
-    // Nettoyage basique pour extraire le JSON si le modèle est bavard
     const jsonMatch = content.match(/\{[\s\S]*\}/);
     const json = jsonMatch ? JSON.parse(jsonMatch[0]) : JSON.parse(content);
 
-    // Validation des champs
-    if (typeof json.category !== 'string') json.category = 'Outils';
-    if (typeof json.description_fr !== 'string') json.description_fr = repo.description;
+    // Validate tags: must be an array of valid strings
+    if (!Array.isArray(json.tags) || json.tags.length === 0) {
+      json.tags = ['Outils'];
+    } else {
+      json.tags = json.tags.filter(t => VALID_TAGS.includes(t));
+      if (json.tags.length === 0) json.tags = ['Outils'];
+    }
+
+    if (typeof json.description_fr !== 'string' || !json.description_fr) {
+      json.description_fr = repo.description || repo.name;
+    }
 
     cache[cacheKey] = json;
     return json;
   } catch (e) {
     console.error(`Error parsing AI JSON for ${repo.name}:`, e);
-    return { category: 'Outils', description_fr: repo.description };
+    return { tags: ['Outils'], description_fr: repo.description || repo.name };
   }
 }
 
@@ -154,17 +153,17 @@ async function getReleasePost(repo, release, model, cache) {
 
   console.log(`✍️ Writing blog post for ${repo.name} ${release.tag_name}...`);
   const prompt = `
-    Tu es un rédacteur. Rédige un court post de blog (HTML sans header/body, juste le contenu) en français annonçant la mise à jour ${release.tag_name} du projet "${repo.name}".
-    
-    Changelog original:
-    ${release.body}
-    
-    Consignes:
-    - Rédige simplement quelques paragraphes de texte.
-    - PAS d'icônes ni d'émojis ni de listes à puces.
-    - Reste accessible et pas trop technique.
-    - Reste concis (env. 100-150 mots).
-    `;
+Rédige un court post de blog en français (HTML, uniquement le contenu, pas de balises html/head/body) pour la mise à jour ${release.tag_name} du projet "${repo.name}".
+
+Changelog :
+${release.body || 'Pas de changelog disponible.'}
+
+Consignes strictes :
+- Une ou deux phrases factuelles uniquement.
+- Pas d'icônes, pas d'émojis, pas de listes.
+- Pas de formules de politesse ("nous sommes heureux", "n'hésitez pas", "nous vous invitons", etc.).
+- Ton neutre et factuel.
+  `;
 
   const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
   if (content) {
@@ -178,25 +177,28 @@ async function getReleasePost(repo, release, model, cache) {
 
 function buildCard(repo, release, aiMeta) {
   const version = release ? release.tag_name : null;
-  const category = (aiMeta && typeof aiMeta.category === 'string') ? aiMeta.category : 'Outils';
-  const categoryClass = category.toLowerCase().replace(/\s/g, '-');
+  const tags = (aiMeta?.tags && Array.isArray(aiMeta.tags)) ? aiMeta.tags : ['Outils'];
+  // data-tags is a JSON array string for JS filtering
+  const dataTagsAttr = JSON.stringify(tags);
+  const downloadUrl = release ? release.zipball_url : null;
 
   return `
-  <div class="card" data-category="${category}">
+  <div class="card" data-tags='${dataTagsAttr}'>
     <div class="card-header">
       <h2><a href="${repo.html_url}" target="_blank">${repo.name}</a></h2>
       <div class="badges">
-        <span class="badge category-badge">${category}</span>
+        ${tags.map(t => `<span class="badge category-badge">${t}</span>`).join('')}
         ${version ? `<span class="badge version-badge">${version}</span>` : ''}
       </div>
     </div>
-    <p class="description">${aiMeta.description_fr || repo.description || 'Projet personnel'}</p>
+    <p class="description">${aiMeta?.description_fr || repo.description || 'Projet personnel'}</p>
     <div class="actions">
-       ${release ? `<a href="blog-${repo.name}.html" class="btn-secondary">📰 Voir les mises à jour</a>` : ''}
+      ${release ? `<a href="blog-${repo.name}.html" class="btn-secondary">Voir les mises à jour</a>` : ''}
+      ${downloadUrl ? `<a href="${downloadUrl}" class="btn-download" target="_blank">Télécharger</a>` : ''}
     </div>
     <div class="meta">
       <span>⭐ ${repo.stargazers_count}</span>
-      ${repo.language ? `<span>🔧 ${repo.language}</span>` : ''}
+      ${repo.language ? `<span>${repo.language}</span>` : ''}
     </div>
   </div>`;
 }
@@ -208,7 +210,6 @@ async function main() {
   const model = await getLatestAIModel();
 
   console.log('📥 Fetching repositories...');
-  // Fetch all repos
   let repos = await apiGet(`/users/${USERNAME}/repos?type=public&per_page=100&sort=updated`);
   repos = repos.filter(r => !r.fork);
 
@@ -218,18 +219,15 @@ async function main() {
     try {
       console.log(`Processing ${repo.name}...`);
 
-      // 1. Get Releases
       let releases = [];
       try {
         releases = await apiGet(`/repos/${USERNAME}/${repo.name}/releases?per_page=20`);
       } catch (e) {
-        console.warn(`No releases found or error for ${repo.name}: ${e.message}`);
+        console.warn(`No releases for ${repo.name}: ${e.message}`);
       }
 
-      // 2. Get AI Metadata
       const aiMeta = await getProjectMetadata(repo, model, cache);
 
-      // 3. Generate Blog Posts for releases
       const blogPosts = [];
       for (const release of releases) {
         try {
@@ -247,97 +245,96 @@ async function main() {
         }
       }
 
-      // Create Blog Page if posts exist
+      const latestRelease = releases.length > 0 ? releases[0] : null;
+
       if (blogPosts.length > 0) {
-        const blogHtml = generateBlogPage(repo, blogPosts, aiMeta);
+        const blogHtml = generateBlogPage(repo, blogPosts, aiMeta, latestRelease);
         fs.writeFileSync(`blog-${repo.name}.html`, blogHtml);
       }
 
-      const latestRelease = releases.length > 0 ? releases[0] : null;
       projects.push({ repo, latestRelease, aiMeta });
     } catch (repoError) {
-      console.error(`🔥 Critical error processing repo ${repo.name}:`, repoError);
-      // Continue to next repo instead of crashing
+      console.error(`🔥 Error processing ${repo.name}:`, repoError);
     }
   }
 
-  saveCache(cache); // Persist cache
+  saveCache(cache);
 
-  // Generate Main Index
   const html = generateIndexPage(projects);
   fs.writeFileSync('index.html', html);
-  console.log('✅ Site and blogs generated successfully.');
+  console.log('✅ Site generated successfully.');
 }
 
 function generateIndexPage(projects) {
-  const categories = [...new Set(projects.map(p => p.aiMeta.category))].sort();
+  // Collect all unique tags across all projects
+  const allTags = [...new Set(
+    projects.flatMap(p => (p.aiMeta?.tags && Array.isArray(p.aiMeta.tags)) ? p.aiMeta.tags : ['Outils'])
+  )].sort();
 
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activités & Projets - ${USERNAME}</title>
+  <title>Projets - ${USERNAME}</title>
   <style>
-    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; --badge-bg: #1f6feb; }
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
     h1 { text-align: center; margin-bottom: 2rem; color: var(--accent); }
-    
-    /* Filters */
+
     .filters { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .filter-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
+    .filter-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; }
     .filter-btn:hover, .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
-    
-    /* Grid */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; }
-    
-    /* Card */
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.2s; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s, border-color 0.2s; }
     .card:hover { transform: translateY(-2px); border-color: var(--accent); }
-    
+
     .card-header { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
-    .card h2 { font-size: 1.25rem; margin: 0; }
+    .card h2 { font-size: 1.1rem; margin: 0; }
     .card h2 a { color: var(--accent); text-decoration: none; }
     .card h2 a:hover { text-decoration: underline; }
-    
-    .badges { display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
-    .badge { font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
-    .category-badge { background: #30363d; color: #8b949e; border: 1px solid #6e7681; }
+
+    .badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem; max-width: 45%; }
+    .badge { font-size: 0.7rem; padding: 2px 7px; border-radius: 10px; white-space: nowrap; }
+    .category-badge { background: #21262d; color: #8b949e; border: 1px solid #30363d; }
     .version-badge { background: #238636; color: white; }
-    
-    .description { color: #8b949e; font-size: 0.95rem; flex-grow: 1; }
-    
-    .actions { display: flex; gap: 0.5rem; margin-top: auto; }
-    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--accent); text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; width: 100%; text-align: center; transition: background 0.2s; }
+
+    .description { color: #8b949e; font-size: 0.9rem; flex-grow: 1; }
+
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--accent); text-decoration: none; padding: 0.4rem 0.9rem; border-radius: 6px; font-size: 0.85rem; text-align: center; transition: background 0.2s; }
     .btn-secondary:hover { background: rgba(88, 166, 255, 0.1); }
-    
-    .meta { display: flex; justify-content: space-between; font-size: 0.8rem; color: #6e7681; padding-top: 1rem; border-top: 1px solid var(--border); margin-top: 1rem; }
-    
+    .btn-download { background: #238636; color: white; text-decoration: none; padding: 0.4rem 0.9rem; border-radius: 6px; font-size: 0.85rem; text-align: center; transition: background 0.2s; }
+    .btn-download:hover { background: #2ea043; }
+
+    .meta { display: flex; gap: 1rem; font-size: 0.75rem; color: #6e7681; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+
     footer { text-align: center; margin-top: 4rem; color: #6e7681; font-size: 0.8rem; }
   </style>
   <script>
-    function filter(category) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector(\`button[data-cat="\${category}"]\`).classList.add('active');
-        
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            if (category === 'All' || card.dataset.category === category) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
+    function filter(tag) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('button[data-cat="' + tag + '"]').classList.add('active');
+      document.querySelectorAll('.card').forEach(card => {
+        if (tag === 'All') {
+          card.style.display = 'flex';
+        } else {
+          const tags = JSON.parse(card.dataset.tags || '[]');
+          card.style.display = tags.includes(tag) ? 'flex' : 'none';
+        }
+      });
     }
   </script>
 </head>
 <body>
-  <h1>🚀 Labo & Projets</h1>
-  
+  <h1>🚀 Labo &amp; Projets</h1>
+
   <div class="filters">
     <button class="filter-btn active" data-cat="All" onclick="filter('All')">Tout</button>
-    ${categories.map(c => `<button class="filter-btn" data-cat="${c}" onclick="filter('${c}')">${c}</button>`).join('')}
+    ${allTags.map(t => `<button class="filter-btn" data-cat="${t}" onclick="filter('${t}')">${t}</button>`).join('')}
   </div>
 
   <div class="grid">
@@ -345,57 +342,59 @@ function generateIndexPage(projects) {
   </div>
 
   <footer>
-    Généré avec ❤️ par une IA (Claude Haiku) et GitHub Actions.<br>
-    Dernière màj: ${new Date().toLocaleDateString('fr-FR')}
+    Généré avec GitHub Actions · Dernière màj : ${new Date().toLocaleDateString('fr-FR')}
   </footer>
 </body>
 </html>`;
 }
 
-function generateBlogPage(repo, posts, aiMeta) {
+function generateBlogPage(repo, posts, aiMeta, latestRelease) {
+  const tags = (aiMeta?.tags && Array.isArray(aiMeta.tags)) ? aiMeta.tags : ['Outils'];
+  const latestDownloadUrl = latestRelease ? latestRelease.zipball_url : null;
+
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - ${repo.name}</title>
-    <style>
-        :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
-        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
-        h1 { color: var(--accent); margin-bottom: 0.5rem; }
-        .back-link { color: var(--text); text-decoration: none; opacity: 0.7; font-size: 0.9rem; }
-        .back-link:hover { opacity: 1; text-decoration: underline; }
-        
-        article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
-        article h2 { color: white; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .date { font-size: 0.85rem; color: #8b949e; font-weight: normal; }
-        .content { margin-top: 1.5rem; }
-        .content ul { padding-left: 1.5rem; }
-        .download-btn { display: inline-block; margin-top: 1.5rem; background: #238636; color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; }
-        .download-btn:hover { background: #2ea043; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${repo.name} — Mises à jour</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
+    body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.7; }
+    .back-link { color: #8b949e; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--accent); }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    header h1 { color: var(--accent); margin-bottom: 0.5rem; }
+    header p { color: #8b949e; }
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag { background: #21262d; color: #8b949e; border: 1px solid #30363d; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+    article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .article-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .article-header h2 { color: white; font-size: 1.1rem; }
+    .date { font-size: 0.85rem; color: #8b949e; }
+    .content { color: #c9d1d9; font-size: 0.95rem; }
+    .content p { margin-bottom: 0.75rem; }
+    .btn-download { display: inline-block; margin-top: 1.25rem; background: #238636; color: white; text-decoration: none; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.875rem; }
+    .btn-download:hover { background: #2ea043; }
+  </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Retour aux projets</a>
-    <header>
-        <h1>${repo.name}</h1>
-        <p>${aiMeta.description_fr}</p>
-        <span style="background: #30363d; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-top: 10px; display: inline-block;">${aiMeta.category}</span>
-    </header>
+  <a href="index.html" class="back-link">← Retour aux projets</a>
+  <header>
+    <h1>${repo.name}</h1>
+    <p>${aiMeta?.description_fr || repo.description || ''}</p>
+    <div class="tags">${tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+  </header>
 
-    ${posts.map(post => `
-    <article>
-        <h2>
-            Version ${post.version}
-            <span class="date">${new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-        </h2>
-        <div class="content">
-            ${post.content}
-        </div>
-        ${post.downloadUrl ? `<a href="${post.downloadUrl}" class="download-btn">⬇ Télécharger le code source</a>` : ''}
-    </article>
-    `).join('')}
+  ${posts.map(post => `
+  <article>
+    <div class="article-header">
+      <h2>Version ${post.version}</h2>
+      <span class="date">${new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+    </div>
+    <div class="content">${post.content}</div>
+    ${latestDownloadUrl ? `<a href="${latestDownloadUrl}" class="btn-download" target="_blank">Télécharger la dernière version</a>` : ''}
+  </article>`).join('')}
 </body>
 </html>`;
 }
