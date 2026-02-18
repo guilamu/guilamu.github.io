@@ -165,8 +165,10 @@ Consignes strictes :
 - Ton neutre et factuel.
   `;
 
-  const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
-  if (content) {
+  const raw = await poeApiCall(model, [{ role: 'user', content: prompt }]);
+  if (raw) {
+    // Strip markdown code fences if the model wraps its response
+    const content = raw.replace(/^```[\w]*\n?/m, '').replace(/\n?```$/m, '').trim();
     cache[cacheKey] = content;
     return content;
   }
@@ -180,7 +182,7 @@ function buildCard(repo, release, aiMeta) {
   const tags = (aiMeta?.tags && Array.isArray(aiMeta.tags)) ? aiMeta.tags : ['Outils'];
   // data-tags is a JSON array string for JS filtering
   const dataTagsAttr = JSON.stringify(tags);
-  const downloadUrl = release ? release.zipball_url : null;
+  const releaseUrl = release ? release.html_url : null;
 
   return `
   <div class="card" data-tags='${dataTagsAttr}'>
@@ -194,7 +196,7 @@ function buildCard(repo, release, aiMeta) {
     <p class="description">${aiMeta?.description_fr || repo.description || 'Projet personnel'}</p>
     <div class="actions">
       ${release ? `<a href="blog-${repo.name}.html" class="btn-secondary">Voir les mises à jour</a>` : ''}
-      ${downloadUrl ? `<a href="${downloadUrl}" class="btn-download" target="_blank">Télécharger</a>` : ''}
+      ${releaseUrl ? `<a href="${releaseUrl}" class="btn-download" target="_blank">Télécharger</a>` : ''}
     </div>
     <div class="meta">
       <span>⭐ ${repo.stargazers_count}</span>
@@ -237,7 +239,7 @@ async function main() {
               version: release.tag_name,
               date: release.published_at,
               content: postContent,
-              downloadUrl: release.zipball_url
+              releaseUrl: release.html_url
             });
           }
         } catch (err) {
@@ -246,13 +248,14 @@ async function main() {
       }
 
       const latestRelease = releases.length > 0 ? releases[0] : null;
+      const latestReleaseUrl = latestRelease ? latestRelease.html_url : null;
 
       if (blogPosts.length > 0) {
-        const blogHtml = generateBlogPage(repo, blogPosts, aiMeta, latestRelease);
+        const blogHtml = generateBlogPage(repo, blogPosts, aiMeta, latestReleaseUrl);
         fs.writeFileSync(`blog-${repo.name}.html`, blogHtml);
       }
 
-      projects.push({ repo, latestRelease, aiMeta });
+      projects.push({ repo, latestRelease, latestReleaseUrl, aiMeta });
     } catch (repoError) {
       console.error(`🔥 Error processing ${repo.name}:`, repoError);
     }
@@ -348,9 +351,8 @@ function generateIndexPage(projects) {
 </html>`;
 }
 
-function generateBlogPage(repo, posts, aiMeta, latestRelease) {
+function generateBlogPage(repo, posts, aiMeta, latestReleaseUrl) {
   const tags = (aiMeta?.tags && Array.isArray(aiMeta.tags)) ? aiMeta.tags : ['Outils'];
-  const latestDownloadUrl = latestRelease ? latestRelease.zipball_url : null;
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -393,7 +395,7 @@ function generateBlogPage(repo, posts, aiMeta, latestRelease) {
       <span class="date">${new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
     </div>
     <div class="content">${post.content}</div>
-    ${latestDownloadUrl ? `<a href="${latestDownloadUrl}" class="btn-download" target="_blank">Télécharger la dernière version</a>` : ''}
+    ${latestReleaseUrl ? `<a href="${latestReleaseUrl}" class="btn-download" target="_blank">Télécharger la dernière version</a>` : ''}
   </article>`).join('')}
 </body>
 </html>`;
