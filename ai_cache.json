@@ -1,0 +1,221 @@
+{
+  "meta_1160746230": {
+    "tags": [
+      "Outils"
+    ],
+    "description_fr": "Portfolio personnel regroupant tous les projets et travaux réalisés."
+  },
+  "meta_1134320379": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Données",
+      "Outils"
+    ],
+    "description_fr": "Remplissez les champs Gravity Forms depuis des sources CSV, JSON ou XLSX."
+  },
+  "post_276784796": "<h2>Mise à jour v1.0.1 de gf-external-choices</h2>\n\n<p>La version 1.0.1 de gf-external-choices est maintenant disponible. Cette version contient des corrections et améliorations mineures.</p>",
+  "post_276756811": "<h1>gf-external-choices v1.0.0</h1>\n\n<p>La version 1.0.0 de gf-external-choices est maintenant disponible. Cette première version stable marque le lancement officiel du projet.</p>",
+  "meta_1124199485": {
+    "tags": [
+      "IA",
+      "Outils"
+    ],
+    "description_fr": "Résumé automatique d'articles et catégorisation intelligente via API POE."
+  },
+  "post_273204575": "<h1>Distillpress v1.2.0</h1>\n\n<p>La version 1.2.0 de Distillpress est maintenant disponible. Consultez le changelog complet pour découvrir les améliorations et corrections apportées.</p>",
+  "post_273100532": "<h2>Distillpress v1.1.2</h2>\n\n<p>La version 1.1.2 de Distillpress est maintenant disponible. Cette mise à jour apporte des corrections de bugs et des améliorations de stabilité.</p>",
+  "post_273088789": "<h2>Mise à jour v1.1.1 de distillpress</h2>\n\n<p>La version 1.1.1 de distillpress est maintenant disponible. Cette mise à jour corrige plusieurs bugs identifiés dans la version précédente et améliore la stabilité générale du projet.</p>",
+  "post_273087201": "<h1>Mise à jour distillpress v1.1.0</h1>\n\n<p>La version 1.1.0 de distillpress est disponible. Consultez le changelog pour connaître les modifications apportées.</p>",
+  "post_273087030": "<h1>Distillpress v1.0.0</h1>\n\n<p>La version 1.0.0 de Distillpress est maintenant disponible. Cette première version stable marque le lancement officiel du projet.</p>",
+  "meta_1104063730": {
+    "tags": [
+      "Wordpress"
+    ],
+    "description_fr": "Contrôle la visibilité des éléments de menu selon le statut utilisateur et les rôles WordPress."
+  },
+  "post_277702648": "<h2>Advanced-Menu-Items-Visibility-Control v1.3.0</h2>\n\n<p>Cette version introduit l'intégration du système Guilamu Bug Reporter et ajoute un lien de signalement de bug directement dans la liste des extensions. La gestion des versions est désormais centralisée via une constante dédiée.</p>",
+  "post_273731903": "<h2>Mise à jour v1.2.4 - Advanced-Menu-Items-Visibility-Control</h2>\n\n<p>Cette version corrige un problème critique affectant la vérification des niveaux d'accès RCP qui ne fonctionnait pas correctement. Le système de contrôle de visibilité des éléments de menu basé sur les permissions RCP est désormais opérationnel.</p>",
+  "post_273483956": "<h1>Mise à jour v1.2.3 - Advanced-Menu-Items-Visibility-Control</h1>\n\n<p>Cette version corrige un problème critique de détection des niveaux d'adhésion RCP causé par un bug de cache dans l'API RCP, en implémentant une requête directe à la base de données. Des vérifications de compatibilité ont également été ajoutées pour éviter les erreurs fatales sur certaines versions de RCP, et la comparaison des niveaux d'adhésion utilise désormais les noms plutôt que les identifiants pour une fiabilité accrue.</p>",
+  "post_273451544": "<h2>Advanced-Menu-Items-Visibility-Control v1.2.2</h2>\n\n<p>La version 1.2.2 a été publiée avec des améliorations de stabilité et des corrections de bugs. Cette mise à jour est recommandée pour tous les utilisateurs.</p>",
+  "post_265571956": "<h2>Mise à jour v1.2.1 - Advanced-Menu-Items-Visibility-Control</h2>\n\n<p>La version 1.2.1 d'Advanced-Menu-Items-Visibility-Control est désormais disponible. Cette mise à jour apporte des corrections et améliorations au fonctionnement général du plugin.</p>",
+  "post_265383458": "<h2>Mise à jour v1.1 - Advanced-Menu-Items-Visibility-Control</h2>\n\n<p>La version 1.1 introduit le support multilingue, permettant une utilisation du plugin dans plusieurs langues. Cette fonctionnalité élargit l'accessibilité de l'outil pour les utilisateurs internationaux.</p>",
+  "post_265379021": "<h2>Advanced-Menu-Items-Visibility-Control 1.0</h2>\n\n<p>La version 1.0 du projet Advanced-Menu-Items-Visibility-Control est maintenant disponible. Cette première version stable offre les fonctionnalités de base pour contrôler la visibilité des éléments de menu.</p>",
+  "meta_1124927392": {
+    "tags": [
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Raccourcis intelligents pour naviguer rapidement dans l'administration WordPress."
+  },
+  "post_277827704": "<h2>quickjump-admin v1.1.1</h2>\n\n<p>Cette version intègre le support de Guilamu Bug Reporter et ajoute un lien de signalement de bug directement dans la liste des plugins.</p>",
+  "post_273933638": "<h2>Mise à jour v1.0.1 de quickjump-admin</h2>\n\n<p>Cette version corrige l'affichage du menu de raccourcis qui utilise désormais le même thème sombre que la barre d'administration WordPress.</p>",
+  "post_273484516": "<h1>quickjump-admin v1.0.0 : Release initiale</h1>\n\n<p>La version 1.0.0 de quickjump-admin est disponible avec une barre d'administration déroulante, un suivi des pages récentes et fréquemment utilisées, ainsi que des fonctionnalités d'épinglage, de recherche dans l'historique et de configuration personnalisable. Le projet inclut également le support des mises à jour automatiques via GitHub et un système de nettoyage des données avec paramètres de rétention.</p>",
+  "meta_1121962725": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils",
+      "Données"
+    ],
+    "description_fr": "Plugin WordPress pour extraire et valider les numéros IBAN dans Gravity Forms."
+  },
+  "post_277835388": "<h2>Mise à jour v1.3.2 - gravity-forms-iban-extractor</h2>\n\n<p>Cette version complète les traductions françaises pour les paramètres d'extraction de documents. L'interface des réglages est désormais entièrement disponible en français.</p>",
+  "post_277831351": "<h2>Mise à jour v1.3.1 - gravity-forms-iban-extractor</h2>\n\n<p>La dépendance Composer a été supprimée et la bibliothèque php-iban est désormais intégrée directement dans le répertoire lib/. L'installation du plugin ne nécessite plus l'exécution de composer install.</p>",
+  "post_277701550": "<h2>Gravity Forms IBAN Extractor v1.3.0</h2>\n\n<p>Cette version intègre le support de Guilamu Bug Reporter et ajoute un lien de signalement de bugs directement depuis la liste des extensions.</p>",
+  "post_275304227": "<h2>Mise à jour v1.2.0 de gravity-forms-iban-extractor</h2>\n\n<p>La version 1.2.0 de gravity-forms-iban-extractor est désormais disponible. Cette mise à jour apporte des améliorations au fonctionnement général du plugin.</p>",
+  "meta_1130973983": {
+    "tags": [
+      "IA",
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Signalement unifié de bugs pour plugins Guilamu avec réponses IA instantanées."
+  },
+  "post_277915059": "<h2>guilamu-bug-reporter v1.2.1</h2>\n\n<p>Cette version améliore la sécurité en utilisant des tokens GitHub à permissions limitées et introduit une extraction intelligente du README pour fournir un contexte amélioré aux réponses de l'IA. Les diagnostics bénéficient désormais de la documentation des plugins pour une meilleure résolution des problèmes.</p>",
+  "post_275491335": "<h2>Mise à jour v1.1.3 de guilamu-bug-reporter</h2>\n\n<p>La version 1.1.3 de guilamu-bug-reporter est maintenant disponible. Cette mise à jour apporte des corrections et améliorations au projet.</p>",
+  "post_275486000": "<h2>Mise à jour v1.1.2 de guilamu-bug-reporter</h2>\n\n<p>La version 1.1.2 de guilamu-bug-reporter est désormais disponible. Cette version contient des corrections et améliorations de stabilité.</p>",
+  "post_275479480": "<h2>Mise à jour v1.1.1 de guilamu-bug-reporter</h2>\n\n<p>La version 1.1.1 de guilamu-bug-reporter est désormais disponible. Cette mise à jour apporte des corrections et améliorations au projet.</p>",
+  "post_275471072": "<h2>Mise à jour v1.1.0 de guilamu-bug-reporter</h2>\n\n<p>La version 1.1.0 de guilamu-bug-reporter est maintenant disponible. Cette mise à jour apporte des améliorations au projet.</p>",
+  "post_275456980": "<h1>guilamu-bug-reporter v1.0.0</h1>\n\n<p>La version 1.0.0 de guilamu-bug-reporter est maintenant disponible. Cette première version stable marque le lancement officiel du projet.</p>",
+  "meta_1120274555": {
+    "tags": [
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Plugin WordPress moderne pour intégrer et visualiser des documents PDF avec un lecteur élégant."
+  },
+  "post_279939632": "<h2>Mise à jour v1.2.1 : Personnalisation des couleurs de fond</h2>\n\n<p>La version 1.2.1 d'advanced-pdf-embedder introduit la possibilité de personnaliser les couleurs de fond du lecteur PDF. Les nouveaux paramètres sont accessibles depuis le panneau d'administration, l'éditeur Gutenberg et les attributs de shortcode background_app et background_surface.</p>",
+  "post_277828370": "<h1>Advanced PDF Embedder v1.2.0</h1>\n\n<p>La version 1.2.0 d'advanced-pdf-embedder est maintenant disponible. Cette mise à jour introduit plusieurs améliorations et corrections de bugs. Les détails complets des modifications sont disponibles sur <a href=\"https://github.com/guilamu/advanced-pdf-embedder/compare/v1.1.1...v1.2.0\">GitHub</a>.</p>",
+  "post_273149535": "<h2>Mise à jour v1.1.1 d'advanced-pdf-embedder</h2>\n\n<p>La version 1.1.1 d'advanced-pdf-embedder est maintenant disponible. Cette mise à jour apporte des corrections de bugs et des améliorations de stabilité pour une meilleure expérience utilisateur.</p>",
+  "post_273145480": "<h1>Sortie de advanced-pdf-embedder v1.0.0</h1>\n\n<p>La version 1.0.0 de advanced-pdf-embedder est maintenant disponible. Cette première version stable marque l'aboutissement du projet avec l'ensemble des fonctionnalités prévues.</p>",
+  "meta_1148776588": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress"
+    ],
+    "description_fr": "Ajoute une logique conditionnelle aux choix individuels des champs Gravity Forms."
+  },
+  "post_282534390": "<h1>GF-Advanced-Conditional-Choices v1.0.0 - Sortie initiale</h1>\n\n<p>La version 1.0.0 de GF-Advanced-Conditional-Choices introduit la logique conditionnelle pour les choix individuels dans les champs Radio, Checkbox, Dropdown, Multi-Select et Multiple Choice de Gravity Forms, avec support complet des opérateurs de comparaison, de la logique ALL/ANY, des conditions multi-pages et de la validation côté serveur. Le plugin inclut une traduction française, une intégration de mise à jour automatique via GitHub, et un indicateur visuel pour identifier les choix disposant de règles actives.</p>",
+  "meta_824164647": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Améliorateur de sélection chaînée pour formulaires Gravity Forms WordPress."
+  },
+  "post_283523237": "<h2>gf-chained-select-enhancer v1.7.2</h2>\n\n<p>Cette version corrige la compatibilité avec PHP 7.4 en remplaçant str_ends_with() par substr() dans le système de mise à jour GitHub, répare une erreur de boucle dans l'import XLSX et harmonise la licence AGPL-3.0 entre l'en-tête du plugin et le README.</p>",
+  "post_277925040": "<h2>Mise à jour v1.7.1 de gf-chained-select-enhancer</h2>\n\n<p>La version 1.7.1 de gf-chained-select-enhancer est maintenant disponible. Cette version corrige les bugs identifiés dans la version précédente et améliore la stabilité générale du plugin.</p>",
+  "post_277592964": "<h2>gf-chained-select-enhancer v1.7.0</h2>\n\n<p>Cette version introduit l'intégration de Guilamu Bug Reporter pour simplifier les signalements de bugs, l'import de fichiers XLSX pour les choix de sélection chaînée via un parseur PHP natif basé sur ZipArchive, ainsi qu'un nettoyage et une optimisation du code.</p>",
+  "post_275808110": "<h2>Mise à jour v1.5.3 de gf-chained-select-enhancer</h2>\n\n<p>La version 1.5.3 de gf-chained-select-enhancer est maintenant disponible. Cette mise à jour apporte des améliorations et corrections au plugin.</p>",
+  "post_273934482": "<h2>gf-chained-select-enhancer v1.5.2</h2>\n\n<p>Cette version corrige un problème d'affichage des sélecteurs en chaîne en pleine largeur lors du chargement initial de l'éditeur de formulaire.</p>",
+  "post_273933806": "<h2>Mise à jour v1.5.1 de gf-chained-select-enhancer</h2>\n\n<p>Cette version corrige un problème d'affichage du sélecteur en chaîne vertical en pleine largeur dans l'éditeur de formulaire. L'aperçu fonctionne désormais correctement.</p>",
+  "post_273854474": "<h2>Mise à jour v1.5.0 de gf-chained-select-enhancer</h2>\n\n<p>Cette version améliore l'intégration visuelle des interrupteurs bascule en les alignant désormais avec le style natif des formulaires Gravity Forms.</p>",
+  "post_273588342": "<article>\n  <h2>gf-chained-select-enhancer v1.4.0</h2>\n  <p>Cette version introduit une architecture modulaire avec fichiers de classe séparés et des ressources CSS/JavaScript externalisées, tout en renforçant la sécurité par la sanitisation des données et les nonces. Les performances s'améliorent grâce au chargement conditionnel des styles et à la mise en cache de l'API GitHub sur 12 heures, tandis que l'export CSV fonctionne désormais en streaming direct sans stockage de fichier public.</p>\n</article>",
+  "post_265460608": "<h2>Mise à jour v1.3 de gf-chained-select-enhancer</h2>\n\n<p>La version 1.3 introduit les mises à jour automatiques depuis GitHub, permettant au plugin de vérifier et installer les nouvelles versions directement depuis le dépôt. L'URI de mise à jour a été ajouté à l'en-tête du plugin pour faciliter cette intégration.</p>",
+  "post_260218569": "<h2>Mise à jour v1.2 de gf-chained-select-enhancer</h2>\n\n<p>La version 1.2 de gf-chained-select-enhancer est maintenant disponible. Consultez le <a href=\"https://github.com/guilamu/gf-chained-select-enhancer/commits/v1.2\">changelog complet</a> pour découvrir les modifications apportées.</p>",
+  "meta_1158721270": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Autocomplétion inline des merge tags Gravity Forms en tapant `{`"
+  },
+  "post_286591763": "<h1>gf-merge-tag-autocomplete v1.0.0 est disponible</h1>\n\n<p>La première version stable de gf-merge-tag-autocomplete introduit la détection robuste des accolades pour les champs texte et TinyMCE, la recherche insensible aux accents, l'intégration automatique des mises à jour GitHub et le rapporteur de bugs Guilamu.</p>",
+  "meta_1120711663": {
+    "tags": [
+      "Gravity Forms",
+      "IA",
+      "Wordpress",
+      "Données"
+    ],
+    "description_fr": "Plugin WordPress intégrant l'IA pour extraire automatiquement les données des documents uploadés."
+  },
+  "post_286857640": "<h1>Mise à jour v1.0.3 de gravity-extract</h1>\n\n<p>La version 1.0.3 de gravity-extract est maintenant disponible avec des corrections mineures. Cette mise à jour améliore la stabilité générale du projet.</p>",
+  "post_275300078": "<h2>Gravity-Extract v1.0.2</h2>\n<p>La version 1.0.2 de gravity-extract est maintenant disponible. Cette mise à jour apporte des corrections et améliorations au projet.</p>",
+  "meta_1123349505": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Données"
+    ],
+    "description_fr": "Extension Gravity Forms pour rechercher et sélectionner des établissements scolaires français."
+  },
+  "post_287611712": "<h1>Mise à jour v1.8.1 - gf-french-schools</h1>\n\n<p>Cette version corrige la recherche de villes commençant par un article (comme \"Les Pavillons Sous Bois\") et améliore l'algorithme de correspondance en effectuant une recherche mot par mot au lieu d'une simple correspondance de sous-chaîne. La compatibilité avec gwcopycat a également été ajoutée : les sous-champs cachés déclenchent désormais un événement jQuery <code>change</code> lors de la sélection d'un établissement.</p>",
+  "post_286787738": "<h2>Mise à jour v1.8.0 de gf-french-schools</h2>\n\n<p>Cette version introduit un support complet de la logique conditionnelle sur tous les sous-champs du formulaire, améliore le nettoyage des catégories d'établissements avec une détection automatique des écoles primaires, et désactive l'auto-complétion navigateur sur l'ensemble des champs.</p>",
+  "post_286597743": "<h2>Mise à jour v1.7.3</h2>\n\n<p>Les merge tags ont été renommés pour une meilleure cohérence avec l'interface : <code>id</code> devient <code>identifiant</code>, <code>nature</code> devient <code>categorie</code> et <code>commune</code> devient <code>ville</code>. Les anciens noms restent fonctionnels pour assurer la compatibilité avec les configurations existantes.</p>",
+  "post_286539652": "<h2>Mise à jour v1.7.2 - gf-french-schools</h2>\n\n<p>Cette version ajoute le merge tag <code>autres_nom</code> permettant d'accéder au nom d'école saisi manuellement dans le champ \"Nom de l'école (saisie manuelle)\". Le merge tag est désormais visible directement dans le dropdown des merge tags de Gravity Forms.</p>",
+  "post_285198233": "<h2>gf-french-schools v1.7.1</h2>\n\n<p>Cette mise à jour corrige les problèmes de recherche d'écoles dans les arrondissements parisiens causés par des espacements incohérents dans la base de données, améliore l'affichage des noms en supprimant les préfixes et adresses inutiles, et optimise la recherche API en utilisant LIKE pour une meilleure correspondance partielle. Le système de cache a également été modifié pour séparer correctement les résultats locaux et distants.</p>",
+  "post_285176814": "<h2>Mise à jour v1.7.0 de gf-french-schools</h2>\n\n<p>Cette version ajoute le support complet du thème Gravity Forms Orbital et corrige plusieurs problèmes d'affichage : le dropdown autocomplete n'est plus masqué par les champs suivants, le gestionnaire blur ne ferme plus les résultats trop rapidement, et le placeholder du département s'affiche correctement quand le statut est présélectionné. L'icône du champ a été alignée avec celle de la page de réglages et le bouton Annuler de l'éditeur de formulaire a été masqué.</p>",
+  "post_285013599": "<article>\n  <h2>Mise à jour v1.6.1 : gf-french-schools</h2>\n  <p>Cette version apporte une amélioration majeure du nettoyage des noms d'établissements, permettant une meilleure normalisation et cohérence des données. Les algorithmes de traitement ont été optimisés pour gérer les cas particuliers et les variations de nomenclature.</p>\n</article>",
+  "post_284704726": "<h2>Mise à jour v1.6.0 de gf-french-schools</h2>\n\n<p>Cette version améliore l'affichage des résultats dans la vue d'entrée pour harmoniser le style avec le plugin Chained Selects. Le champ \"Éducation prioritaire\" affiche désormais \"Non\" au lieu d'une valeur vide lorsqu'il n'est pas renseigné.</p>",
+  "post_284395282": "<h2>Mise à jour v1.5.4 - gf-french-schools</h2>\n\n<p>Cette version corrige les problèmes de compatibilité du système de traduction en utilisant des chemins absolus et en chargeant les fichiers de langue sur plusieurs hooks pour garantir leur disponibilité. Un mécanisme de fallback a été ajouté pour utiliser la locale de base en cas d'absence du fichier régional.</p>",
+  "post_284136415": "<h2>Mise à jour v1.5.3</h2>\n\n<p>Cette version améliore la cohérence de l'interface en remplaçant la checkbox de l'option \"Local Only\" par un toggle aligné au style Gravity Forms, et corrige le style du bouton \"Sync Now\" pour correspondre aux autres boutons de réglages.</p>",
+  "post_284070021": "<h2>Mise à jour v1.5.2 de gf-french-schools</h2>\n\n<p>Cette version ajoute l'icône Dashicon \"building\" pour l'onglet French Schools dans les réglages Gravity Forms et inclut le fichier uninstall.php pour une désinstallation complète du plugin.</p>",
+  "post_284067120": "<h2>Mise à jour v1.5.1 de gf-french-schools</h2>\n\n<p>La page de réglages a été intégrée directement dans l'onglet Gravity Forms Settings via le framework GFAddOn, remplaçant ainsi le sous-menu séparé. Cette modification offre une meilleure cohérence avec l'interface de Gravity Forms et utilise le bouton de sauvegarde natif du framework.</p>",
+  "post_284052658": "<h2>Mise à jour v1.5.0 : Résilience et autonomie locale</h2>\n\n<p>La version 1.5.0 introduit une base de données locale comme filet de sécurité, avec synchronisation automatique mensuelle de l'annuaire complet et basculement transparent en cas d'indisponibilité de l'API. Un nouveau panneau de réglages permet de gérer l'import CSV sécurisé, d'activer un mode « Local Only » et de lancer des synchronisations manuelles.</p>",
+  "post_280215860": "<h2>Mise à jour v1.4.0</h2>\n\n<p>Cette version ajoute les champs \"Circonscription\" et \"Mail circo\" pour chaque établissement. Les noms de circonscription sont automatiquement nettoyés et les adresses mail générées à partir du code et du domaine académique de l'école. Deux nouveaux merge tags sont disponibles : <code>nom_circonscription</code> et <code>code_circonscription</code>.</p>",
+  "post_279347451": "<h2>Mise à jour v1.3.0 de gf-french-schools</h2>\n\n<p>Cette version introduit un champ de saisie manuelle du nom de l'école qui s'affiche après une recherche infructueuse, permettant aux utilisateurs d'enregistrer une école non présente dans la base de données. Les entrées manuelles sont identifiées par la mention \"Saisie manuelle\" lors de l'affichage et de l'export, et les fichiers de traduction français ont été mis à jour.</p>",
+  "post_277701932": "<h2>Mise à jour v1.2.0</h2>\n\n<p>La version 1.2.0 de gf-french-schools intègre le support de Guilamu Bug Reporter et ajoute un lien de signalement de bugs dans la liste des extensions.</p>",
+  "post_274514315": "<h2>Mise à jour v1.1.3</h2>\n\n<p>La version 1.1.3 de gf-french-schools introduit la traduction complète de la description du plugin en français, ainsi qu'un workflow GitHub Actions pour automatiser la création des releases et la génération du fichier ZIP avec le nommage de dossier approprié.</p>",
+  "post_274512264": "<h2>Mise à jour v1.1.2</h2>\n\n<p>La version 1.1.2 de gf-french-schools est maintenant disponible. Cette mise à jour corrige plusieurs bugs et améliore la stabilité générale du projet.</p>",
+  "post_273011805": "<h2>Mise à jour v1.1.1</h2>\n\n<p>La version 1.1.1 de gf-french-schools est désormais disponible. Cette mise à jour corrige les bugs identifiés dans la version précédente et améliore la stabilité générale du projet.</p>",
+  "post_272954812": "<h2>Mise à jour v1.1.0</h2>\n\n<p>La version 1.1.0 de gf-french-schools est disponible. Cette mise à jour apporte des améliorations de stabilité et des corrections de bugs.</p>",
+  "meta_1105921052": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Extension Gravity Forms pour gérer les champs conditionnels intelligemment"
+  },
+  "post_287622964": "<h2>gf-conditional-compass v1.2.3</h2>\n\n<p>Cette version introduit un nouveau bouton bascule \"Hide condition summaries\" dans la fenêtre modale Copy/Paste, permettant d'afficher ou masquer le texte des conditions existantes par champ en utilisant le composant natif de Gravity Forms.</p>",
+  "post_286856446": "<h2>gf-conditional-compass v1.2.2</h2>\n\n<p>Cette version corrige l'avertissement console affiché sur la page de liste des formulaires et optimise le chargement des ressources pour cibler uniquement l'éditeur Gravity Forms. Le message de configuration manquante a été reclassé en log de débogage pour améliorer la stabilité générale.</p>",
+  "post_286210540": "<h2>gf-conditional-compass v1.2.1</h2>\n\n<p>Cette version déplace les bascules de visibilité des badges vers le panneau Préférences de l'éditeur natif de Gravity Forms et introduit la persistance des préférences par utilisateur via user_meta, remplaçant ainsi le stockage local. Un gestionnaire AJAX a été ajouté pour enregistrer les préférences de l'éditeur côté serveur.</p>",
+  "post_286179590": "<h2>gf-conditional-compass v1.2.0 est disponible</h2>\n\n<p>Cette version introduit la copie/collage de règles conditionnelles via une interface modale, un outil Visual Trace pour explorer les dépendances entre champs, ainsi qu'un système de mise à jour automatique. Les préfixes CSS/JS ont été renommés de gw- à gfcc- pour éviter les conflits, et plusieurs corrections ont été apportées aux modales et aux traductions.</p>",
+  "meta_1100526121": {
+    "tags": [
+      "Données"
+    ],
+    "description_fr": "Liste à jour des recteurs et rectices des académies françaises"
+  },
+  "meta_1080491758": {
+    "tags": [
+      "Outils",
+      "Données"
+    ],
+    "description_fr": "Comparaison actualisée des services email transactionnels gratuits disponibles."
+  },
+  "meta_1135772840": {
+    "tags": [
+      "Outils",
+      "Données"
+    ],
+    "description_fr": "Visualiseur moderne et autonome pour vos exports de données GDPR Reddit."
+  },
+  "post_277688955": "<h2>reddit-gdpr-export-viewer v1.1</h2>\n\n<p>Le curseur de plage de dates fonctionne désormais indépendamment pour chaque onglet (Posts, Commentaires, Messages) et utilise uniquement les dates correspondant au type de contenu de l'onglet. Ce correctif répond au signalement du bug par l'utilisateur Reddit steap.</p>",
+  "post_277646754": "<h2>reddit-gdpr-export-viewer v1.0</h2>\n\n<p>La version 1.0 de reddit-gdpr-export-viewer est disponible. Cette première version stable permet de consulter et d'explorer les données d'export GDPR depuis Reddit.</p>",
+  "meta_1103730403": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Interface conviviale pour construire et gérer facilement les shortcodes Gravity Forms."
+  },
+  "meta_1137665481": {
+    "tags": [
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Mini-plugin PHP pour étendre les fonctionnalités WordPress."
+  },
+  "meta_1132857870": {
+    "tags": [
+      "Outils"
+    ],
+    "description_fr": "Supprime automatiquement les emails POP3 tout en conservant les fonctionnalités d'envoi."
+  }
+}
