@@ -118,7 +118,7 @@ async function getProjectMetadata(repo, model, cache) {
     Langage: ${repo.language}
     
     Tâche:
-    1. Catégorise ce projet dans une ou plusieurs ces catégories : "Gravity Forms", "IA", "Wordpress", "Outils", "Données".
+    1. Catégorise ce projet dans UNE SEULE de ces catégories : "Gravity Forms", "IA", "Wordpress", "Outils", "Données".
     2. Rédige une très courte description (max 20 mots) en français, accrocheuse.
     
     Format de réponse attendu (JSON uniquement):
@@ -128,17 +128,17 @@ async function getProjectMetadata(repo, model, cache) {
     }
     `;
 
-  const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
-  if (!content) return { category: 'Outils', description_fr: repo.description };
-
   try {
+    const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
+    if (!content) return { category: 'Outils', description_fr: repo.description };
+
     // Nettoyage basique poour extraire le JSON si le modèle est bavard
     const jsonMatch = content.match(/\{[\s\S]*\}/);
     const json = jsonMatch ? JSON.parse(jsonMatch[0]) : JSON.parse(content);
     cache[cacheKey] = json;
     return json;
   } catch (e) {
-    console.error('Error parsing AI JSON:', e);
+    console.error(`Error parsing AI JSON for ${repo.name}:`, e);
     return { category: 'Outils', description_fr: repo.description };
   }
 }
@@ -155,10 +155,10 @@ async function getReleasePost(repo, release, model, cache) {
     ${release.body}
     
     Consignes:
-    - Rédige simplement quelques paragraphes de texte (3 maximum).
+    - Rédige simplement quelques paragraphes de texte.
     - PAS d'icônes ni d'émojis ni de listes à puces.
     - Reste accessible et pas trop technique.
-    - Reste concis (env. 100 mots).
+    - Reste concis (env. 100-150 mots).
     `;
 
   const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
@@ -209,41 +209,50 @@ async function main() {
   const projects = [];
 
   for (const repo of repos) {
-    console.log(`Processing ${repo.name}...`);
-
-    // 1. Get Releases
-    let releases = [];
     try {
-      releases = await apiGet(`/repos/${USERNAME}/${repo.name}/releases?per_page=20`);
-    } catch (e) {
-      // No releases or error
-    }
+      console.log(`Processing ${repo.name}...`);
 
-    // 2. Get AI Metadata
-    const aiMeta = await getProjectMetadata(repo, model, cache);
-
-    // 3. Generate Blog Posts for releases
-    const blogPosts = [];
-    for (const release of releases) {
-      const postContent = await getReleasePost(repo, release, model, cache);
-      if (postContent) {
-        blogPosts.push({
-          version: release.tag_name,
-          date: release.published_at,
-          content: postContent,
-          downloadUrl: release.zipball_url
-        });
+      // 1. Get Releases
+      let releases = [];
+      try {
+        releases = await apiGet(`/repos/${USERNAME}/${repo.name}/releases?per_page=20`);
+      } catch (e) {
+        console.warn(`No releases found or error for ${repo.name}: ${e.message}`);
       }
-    }
 
-    // Create Blog Page if posts exist
-    if (blogPosts.length > 0) {
-      const blogHtml = generateBlogPage(repo, blogPosts, aiMeta);
-      fs.writeFileSync(`blog-${repo.name}.html`, blogHtml);
-    }
+      // 2. Get AI Metadata
+      const aiMeta = await getProjectMetadata(repo, model, cache);
 
-    const latestRelease = releases.length > 0 ? releases[0] : null;
-    projects.push({ repo, latestRelease, aiMeta });
+      // 3. Generate Blog Posts for releases
+      const blogPosts = [];
+      for (const release of releases) {
+        try {
+          const postContent = await getReleasePost(repo, release, model, cache);
+          if (postContent) {
+            blogPosts.push({
+              version: release.tag_name,
+              date: release.published_at,
+              content: postContent,
+              downloadUrl: release.zipball_url
+            });
+          }
+        } catch (err) {
+          console.error(`Error generating blog post for ${repo.name} ${release.tag_name}:`, err);
+        }
+      }
+
+      // Create Blog Page if posts exist
+      if (blogPosts.length > 0) {
+        const blogHtml = generateBlogPage(repo, blogPosts, aiMeta);
+        fs.writeFileSync(`blog-${repo.name}.html`, blogHtml);
+      }
+
+      const latestRelease = releases.length > 0 ? releases[0] : null;
+      projects.push({ repo, latestRelease, aiMeta });
+    } catch (repoError) {
+      console.error(`🔥 Critical error processing repo ${repo.name}:`, repoError);
+      // Continue to next repo instead of crashing
+    }
   }
 
   saveCache(cache); // Persist cache
