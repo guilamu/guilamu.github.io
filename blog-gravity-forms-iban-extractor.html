@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - gravity-forms-iban-extractor</title>
-    <style>
-        :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
-        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
-        h1 { color: var(--accent); margin-bottom: 0.5rem; }
-        .back-link { color: var(--text); text-decoration: none; opacity: 0.7; font-size: 0.9rem; }
-        .back-link:hover { opacity: 1; text-decoration: underline; }
-        
-        article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
-        article h2 { color: white; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .date { font-size: 0.85rem; color: #8b949e; font-weight: normal; }
-        .content { margin-top: 1.5rem; }
-        .content ul { padding-left: 1.5rem; }
-        .download-btn { display: inline-block; margin-top: 1.5rem; background: #238636; color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; }
-        .download-btn:hover { background: #2ea043; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gravity-forms-iban-extractor — Mises à jour</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
+    body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.7; }
+    .back-link { color: #8b949e; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--accent); }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    header h1 { color: var(--accent); margin-bottom: 0.5rem; }
+    header p { color: #8b949e; }
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag { background: #21262d; color: #8b949e; border: 1px solid #30363d; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+    article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .article-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .article-header h2 { color: white; font-size: 1.1rem; }
+    .date { font-size: 0.85rem; color: #8b949e; }
+    .content { color: #c9d1d9; font-size: 0.95rem; }
+    .content p { margin-bottom: 0.75rem; }
+    .btn-download { display: inline-block; margin-top: 1.25rem; background: #238636; color: white; text-decoration: none; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.875rem; }
+    .btn-download:hover { background: #2ea043; }
+  </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Retour aux projets</a>
-    <header>
-        <h1>gravity-forms-iban-extractor</h1>
-        <p>Extension WordPress validant et extrayant les données IBAN en temps réel pour Gravity Forms.</p>
-        <span style="background: #30363d; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Gravity Forms,WordPress,Outils,Données</span>
-    </header>
+  <a href="index.html" class="back-link">← Retour aux projets</a>
+  <header>
+    <h1>gravity-forms-iban-extractor</h1>
+    <p>Extension WordPress validant et extrayant les données IBAN en temps réel pour Gravity Forms.</p>
+    <div class="tags"><span class="tag">Outils</span></div>
+  </header>
 
-    
-    <article>
-        <h2>
-            Version v1.3.2
-            <span class="date">19 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+  
+  <article>
+    <div class="article-header">
+      <h2>Version v1.3.2</h2>
+      <span class="date">19 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <h2>Gravity Forms IBAN Extractor v1.3.2 : Traductions françaises complétées</h2>
 
 <p>Nous sommes heureux d'annoncer la sortie de la version 1.3.2 de Gravity Forms IBAN Extractor. Cette mise à jour se concentre sur l'amélioration de l'expérience utilisateur francophone en complétant l'ensemble des traductions françaises pour les paramètres d'extraction de documents.</p>
@@ -44,18 +46,15 @@
 <p>Les utilisateurs français bénéficieront désormais d'une interface entièrement traduite, rendant la configuration et l'utilisation du plugin plus intuitive et accessible. Cette amélioration facilite la prise en main du logiciel pour tous les utilisateurs francophones.</p>
 
 <p>Mettez à jour dès maintenant pour profiter de ces améliorations.</p>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.3.2" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.3.1
-            <span class="date">19 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.3.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.3.1</h2>
+      <span class="date">19 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <h1>Gravity Forms IBAN Extractor v1.3.1 est disponible</h1>
 
 <p>Nous sommes heureux d'annoncer la sortie de la version 1.3.1 de Gravity Forms IBAN Extractor. Cette mise à jour apporte une simplification majeure à l'installation du plugin.</p>
@@ -63,18 +62,15 @@
 <p>La dépendance Composer a été supprimée et la bibliothèque php-iban est désormais directement intégrée au plugin. Cela signifie que vous n'aurez plus besoin d'exécuter des commandes d'installation complexes.</p>
 
 <p>Téléchargez dès maintenant cette version pour bénéficier d'une installation plus fluide et plus accessible à tous les utilisateurs.</p>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.3.1" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.3.0
-            <span class="date">18 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.3.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.3.0</h2>
+      <span class="date">18 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>Gravity Forms IBAN Extractor v1.3.0 est disponible</h1>
   
@@ -84,18 +80,15 @@
   
   <p>Mettez à jour dès maintenant pour bénéficier de ces améliorations et nous aider à améliorer continuellement le plugin.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.3.0" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.2.0
-            <span class="date">8 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.3.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.2.0</h2>
+      <span class="date">8 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>Gravity Forms IBAN Extractor v1.2.0 est disponible</h1>
   
@@ -105,10 +98,8 @@
   
   <p>Consultez la documentation complète pour plus de détails sur les changements apportés.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.2.0" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gravity-forms-iban-extractor/zipball/v1.3.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
 </body>
 </html>

@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - gf-chained-select-enhancer</title>
-    <style>
-        :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
-        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
-        h1 { color: var(--accent); margin-bottom: 0.5rem; }
-        .back-link { color: var(--text); text-decoration: none; opacity: 0.7; font-size: 0.9rem; }
-        .back-link:hover { opacity: 1; text-decoration: underline; }
-        
-        article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
-        article h2 { color: white; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .date { font-size: 0.85rem; color: #8b949e; font-weight: normal; }
-        .content { margin-top: 1.5rem; }
-        .content ul { padding-left: 1.5rem; }
-        .download-btn { display: inline-block; margin-top: 1.5rem; background: #238636; color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; }
-        .download-btn:hover { background: #2ea043; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gf-chained-select-enhancer — Mises à jour</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
+    body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.7; }
+    .back-link { color: #8b949e; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--accent); }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    header h1 { color: var(--accent); margin-bottom: 0.5rem; }
+    header p { color: #8b949e; }
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag { background: #21262d; color: #8b949e; border: 1px solid #30363d; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+    article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .article-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .article-header h2 { color: white; font-size: 1.1rem; }
+    .date { font-size: 0.85rem; color: #8b949e; }
+    .content { color: #c9d1d9; font-size: 0.95rem; }
+    .content p { margin-bottom: 0.75rem; }
+    .btn-download { display: inline-block; margin-top: 1.25rem; background: #238636; color: white; text-decoration: none; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.875rem; }
+    .btn-download:hover { background: #2ea043; }
+  </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Retour aux projets</a>
-    <header>
-        <h1>gf-chained-select-enhancer</h1>
-        <p>Améliorez vos formulaires Gravity Forms avec des sélections en cascade intelligentes et fluides.</p>
-        <span style="background: #30363d; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Gravity Forms,Wordpress,Outils</span>
-    </header>
+  <a href="index.html" class="back-link">← Retour aux projets</a>
+  <header>
+    <h1>gf-chained-select-enhancer</h1>
+    <p>Améliorez vos formulaires Gravity Forms avec des sélections en cascade intelligentes et fluides.</p>
+    <div class="tags"><span class="tag">Outils</span></div>
+  </header>
 
-    
-    <article>
-        <h2>
-            Version v1.7.2
-            <span class="date">5 février 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+  
+  <article>
+    <div class="article-header">
+      <h2>Version v1.7.2</h2>
+      <span class="date">5 février 2026</span>
+    </div>
+    <div class="content">```html
 <h2>Mise à jour v1.7.2 : gf-chained-select-enhancer</h2>
 
 <p>Nous sommes heureux de vous présenter la version 1.7.2 de gf-chained-select-enhancer, qui apporte plusieurs corrections importantes pour améliorer la stabilité du plugin.</p>
@@ -44,18 +46,15 @@
 <p>Cette mise à jour corrige des problèmes de compatibilité avec PHP 7.4, résout un bug d'importation XLSX et harmonise les informations de licence. Ces corrections garantissent un fonctionnement optimal sur tous les environnements.</p>
 
 <p>Nous vous recommandons de mettre à jour dès maintenant pour bénéficier de ces améliorations.</p>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.7.1
-            <span class="date">19 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.7.1</h2>
+      <span class="date">19 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>gf-chained-select-enhancer v1.7.1 est disponible</h1>
   
@@ -65,18 +64,15 @@
   
   <p>Consultez le changelog complet pour découvrir tous les détails techniques de cette release.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.1" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.7.0
-            <span class="date">17 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.7.0</h2>
+      <span class="date">17 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <article>
   <h2>gf-chained-select-enhancer v1.7.0 est disponible</h2>
   
@@ -86,18 +82,15 @@
   
   <p>Cette version intègre également le système Guilamu Bug Reporter pour signaler les problèmes plus facilement, et bénéficie d'un nettoyage complet du code pour de meilleures performances.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.0" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.5.3
-            <span class="date">11 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.3</h2>
+      <span class="date">11 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <h2>Mise à jour v1.5.3 de gf-chained-select-enhancer</h2>
 
 <p>Nous sommes heureux d'annoncer la sortie de la version 1.5.3 de gf-chained-select-enhancer. Cette nouvelle version apporte des améliorations de stabilité et de performance pour une meilleure expérience utilisateur.</p>
@@ -105,35 +98,29 @@
 <p>Les corrections et ajustements inclus dans cette version visent à renforcer la fiabilité du plugin et à optimiser son fonctionnement dans divers environnements. Nous recommandons à tous les utilisateurs de mettre à jour dès que possible.</p>
 
 <p>Consultez la documentation complète pour découvrir tous les détails techniques de cette mise à jour.</p>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.5.3" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.5.2
-            <span class="date">3 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.2</h2>
+      <span class="date">3 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <h2>Mise à jour v1.5.2 de gf-chained-select-enhancer</h2>
 
 <p>Nous sommes heureux d'annoncer la sortie de la version 1.5.2 de gf-chained-select-enhancer. Cette mise à jour corrige un problème d'affichage des sélecteurs en chaîne en pleine largeur qui ne s'affichaient pas correctement lors du chargement initial de l'éditeur de formulaires.</p>
 
 <p>Si vous utilisez des sélecteurs en pleine largeur, cette correction garantit une meilleure expérience utilisateur dès l'ouverture de vos formulaires. Nous vous recommandons de mettre à jour votre installation dès maintenant pour bénéficier de cette amélioration.</p>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.5.2" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.5.1
-            <span class="date">3 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.1</h2>
+      <span class="date">3 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>gf-chained-select-enhancer v1.5.1 est disponible</h1>
   
@@ -143,18 +130,15 @@
   
   <p>Mettez à jour dès maintenant pour bénéficier de cette amélioration.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.5.1" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.5.0
-            <span class="date">2 janvier 2026</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.0</h2>
+      <span class="date">2 janvier 2026</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>Mise à jour gf-chained-select-enhancer v1.5.0</h1>
   
@@ -164,18 +148,15 @@
   
   <p>Mettez à jour dès maintenant pour profiter de ces améliorations. Comme toujours, l'installation est simple et sans risque.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.5.0" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.4.0
-            <span class="date">31 décembre 2025</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.4.0</h2>
+      <span class="date">31 décembre 2025</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>gf-chained-select-enhancer v1.4.0 : Une mise à jour majeure</h1>
   
@@ -185,18 +166,15 @@
   
   <p>L'export CSV bénéficie également d'une refonte pour plus de sécurité. Mettez à jour dès maintenant pour profiter de ces améliorations.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.4.0" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.3
-            <span class="date">26 novembre 2025</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.3</h2>
+      <span class="date">26 novembre 2025</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>Mise à jour v1.3 : gf-chained-select-enhancer</h1>
   
@@ -206,18 +184,15 @@
   
   <p>Cette évolution simplifie considérablement votre flux de travail et garantit que vous bénéficiez toujours des dernières améliorations et corrections de sécurité.</p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.3" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
-    <article>
-        <h2>
-            Version v1.2
-            <span class="date">6 novembre 2025</span>
-        </h2>
-        <div class="content">
-            ```html
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.2</h2>
+      <span class="date">6 novembre 2025</span>
+    </div>
+    <div class="content">```html
 <article>
   <h1>gf-chained-select-enhancer v1.2 est disponible</h1>
   
@@ -229,10 +204,8 @@
   
   <p><a href="https://github.com/guilamu/gf-chained-select-enhancer/commits/v1.2">Voir le changelog complet</a></p>
 </article>
-```
-        </div>
-        <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.2" class="download-btn">⬇ Télécharger le code source</a>
-    </article>
-    
+```</div>
+    <a href="https://api.github.com/repos/guilamu/gf-chained-select-enhancer/zipball/v1.7.2" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
 </body>
 </html>
