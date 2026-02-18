@@ -132,9 +132,14 @@ async function getProjectMetadata(repo, model, cache) {
     const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
     if (!content) return { category: 'Outils', description_fr: repo.description };
 
-    // Nettoyage basique poour extraire le JSON si le modèle est bavard
+    // Nettoyage basique pour extraire le JSON si le modèle est bavard
     const jsonMatch = content.match(/\{[\s\S]*\}/);
     const json = jsonMatch ? JSON.parse(jsonMatch[0]) : JSON.parse(content);
+
+    // Validation des champs
+    if (typeof json.category !== 'string') json.category = 'Outils';
+    if (typeof json.description_fr !== 'string') json.description_fr = repo.description;
+
     cache[cacheKey] = json;
     return json;
   } catch (e) {
@@ -173,14 +178,15 @@ async function getReleasePost(repo, release, model, cache) {
 
 function buildCard(repo, release, aiMeta) {
   const version = release ? release.tag_name : null;
-  const categoryClass = aiMeta.category.toLowerCase().replace(/\s/g, '-');
+  const category = (aiMeta && typeof aiMeta.category === 'string') ? aiMeta.category : 'Outils';
+  const categoryClass = category.toLowerCase().replace(/\s/g, '-');
 
   return `
-  <div class="card" data-category="${aiMeta.category}">
+  <div class="card" data-category="${category}">
     <div class="card-header">
       <h2><a href="${repo.html_url}" target="_blank">${repo.name}</a></h2>
       <div class="badges">
-        <span class="badge category-badge">${aiMeta.category}</span>
+        <span class="badge category-badge">${category}</span>
         ${version ? `<span class="badge version-badge">${version}</span>` : ''}
       </div>
     </div>
