@@ -26,7 +26,7 @@ async function poeApiCall(model, messages) {
     console.warn('⚠️ POE_API_KEY is missing. Skipping AI generation.');
     return null;
   }
-  
+
   try {
     const response = await fetch('https://api.poe.com/v1/chat/completions', {
       method: 'POST',
@@ -42,9 +42,9 @@ async function poeApiCall(model, messages) {
     });
 
     if (!response.ok) {
-        const err = await response.text();
-        console.error(`POE API Error: ${response.status}`, err);
-        return null; // Fail gracefully
+      const err = await response.text();
+      console.error(`POE API Error: ${response.status}`, err);
+      return null; // Fail gracefully
     }
 
     const data = await response.json();
@@ -55,28 +55,40 @@ async function poeApiCall(model, messages) {
   }
 }
 
-async function getLatestSonnetModel() {
-    if (!POE_API_KEY) return 'gpt-4o'; // Fallback for testing without key
+async function getLatestAIModel() {
+  if (!POE_API_KEY) return 'gpt-4o'; // Fallback for testing without key
 
-    try {
-        const response = await fetch('https://api.poe.com/v1/models', {
-            headers: { 'Authorization': `Bearer ${POE_API_KEY}` }
-        });
-        if (!response.ok) throw new Error('Failed to fetch models');
-        
-        const data = await response.json();
-        const sonnetModels = data.data
-            .filter(m => m.metadata && m.metadata.display_name && m.metadata.display_name.includes('Claude') && m.metadata.display_name.includes('Sonnet'))
-            .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
+  try {
+    const response = await fetch('https://api.poe.com/v1/models', {
+      headers: { 'Authorization': `Bearer ${POE_API_KEY}` }
+    });
+    if (!response.ok) throw new Error('Failed to fetch models');
 
-        if (sonnetModels.length > 0) {
-            console.log(`🤖 Using model: ${sonnetModels[0].metadata.display_name} (${sonnetModels[0].id})`);
-            return sonnetModels[0].id;
-        }
-    } catch (e) {
-        console.error('Error fetching models:', e);
+    const data = await response.json();
+    // Prefer Haiku for the first run as requested, but keep logic generic enough
+    const models = data.data
+      .filter(m => m.metadata && m.metadata.display_name && m.metadata.display_name.includes('Claude') && m.metadata.display_name.includes('Haiku'))
+      .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
+
+    if (models.length > 0) {
+      console.log(`🤖 Using model: ${models[0].metadata.display_name} (${models[0].id})`);
+      return models[0].id;
     }
-    return 'Claude-3.5-Sonnet'; // Fallback known ID
+
+    // Fallback to Sonnet if Haiku not found
+    const sonnetModels = data.data
+      .filter(m => m.metadata && m.metadata.display_name && m.metadata.display_name.includes('Claude') && m.metadata.display_name.includes('Sonnet'))
+      .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
+
+    if (sonnetModels.length > 0) {
+      console.log(`🤖 Using fallback model: ${sonnetModels[0].metadata.display_name} (${sonnetModels[0].id})`);
+      return sonnetModels[0].id;
+    }
+
+  } catch (e) {
+    console.error('Error fetching models:', e);
+  }
+  return 'Claude-3-Haiku'; // Fallback known ID
 }
 
 
@@ -96,11 +108,11 @@ function saveCache(cache) {
 // --- GENERATION AI ---
 
 async function getProjectMetadata(repo, model, cache) {
-    const cacheKey = `meta_${repo.id}`;
-    if (cache[cacheKey]) return cache[cacheKey];
+  const cacheKey = `meta_${repo.id}`;
+  if (cache[cacheKey]) return cache[cacheKey];
 
-    console.log(`🧠 Generating metadata for ${repo.name}...`);
-    const prompt = `
+  console.log(`🧠 Generating metadata for ${repo.name}...`);
+  const prompt = `
     Projet: ${repo.name}
     Description actuelle: ${repo.description || "Aucune"}
     Langage: ${repo.language}
@@ -116,27 +128,27 @@ async function getProjectMetadata(repo, model, cache) {
     }
     `;
 
-    const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
-    if (!content) return { category: 'Outils', description_fr: repo.description };
+  const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
+  if (!content) return { category: 'Outils', description_fr: repo.description };
 
-    try {
-        // Nettoyage basique poour extraire le JSON si le modèle est bavard
-        const jsonMatch = content.match(/\{[\s\S]*\}/);
-        const json = jsonMatch ? JSON.parse(jsonMatch[0]) : JSON.parse(content);
-        cache[cacheKey] = json;
-        return json;
-    } catch (e) {
-        console.error('Error parsing AI JSON:', e);
-        return { category: 'Outils', description_fr: repo.description };
-    }
+  try {
+    // Nettoyage basique poour extraire le JSON si le modèle est bavard
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
+    const json = jsonMatch ? JSON.parse(jsonMatch[0]) : JSON.parse(content);
+    cache[cacheKey] = json;
+    return json;
+  } catch (e) {
+    console.error('Error parsing AI JSON:', e);
+    return { category: 'Outils', description_fr: repo.description };
+  }
 }
 
 async function getReleasePost(repo, release, model, cache) {
-    const cacheKey = `post_${release.id}`;
-    if (cache[cacheKey]) return cache[cacheKey];
+  const cacheKey = `post_${release.id}`;
+  if (cache[cacheKey]) return cache[cacheKey];
 
-    console.log(`✍️ Writing blog post for ${repo.name} ${release.tag_name}...`);
-    const prompt = `
+  console.log(`✍️ Writing blog post for ${repo.name} ${release.tag_name}...`);
+  const prompt = `
     Tu es un rédacteur technique. Rédige un court post de blog (HTML sans header/body, juste le contenu) en français annonçant la mise à jour ${release.tag_name} du projet "${repo.name}".
     
     Changelog original:
@@ -149,12 +161,12 @@ async function getReleasePost(repo, release, model, cache) {
     - Reste concis (env. 100-150 mots).
     `;
 
-    const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
-    if (content) {
-        cache[cacheKey] = content;
-        return content;
-    }
-    return null;
+  const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
+  if (content) {
+    cache[cacheKey] = content;
+    return content;
+  }
+  return null;
 }
 
 // --- HTML GENERATORS ---
@@ -162,7 +174,7 @@ async function getReleasePost(repo, release, model, cache) {
 function buildCard(repo, release, aiMeta) {
   const version = release ? release.tag_name : null;
   const categoryClass = aiMeta.category.toLowerCase().replace(/\s/g, '-');
-  
+
   return `
   <div class="card" data-category="${aiMeta.category}">
     <div class="card-header">
@@ -187,8 +199,8 @@ function buildCard(repo, release, aiMeta) {
 
 async function main() {
   const cache = loadCache();
-  const model = await getLatestSonnetModel();
-  
+  const model = await getLatestAIModel();
+
   console.log('📥 Fetching repositories...');
   // Fetch all repos
   let repos = await apiGet(`/users/${USERNAME}/repos?type=public&per_page=100&sort=updated`);
@@ -198,13 +210,13 @@ async function main() {
 
   for (const repo of repos) {
     console.log(`Processing ${repo.name}...`);
-    
+
     // 1. Get Releases
     let releases = [];
     try {
-        releases = await apiGet(`/repos/${USERNAME}/${repo.name}/releases?per_page=20`);
+      releases = await apiGet(`/repos/${USERNAME}/${repo.name}/releases?per_page=20`);
     } catch (e) {
-        // No releases or error
+      // No releases or error
     }
 
     // 2. Get AI Metadata
@@ -213,21 +225,21 @@ async function main() {
     // 3. Generate Blog Posts for releases
     const blogPosts = [];
     for (const release of releases) {
-        const postContent = await getReleasePost(repo, release, model, cache);
-        if (postContent) {
-            blogPosts.push({
-                version: release.tag_name,
-                date: release.published_at,
-                content: postContent,
-                downloadUrl: release.zipball_url
-            });
-        }
+      const postContent = await getReleasePost(repo, release, model, cache);
+      if (postContent) {
+        blogPosts.push({
+          version: release.tag_name,
+          date: release.published_at,
+          content: postContent,
+          downloadUrl: release.zipball_url
+        });
+      }
     }
-    
+
     // Create Blog Page if posts exist
     if (blogPosts.length > 0) {
-        const blogHtml = generateBlogPage(repo, blogPosts, aiMeta);
-        fs.writeFileSync(`blog-${repo.name}.html`, blogHtml);
+      const blogHtml = generateBlogPage(repo, blogPosts, aiMeta);
+      fs.writeFileSync(`blog-${repo.name}.html`, blogHtml);
     }
 
     const latestRelease = releases.length > 0 ? releases[0] : null;
@@ -243,9 +255,9 @@ async function main() {
 }
 
 function generateIndexPage(projects) {
-    const categories = [...new Set(projects.map(p => p.aiMeta.category))].sort();
-    
-    return `<!DOCTYPE html>
+  const categories = [...new Set(projects.map(p => p.aiMeta.category))].sort();
+
+  return `<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -318,7 +330,7 @@ function generateIndexPage(projects) {
   </div>
 
   <footer>
-    Généré avec ❤️ par une IA (Claude Sonnet) et GitHub Actions.<br>
+    Généré avec ❤️ par une IA (Claude Haiku) et GitHub Actions.<br>
     Dernière màj: ${new Date().toLocaleDateString('fr-FR')}
   </footer>
 </body>
@@ -326,7 +338,7 @@ function generateIndexPage(projects) {
 }
 
 function generateBlogPage(repo, posts, aiMeta) {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -361,7 +373,7 @@ function generateBlogPage(repo, posts, aiMeta) {
     <article>
         <h2>
             Version ${post.version}
-            <span class="date">${new Date(post.date).toLocaleDateString('fr-FR', {day: 'numeric', month: 'long', year: 'numeric'})}</span>
+            <span class="date">${new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
         </h2>
         <div class="content">
             ${post.content}
