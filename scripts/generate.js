@@ -149,15 +149,15 @@ async function getReleasePost(repo, release, model, cache) {
 
   console.log(`✍️ Writing blog post for ${repo.name} ${release.tag_name}...`);
   const prompt = `
-    Tu es un rédacteur technique. Rédige un court post de blog (HTML sans header/body, juste le contenu) en français annonçant la mise à jour ${release.tag_name} du projet "${repo.name}".
+    Tu es un rédacteur. Rédige un court post de blog (HTML sans header/body, juste le contenu) en français annonçant la mise à jour ${release.tag_name} du projet "${repo.name}".
     
     Changelog original:
     ${release.body}
     
     Consignes:
-    - Ton enthousiaste et professionnel.
-    - Met en avant les points clés.
-    - Utilise des émojis.
+    - Rédige simplement quelques paragraphes de texte.
+    - PAS d'icônes ni d'émojis ni de listes à puces.
+    - Reste accessible et pas trop technique.
     - Reste concis (env. 100-150 mots).
     `;
 
