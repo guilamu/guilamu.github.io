@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Advanced-Menu-Items-Visibility-Control</title>
+    <style>
+        :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
+        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
+        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        h1 { color: var(--accent); margin-bottom: 0.5rem; }
+        .back-link { color: var(--text); text-decoration: none; opacity: 0.7; font-size: 0.9rem; }
+        .back-link:hover { opacity: 1; text-decoration: underline; }
+        
+        article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+        article h2 { color: white; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .date { font-size: 0.85rem; color: #8b949e; font-weight: normal; }
+        .content { margin-top: 1.5rem; }
+        .content ul { padding-left: 1.5rem; }
+        .download-btn { display: inline-block; margin-top: 1.5rem; background: #238636; color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; }
+        .download-btn:hover { background: #2ea043; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Retour aux projets</a>
+    <header>
+        <h1>Advanced-Menu-Items-Visibility-Control</h1>
+        <p>Contrôlez la visibilité des éléments de menu selon rôles, adhésions et statut utilisateur.</p>
+        <span style="background: #30363d; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Wordpress</span>
+    </header>
+
+    
+    <article>
+        <h2>
+            Version v1.3.0
+            <span class="date">18 janvier 2026</span>
+        </h2>
+        <div class="content">
+            ```html
+<article>
+  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.3.0 est disponible !</h1>
+  
+  <p>Nous sommes ravis d'annoncer la sortie de la <strong>version 1.3.0</strong> de notre plugin phare ! Cette mise à jour apporte des améliorations significatives pour une meilleure expérience utilisateur.</p>
+  
+  <h2>✨ Quoi de neuf ?</h2>
+  
+  <ul>
+    <li><strong>🐛 Intégration Guilamu Bug Reporter</strong> – Signalez les bugs directement depuis votre interface</li>
+    <li><strong>🔗 Lien "Report a Bug"</strong> – Accès rapide dans la liste des plugins pour un meilleur support</li>
+    <li><strong>📦 Gestion centralisée des versions</strong> – Maintenance simplifiée grâce à une constante de version unique</li>
+  </ul>
+  
+  <p>Ces améliorations renforcent la stabilité du plugin et facilitent la collaboration avec notre équipe de support. 🚀</p>
+  
+  <p><strong>Mettez à jour dès maintenant !</strong></p>
+</article>
+```
+        </div>
+        <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.3.0" class="download-btn">⬇ Télécharger le code source</a>
+    </article>
+    
+    <article>
+        <h2>
+            Version v1.2.4
+            <span class="date">1 janvier 2026</span>
+        </h2>
+        <div class="content">
+            ```html
+<article>
+  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.2.4 est disponible !</h1>
+  
+  <p>Une nouvelle mise à jour est en ligne et elle corrige un problème <strong>critique</strong> ! 🚀</p>
+  
+  <h2>Ce qui change</h2>
+  <p>Nous avons identifié et résolu un dysfonctionnement majeur affectant la vérification des niveaux d'accès RCP. Cette fonctionnalité, essentielle au contrôle de visibilité des éléments de menu, n'était pas opérationnelle.</p>
+  
+  <h2>Pourquoi c'est important</h2>
+  <p>✅ Le contrôle d'accès RCP fonctionne maintenant parfaitement<br>
+  ✅ Vos permissions de menu sont correctement appliquées<br>
+  ✅ Plus de comportements imprévisibles</p>
+  
+  <p><strong>Nous vous recommandons vivement de mettre à jour immédiatement</strong> pour bénéficier de cette correction critique. Merci de votre confiance ! 💪</p>
+</article>
+```
+        </div>
+        <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.2.4" class="download-btn">⬇ Télécharger le code source</a>
+    </article>
+    
+    <article>
+        <h2>
+            Version v1.2.3
+            <span class="date">30 décembre 2025</span>
+        </h2>
+        <div class="content">
+            ```html
+<article>
+  <h2>🚀 Advanced-Menu-Items-Visibility-Control v1.2.3 est disponible !</h2>
+  
+  <p>Nous sommes ravis d'annoncer la sortie de la <strong>version 1.2.3</strong> avec des corrections essentielles et des améliorations importantes ! 🎉</p>
+  
+  <h3>✨ Principaux changements :</h3>
+  
+  <ul>
+    <li><strong>Correctif critique 🔧</strong> : Résolution du bug de détection des niveaux d'adhésion RCP qui retournait des données en cache obsolètes</li>
+    <li><strong>Requête directe optimisée</strong> : Implémentation d'une requête d'adhésion qui contourne le problème de cache de l'API RCP</li>
+    <li><strong>Compatibilité renforcée</strong> : Ajout de vérifications <code>function_exists()</code> pour éviter les erreurs fatales sur certaines versions de RCP</li>
+    <li><strong>Correspondance fiable</strong> : Passage de la comparaison des IDs à celle des noms de niveaux d'adhésion</li>
+  </ul>
+  
+  <p><strong>Mettez à jour dès maintenant</strong> pour bénéficier de ces améliorations et d'une meilleure stabilité ! 💪</p>
+</article>
+```
+        </div>
+        <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.2.3" class="download-btn">⬇ Télécharger le code source</a>
+    </article>
+    
+    <article>
+        <h2>
+            Version v1.2.2
+            <span class="date">30 décembre 2025</span>
+        </h2>
+        <div class="content">
+            ```html
+<article>
+  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.2.2 est disponible !</h1>
+  
+  <p>Nous sommes ravis d'annoncer la sortie de la version <strong>1.2.2</strong> de notre projet phare ! 🚀</p>
+  
+  <h2>✨ Points clés de cette mise à jour</h2>
+  <ul>
+    <li>🔧 Corrections de bugs critiques pour une stabilité optimale</li>
+    <li>⚡ Améliorations de performance</li>
+    <li>🎯 Expérience utilisateur affinée</li>
+    <li>📱 Meilleure compatibilité multi-plateforme</li>
+  </ul>
+  
+  <p>Cette version consolide les fondations de notre système de contrôle de visibilité, en garantissant une fiabilité accrue et des performances supérieures. 💪</p>
+  
+  <p><strong>Prêt à upgrader ?</strong> Consultez le <a href="#">changelog complet</a> pour tous les détails techniques.</p>
+  
+  <p>Merci de votre confiance ! 🙌</p>
+</article>
+```
+        </div>
+        <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.2.2" class="download-btn">⬇ Télécharger le code source</a>
+    </article>
+    
+    <article>
+        <h2>
+            Version v1.2.1
+            <span class="date">26 novembre 2025</span>
+        </h2>
+        <div class="content">
+            ```html
+<article>
+  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.2.1 est disponible !</h1>
+  
+  <p>Nous sommes ravis d'annoncer la sortie de la version <strong>1.2.1</strong> de notre extension Advanced-Menu-Items-Visibility-Control ! 🚀</p>
+  
+  <h2>✨ Nouveautés principales</h2>
+  <ul>
+    <li>🔧 Corrections de bugs critiques pour une stabilité optimale</li>
+    <li>⚡ Améliorations de performance et optimisation du code</li>
+    <li>🎯 Interface utilisateur affinée pour une meilleure expérience</li>
+    <li>📱 Meilleure compatibilité multi-navigateurs</li>
+  </ul>
+  
+  <p><strong>Mise à jour recommandée pour tous les utilisateurs !</strong> 💪</p>
+  
+  <p>Consultez le <a href="#">changelog complet</a> pour tous les détails techniques. Merci de votre confiance ! 🙏</p>
+</article>
+```
+        </div>
+        <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.2.1" class="download-btn">⬇ Télécharger le code source</a>
+    </article>
+    
+    <article>
+        <h2>
+            Version v1.1
+            <span class="date">26 novembre 2025</span>
+        </h2>
+        <div class="content">
+            ```html
+<article>
+  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.1 est disponible !</h1>
+  
+  <p>Nous sommes ravis d'annoncer la sortie de la <strong>version 1.1</strong> de notre projet phare ! Cette mise à jour apporte une amélioration majeure que vous attendiez tous.</p>
+  
+  <h2>✨ Nouveauté principale</h2>
+  
+  <p><strong>Support multilingue complet</strong> 🌍</p>
+  <p>Advanced-Menu-Items-Visibility-Control accueille désormais les utilisateurs du monde entier ! Grâce à l'ajout du support multilingue, vous pouvez maintenant configurer vos menus dans votre langue préférée.</p>
+  
+  <h2>📥 Mise à jour dès maintenant</h2>
+  
+  <p>Cette évolution rend notre solution encore plus accessible et collaborative. Que vous soyez en France, en Belgique ou ailleurs, profitez d'une expérience entièrement localisée.</p>
+  
+  <p><strong>Téléchargez v1.1 dès aujourd'hui !</strong> 🚀</p>
+</article>
+```
+        </div>
+        <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.1" class="download-btn">⬇ Télécharger le code source</a>
+    </article>
+    
+    <article>
+        <h2>
+            Version 1.0
+            <span class="date">26 novembre 2025</span>
+        </h2>
+        <div class="content">
+            ```html
+<article>
+  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.0 est disponible !</h1>
+  
+  <p>Nous sommes ravis d'annoncer le lancement officiel de la <strong>version 1.0</strong> d'Advanced-Menu-Items-Visibility-Control ! 🚀</p>
+  
+  <h2>✨ Points clés de cette release :</h2>
+  <ul>
+    <li>🎯 <strong>Contrôle granulaire</strong> de la visibilité des éléments de menu</li>
+    <li>⚡ Performance optimisée pour une gestion fluide</li>
+    <li>🔧 API robuste et bien documentée</li>
+    <li>📱 Compatibilité complète avec tous les appareils</li>
+    <li>🛡️ Code stable et production-ready</li>
+  </ul>
+  
+  <p>Cette version marque une étape importante dans l'évolution du projet. Notre équipe a travaillé sans relâche pour vous offrir une solution fiable et performante. 💪</p>
+  
+  <p><strong>Prêt à l'essayer ?</strong> Consultez la documentation complète et téléchargez la version 1.0 dès maintenant ! 📖</p>
+</article>
+```
+        </div>
+        <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/1.0" class="download-btn">⬇ Télécharger le code source</a>
+    </article>
+    
+</body>
+</html>
