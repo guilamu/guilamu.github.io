@@ -143,12 +143,6 @@
     ],
     "description_fr": "Supprime automatiquement les emails POP3 tout en conservant les fonctionnalités d'envoi."
   },
-  "post_276784796": "<p>La version v1.0.1 du projet \"gf-external-choices\" ne fournit aucun changelog, ce qui ne permet pas d'identifier les modifications, corrections ou ajouts effectués par rapport à la version précédente.</p>",
-  "post_276756811": "<p>La version 1.0.0 du projet \"gf-external-choices\" constitue la première version publiée, mais aucune information de changelog n'a été fournie pour cette mise à jour.</p>",
-  "post_273204575": "Il semble que le contenu du changelog n'ait pas été inclus dans votre message — seul le numéro de version `v1.2.0` apparaît, sans aucune entrée décrivant les modifications apportées.\n\nPourriez-vous fournir le détail des changements (nouvelles fonctionnalités, corrections, suppressions, etc.) afin que je puisse rédiger le paragraphe demandé ?",
-  "post_273100532": "Aucun contenu de changelog n'a été fourni au-delà du numéro de version. Merci de fournir les détails des modifications apportées dans la v1.1.2 (correctifs, nouvelles fonctionnalités, changements de comportement, etc.) afin que je puisse rédiger le paragraphe demandé.",
-  "post_273088789": "Aucun contenu de changelog n'a été fourni dans votre message. Vous avez indiqué le numéro de version `v1.1.1`, mais aucune liste de modifications, de corrections ou d'ajouts n'accompagne cette version. Merci de fournir le détail des changements afin que je puisse rédiger le paragraphe demandé.",
-  "post_273087201": "Aucun détail de modifications n'a été fourni pour la version v1.1.0 : le changelog transmis est vide. Merci de fournir la liste des changements afin que je puisse rédiger le paragraphe demandé.",
   "post_273087030": "<p>La version 1.0.0 constitue la première version officielle du projet distillpress. Aucun détail sur les fonctionnalités, correctifs ou modifications introduits dans cette version n'a été fourni dans le changelog.</p>",
   "post_277702648": "<p>La version 1.3.0 intègre le support de Guilamu Bug Reporter et ajoute un lien \"Signaler un bug\" directement dans la liste des extensions. Une constante de version a également été introduite afin de centraliser la gestion du numéro de version du plugin.</p>",
   "post_273731903": "<p>La version 1.2.4 du projet « Advanced-Menu-Items-Visibility-Control » corrige un bug critique affectant la vérification des niveaux d'accès RCP, fonctionnalité qui était jusqu'alors non opérationnelle.</p>",
