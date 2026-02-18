@@ -84,6 +84,30 @@ async function getLatestAIModel() {
   return 'Claude-3-Haiku';
 }
 
+async function getLatestSonnetModel() {
+  if (!POE_API_KEY) return 'Claude-3-Sonnet';
+
+  try {
+    const response = await fetch('https://api.poe.com/v1/models', {
+      headers: { 'Authorization': `Bearer ${POE_API_KEY}` }
+    });
+    if (!response.ok) throw new Error('Failed to fetch models');
+
+    const data = await response.json();
+    const sonnetModels = data.data
+      .filter(m => m.metadata?.display_name?.includes('Claude') && m.metadata?.display_name?.includes('Sonnet'))
+      .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
+
+    if (sonnetModels.length > 0) {
+      console.log(`✍️ Blog model: ${sonnetModels[0].metadata.display_name}`);
+      return sonnetModels[0].id;
+    }
+  } catch (e) {
+    console.error('Error fetching Sonnet model:', e);
+  }
+  return 'Claude-3-Haiku'; // fallback
+}
+
 // --- CACHE ---
 
 function loadCache() {
@@ -153,16 +177,10 @@ async function getReleasePost(repo, release, model, cache) {
 
   console.log(`✍️ Writing blog post for ${repo.name} ${release.tag_name}...`);
   const prompt = `
-Rédige un court post de blog en français (HTML, uniquement le contenu, pas de balises html/head/body) pour la mise à jour ${release.tag_name} du projet "${repo.name}".
+Changelog de la mise à jour ${release.tag_name} du projet "${repo.name}" :
+${release.body || 'Pas de changelog.'}
 
-Changelog :
-${release.body || 'Pas de changelog disponible.'}
-
-Consignes strictes :
-- Une ou deux phrases factuelles uniquement.
-- Pas d'icônes, pas d'émojis, pas de listes.
-- Pas de formules de politesse ("nous sommes heureux", "n'hésitez pas", "nous vous invitons", etc.).
-- Ton neutre et factuel.
+Rédige un unique paragraphe HTML (<p>...</p>) en français décrivant factuellement ce qui a changé dans cette version. Aucune formule de politesse, aucun emoji, aucune liste. Uniquement les faits.
   `;
 
   const raw = await poeApiCall(model, [{ role: 'user', content: prompt }]);
@@ -209,9 +227,10 @@ function buildCard(repo, release, aiMeta) {
 
 async function main() {
   const cache = loadCache();
-  const model = await getLatestAIModel();
 
   console.log('📥 Fetching repositories...');
+  const metaModel = await getLatestAIModel();
+  const blogModel = await getLatestSonnetModel();
   let repos = await apiGet(`/users/${USERNAME}/repos?type=public&per_page=100&sort=updated`);
   repos = repos.filter(r => !r.fork);
 
@@ -228,12 +247,12 @@ async function main() {
         console.warn(`No releases for ${repo.name}: ${e.message}`);
       }
 
-      const aiMeta = await getProjectMetadata(repo, model, cache);
+      const aiMeta = await getProjectMetadata(repo, metaModel, cache);
 
       const blogPosts = [];
       for (const release of releases) {
         try {
-          const postContent = await getReleasePost(repo, release, model, cache);
+          const postContent = await getReleasePost(repo, release, blogModel, cache);
           if (postContent) {
             blogPosts.push({
               version: release.tag_name,
