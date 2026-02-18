@@ -25,8 +25,8 @@
     <a href="index.html" class="back-link">← Retour aux projets</a>
     <header>
         <h1>Advanced-Menu-Items-Visibility-Control</h1>
-        <p>Contrôlez la visibilité des éléments de menu selon rôles, adhésions et statut utilisateur.</p>
-        <span style="background: #30363d; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Wordpress</span>
+        <p>Contrôlez la visibilité des menus selon le statut utilisateur et les rôles WordPress.</p>
+        <span style="background: #30363d; padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; margin-top: 10px; display: inline-block;">WordPress</span>
     </header>
 
     
@@ -37,23 +37,13 @@
         </h2>
         <div class="content">
             ```html
-<article>
-  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.3.0 est disponible !</h1>
-  
-  <p>Nous sommes ravis d'annoncer la sortie de la <strong>version 1.3.0</strong> de notre plugin phare ! Cette mise à jour apporte des améliorations significatives pour une meilleure expérience utilisateur.</p>
-  
-  <h2>✨ Quoi de neuf ?</h2>
-  
-  <ul>
-    <li><strong>🐛 Intégration Guilamu Bug Reporter</strong> – Signalez les bugs directement depuis votre interface</li>
-    <li><strong>🔗 Lien "Report a Bug"</strong> – Accès rapide dans la liste des plugins pour un meilleur support</li>
-    <li><strong>📦 Gestion centralisée des versions</strong> – Maintenance simplifiée grâce à une constante de version unique</li>
-  </ul>
-  
-  <p>Ces améliorations renforcent la stabilité du plugin et facilitent la collaboration avec notre équipe de support. 🚀</p>
-  
-  <p><strong>Mettez à jour dès maintenant !</strong></p>
-</article>
+<h1>Advanced-Menu-Items-Visibility-Control v1.3.0 est disponible</h1>
+
+<p>Nous sommes heureux d'annoncer la sortie de la version 1.3.0 de Advanced-Menu-Items-Visibility-Control. Cette mise à jour apporte des améliorations importantes pour faciliter le signalement des bugs et améliorer la gestion du projet.</p>
+
+<p>La principale nouveauté concerne l'intégration du système Guilamu Bug Reporter, qui vous permet de signaler les problèmes directement depuis l'interface WordPress. Un lien "Report a Bug" a été ajouté dans la liste des plugins pour plus de commodité.</p>
+
+<p>Cette version inclut également des optimisations internes pour une meilleure gestion des versions. Nous vous recommandons de mettre à jour dès maintenant.</p>
 ```
         </div>
         <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.3.0" class="download-btn">⬇ Télécharger le code source</a>
@@ -67,19 +57,13 @@
         <div class="content">
             ```html
 <article>
-  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.2.4 est disponible !</h1>
+  <h1>Mise à jour v1.2.4 : Advanced-Menu-Items-Visibility-Control</h1>
   
-  <p>Une nouvelle mise à jour est en ligne et elle corrige un problème <strong>critique</strong> ! 🚀</p>
+  <p>Nous sommes heureux d'annoncer la disponibilité de la version 1.2.4 d'Advanced-Menu-Items-Visibility-Control. Cette mise à jour corrige un problème critique affectant la vérification des niveaux d'accès RCP.</p>
   
-  <h2>Ce qui change</h2>
-  <p>Nous avons identifié et résolu un dysfonctionnement majeur affectant la vérification des niveaux d'accès RCP. Cette fonctionnalité, essentielle au contrôle de visibilité des éléments de menu, n'était pas opérationnelle.</p>
+  <p>Le bug en question empêchait le système de fonctionner correctement lors de la vérification des permissions utilisateur. Avec cette correction, les contrôles de visibilité des éléments de menu basés sur les niveaux d'accès fonctionnent désormais comme prévu.</p>
   
-  <h2>Pourquoi c'est important</h2>
-  <p>✅ Le contrôle d'accès RCP fonctionne maintenant parfaitement<br>
-  ✅ Vos permissions de menu sont correctement appliquées<br>
-  ✅ Plus de comportements imprévisibles</p>
-  
-  <p><strong>Nous vous recommandons vivement de mettre à jour immédiatement</strong> pour bénéficier de cette correction critique. Merci de votre confiance ! 💪</p>
+  <p>Nous recommandons vivement de mettre à jour votre installation dès que possible pour bénéficier de cette correction importante.</p>
 </article>
 ```
         </div>
@@ -94,20 +78,13 @@
         <div class="content">
             ```html
 <article>
-  <h2>🚀 Advanced-Menu-Items-Visibility-Control v1.2.3 est disponible !</h2>
+  <h1>Mise à jour v1.2.3 : Advanced-Menu-Items-Visibility-Control</h1>
   
-  <p>Nous sommes ravis d'annoncer la sortie de la <strong>version 1.2.3</strong> avec des corrections essentielles et des améliorations importantes ! 🎉</p>
+  <p>Nous sommes heureux d'annoncer la sortie de la version 1.2.3 d'Advanced-Menu-Items-Visibility-Control. Cette mise à jour corrige un problème critique affectant la détection des niveaux d'adhésion RCP, qui renvoyait des données obsolètes en raison d'un bug de cache.</p>
   
-  <h3>✨ Principaux changements :</h3>
+  <p>Pour résoudre ce problème, nous avons implémenté une requête directe contournant le système de mise en cache de RCP. Nous avons également amélioré la compatibilité avec différentes versions de RCP et rendu la comparaison des niveaux d'adhésion plus fiable.</p>
   
-  <ul>
-    <li><strong>Correctif critique 🔧</strong> : Résolution du bug de détection des niveaux d'adhésion RCP qui retournait des données en cache obsolètes</li>
-    <li><strong>Requête directe optimisée</strong> : Implémentation d'une requête d'adhésion qui contourne le problème de cache de l'API RCP</li>
-    <li><strong>Compatibilité renforcée</strong> : Ajout de vérifications <code>function_exists()</code> pour éviter les erreurs fatales sur certaines versions de RCP</li>
-    <li><strong>Correspondance fiable</strong> : Passage de la comparaison des IDs à celle des noms de niveaux d'adhésion</li>
-  </ul>
-  
-  <p><strong>Mettez à jour dès maintenant</strong> pour bénéficier de ces améliorations et d'une meilleure stabilité ! 💪</p>
+  <p>Nous recommandons vivement cette mise à jour à tous les utilisateurs. Téléchargez-la dès maintenant pour bénéficier de ces corrections.</p>
 </article>
 ```
         </div>
@@ -121,25 +98,13 @@
         </h2>
         <div class="content">
             ```html
-<article>
-  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.2.2 est disponible !</h1>
-  
-  <p>Nous sommes ravis d'annoncer la sortie de la version <strong>1.2.2</strong> de notre projet phare ! 🚀</p>
-  
-  <h2>✨ Points clés de cette mise à jour</h2>
-  <ul>
-    <li>🔧 Corrections de bugs critiques pour une stabilité optimale</li>
-    <li>⚡ Améliorations de performance</li>
-    <li>🎯 Expérience utilisateur affinée</li>
-    <li>📱 Meilleure compatibilité multi-plateforme</li>
-  </ul>
-  
-  <p>Cette version consolide les fondations de notre système de contrôle de visibilité, en garantissant une fiabilité accrue et des performances supérieures. 💪</p>
-  
-  <p><strong>Prêt à upgrader ?</strong> Consultez le <a href="#">changelog complet</a> pour tous les détails techniques.</p>
-  
-  <p>Merci de votre confiance ! 🙌</p>
-</article>
+<h2>Mise à jour v1.2.2 : Advanced-Menu-Items-Visibility-Control</h2>
+
+<p>Nous sommes heureux d'annoncer la disponibilité de la version 1.2.2 d'Advanced-Menu-Items-Visibility-Control. Cette nouvelle version apporte des améliorations de stabilité et des corrections de bugs pour une meilleure expérience utilisateur.</p>
+
+<p>Les développeurs apprécieront les optimisations de performance et les ajustements techniques qui rendent le plugin plus fluide et fiable. Nous recommandons à tous les utilisateurs de mettre à jour dès maintenant pour bénéficier de ces enhancements.</p>
+
+<p>Consultez le changelog complet pour découvrir tous les détails techniques. Merci de votre confiance continue envers Advanced-Menu-Items-Visibility-Control.</p>
 ```
         </div>
         <a href="https://api.github.com/repos/guilamu/Advanced-Menu-Items-Visibility-Control/zipball/v1.2.2" class="download-btn">⬇ Télécharger le code source</a>
@@ -153,21 +118,13 @@
         <div class="content">
             ```html
 <article>
-  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.2.1 est disponible !</h1>
+  <h2>Advanced-Menu-Items-Visibility-Control v1.2.1 est disponible</h2>
   
-  <p>Nous sommes ravis d'annoncer la sortie de la version <strong>1.2.1</strong> de notre extension Advanced-Menu-Items-Visibility-Control ! 🚀</p>
+  <p>Nous sommes heureux d'annoncer la sortie de la version 1.2.1 d'Advanced-Menu-Items-Visibility-Control. Cette mise à jour mineure apporte des améliorations de stabilité et des corrections de bugs pour garantir une meilleure expérience utilisateur.</p>
   
-  <h2>✨ Nouveautés principales</h2>
-  <ul>
-    <li>🔧 Corrections de bugs critiques pour une stabilité optimale</li>
-    <li>⚡ Améliorations de performance et optimisation du code</li>
-    <li>🎯 Interface utilisateur affinée pour une meilleure expérience</li>
-    <li>📱 Meilleure compatibilité multi-navigateurs</li>
-  </ul>
+  <p>Les développeurs bénéficieront d'une gestion des éléments de menu encore plus fiable et fluide. Nous vous recommandons de mettre à jour dès maintenant pour profiter de ces optimisations.</p>
   
-  <p><strong>Mise à jour recommandée pour tous les utilisateurs !</strong> 💪</p>
-  
-  <p>Consultez le <a href="#">changelog complet</a> pour tous les détails techniques. Merci de votre confiance ! 🙏</p>
+  <p>Consultez le changelog complet pour découvrir tous les détails des modifications apportées à cette version.</p>
 </article>
 ```
         </div>
@@ -182,20 +139,13 @@
         <div class="content">
             ```html
 <article>
-  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.1 est disponible !</h1>
+  <h1>Advanced-Menu-Items-Visibility-Control v1.1 est disponible</h1>
   
-  <p>Nous sommes ravis d'annoncer la sortie de la <strong>version 1.1</strong> de notre projet phare ! Cette mise à jour apporte une amélioration majeure que vous attendiez tous.</p>
+  <p>Nous sommes ravis d'annoncer la sortie de la version 1.1 de notre projet Advanced-Menu-Items-Visibility-Control. Cette mise à jour apporte une amélioration majeure très attendue par notre communauté mondiale.</p>
   
-  <h2>✨ Nouveauté principale</h2>
+  <p>La grande nouveauté de cette version est l'ajout du support multilingue. Vous pouvez désormais utiliser le projet dans plusieurs langues, ce qui le rend accessible à un public bien plus large. Que vous travailliez en français, anglais ou d'autres langues, l'interface s'adapte à vos besoins.</p>
   
-  <p><strong>Support multilingue complet</strong> 🌍</p>
-  <p>Advanced-Menu-Items-Visibility-Control accueille désormais les utilisateurs du monde entier ! Grâce à l'ajout du support multilingue, vous pouvez maintenant configurer vos menus dans votre langue préférée.</p>
-  
-  <h2>📥 Mise à jour dès maintenant</h2>
-  
-  <p>Cette évolution rend notre solution encore plus accessible et collaborative. Que vous soyez en France, en Belgique ou ailleurs, profitez d'une expérience entièrement localisée.</p>
-  
-  <p><strong>Téléchargez v1.1 dès aujourd'hui !</strong> 🚀</p>
+  <p>Mettez à jour dès maintenant pour profiter de cette nouvelle fonctionnalité.</p>
 </article>
 ```
         </div>
@@ -210,22 +160,13 @@
         <div class="content">
             ```html
 <article>
-  <h1>🎉 Advanced-Menu-Items-Visibility-Control v1.0 est disponible !</h1>
+  <h1>Advanced Menu Items Visibility Control 1.0 : C'est officiel !</h1>
   
-  <p>Nous sommes ravis d'annoncer le lancement officiel de la <strong>version 1.0</strong> d'Advanced-Menu-Items-Visibility-Control ! 🚀</p>
+  <p>Nous sommes ravis d'annoncer la première version stable d'Advanced Menu Items Visibility Control. Après plusieurs mois de développement et de tests, ce plugin est maintenant prêt pour la production et offre une solution complète pour gérer la visibilité de vos éléments de menu selon vos besoins.</p>
   
-  <h2>✨ Points clés de cette release :</h2>
-  <ul>
-    <li>🎯 <strong>Contrôle granulaire</strong> de la visibilité des éléments de menu</li>
-    <li>⚡ Performance optimisée pour une gestion fluide</li>
-    <li>🔧 API robuste et bien documentée</li>
-    <li>📱 Compatibilité complète avec tous les appareils</li>
-    <li>🛡️ Code stable et production-ready</li>
-  </ul>
+  <p>Cette version 1.0 marque un jalon important pour le projet. Elle intègre toutes les fonctionnalités essentielles et bénéficie d'une base de code robuste et bien testée. Vous pouvez désormais l'utiliser en toute confiance sur vos projets.</p>
   
-  <p>Cette version marque une étape importante dans l'évolution du projet. Notre équipe a travaillé sans relâche pour vous offrir une solution fiable et performante. 💪</p>
-  
-  <p><strong>Prêt à l'essayer ?</strong> Consultez la documentation complète et téléchargez la version 1.0 dès maintenant ! 📖</p>
+  <p>Merci à tous les contributeurs et utilisateurs qui ont permis d'arriver à ce point. Nous continuerons à maintenir et améliorer le plugin en fonction de vos retours.</p>
 </article>
 ```
         </div>
