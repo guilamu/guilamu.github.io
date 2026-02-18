@@ -171,14 +171,68 @@ Réponds UNIQUEMENT avec ce JSON (pas d'autre texte) :
   }
 }
 
+async function getReadmeChangelog(repo, tagName) {
+  try {
+    // Fetch the raw README content via GitHub API
+    const data = await apiGet(`/repos/${USERNAME}/${repo.name}/readme`);
+    const readme = Buffer.from(data.content, 'base64').toString('utf8');
+
+    // Look for a Changelog section (## Changelog, # Changelog, ## Change Log, etc.)
+    const changelogMatch = readme.match(/^#{1,3}\s+change\s*log\s*$/im);
+    if (!changelogMatch) return null;
+
+    const changelogStart = changelogMatch.index;
+    // Extract everything from the Changelog heading to the next same-level heading (or end)
+    const level = changelogMatch[0].match(/^(#+)/)[1].length;
+    const afterChangelog = readme.slice(changelogStart + changelogMatch[0].length);
+    const nextHeadingMatch = afterChangelog.match(new RegExp(`^#{1,${level}}\\s`, 'm'));
+    const changelogBody = nextHeadingMatch
+      ? afterChangelog.slice(0, nextHeadingMatch.index)
+      : afterChangelog;
+
+    // Try to find the section for this specific version tag (e.g. "1.0.1" or "v1.0.1")
+    const versionPattern = tagName.replace(/^v/, ''); // strip leading 'v'
+    const versionRegex = new RegExp(`^#{1,4}\\s+v?${versionPattern.replace('.', '\\.')}`, 'im');
+    const versionMatch = changelogBody.match(versionRegex);
+
+    if (!versionMatch) {
+      // No specific version section found — return the whole changelog as context
+      return changelogBody.trim() || null;
+    }
+
+    // Extract just the section for this version
+    const versionStart = versionMatch.index + versionMatch[0].length;
+    const rest = changelogBody.slice(versionStart);
+    const nextVersionMatch = rest.match(/^#{1,4}\s+v?\d/m);
+    const versionBody = nextVersionMatch ? rest.slice(0, nextVersionMatch.index) : rest;
+
+    return versionBody.trim() || null;
+  } catch (e) {
+    // README not found or other error — silently skip
+    return null;
+  }
+}
+
 async function getReleasePost(repo, release, model, cache) {
   const cacheKey = `post_${release.id}`;
   if (cache[cacheKey]) return cache[cacheKey];
 
+  // Use release body, or fall back to README changelog section
+  let changelog = (release.body || '').trim();
+  if (!changelog) {
+    console.log(`🔍 No release body for ${repo.name} ${release.tag_name}, checking README...`);
+    changelog = await getReadmeChangelog(repo, release.tag_name) || '';
+  }
+
+  if (!changelog) {
+    console.log(`⏭️ Skipping blog post for ${repo.name} ${release.tag_name} (no changelog found).`);
+    return null;
+  }
+
   console.log(`✍️ Writing blog post for ${repo.name} ${release.tag_name}...`);
   const prompt = `
 Changelog de la mise à jour ${release.tag_name} du projet "${repo.name}" :
-${release.body || 'Pas de changelog.'}
+${changelog}
 
 Rédige un unique paragraphe HTML (<p>...</p>) en français décrivant factuellement ce qui a changé dans cette version. Aucune formule de politesse, aucun emoji, aucune liste. Uniquement les faits.
   `;
