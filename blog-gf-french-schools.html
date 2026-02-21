@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gf-french-schools — Mises à jour</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
+    body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.7; }
+    .back-link { color: #8b949e; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--accent); }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    header h1 { color: var(--accent); margin-bottom: 0.5rem; }
+    header p { color: #8b949e; }
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag { background: #21262d; color: #8b949e; border: 1px solid #30363d; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+    article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .article-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .article-header h2 { color: white; font-size: 1.1rem; }
+    .date { font-size: 0.85rem; color: #8b949e; }
+    .content { color: #c9d1d9; font-size: 0.95rem; }
+    .content p { margin-bottom: 0.75rem; }
+    .btn-download { display: inline-block; margin-top: 1.25rem; background: #238636; color: white; text-decoration: none; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.875rem; }
+    .btn-download:hover { background: #2ea043; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link">← Retour aux projets</a>
+  <header>
+    <h1>gf-french-schools</h1>
+    <p>Extension Gravity Forms pour rechercher et sélectionner des établissements scolaires français.</p>
+    <div class="tags"><span class="tag">Gravity Forms</span><span class="tag">Wordpress</span></div>
+  </header>
+
+  
+  <article>
+    <div class="article-header">
+      <h2>Version v1.8.2</h2>
+      <span class="date">20 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.8.2 corrige un bug affectant les formulaires créés avant l'introduction du sous-champ « Email Circonscription » : la valeur saisie était bien affichée côté frontend mais n'était pas enregistrée dans l'entrée. Par ailleurs, le constructeur du champ synchronise désormais systématiquement les sous-inputs avec la définition canonique, ce qui garantit la prise en charge automatique des sous-champs introduits dans les versions ultérieures, y compris pour les formulaires existants.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.8.1</h2>
+      <span class="date">18 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.8.1 du projet "gf-french-schools" apporte plusieurs corrections au mécanisme de recherche d'établissements scolaires. La recherche de villes comportant un article est désormais fonctionnelle : une saisie telle que "les pa" retourne correctement des résultats comme "Les Pavillons Sous Bois". Ce correctif s'applique aussi bien à la recherche distante via l'API qu'à la base de données locale, qui adoptent toutes deux une correspondance mot par mot : chaque terme saisi doit être présent dans le nom de la ville, remplaçant ainsi l'ancien test de sous-chaîne continue qui échouait lorsqu'un espace séparait deux mots. Par ailleurs, la compatibilité avec l'extension gwcopycat (GP Copy Cat) a été améliorée : les sous-champs cachés déclenchent maintenant un événement jQuery <code>change</code> au moment de la sélection d'un établissement, ce qui permet leur copie vers d'autres champs du formulaire.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.8.0</h2>
+      <span class="date">16 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.8.0 du projet <strong>gf-french-schools</strong> apporte plusieurs évolutions. La logique conditionnelle est désormais intégralement prise en charge : chaque sous-champ du champ établissement scolaire (identifiant, nom, type, catégorie, code postal, ville, etc.) peut être utilisé comme paramètre de condition pour les autres champs du formulaire. Le nettoyage de la catégorie a été corrigé afin que la valeur brute <em>ECOLE DE NIVEAU ELEMENTAIRE</em> s'affiche sous la forme <em>Élémentaire</em> plutôt que <em>De niveau elementaire</em>. Une détection automatique des écoles primaires a également été introduite : lorsque le nom de l'établissement contient le mot <em>primaire</em>, la catégorie affiche <em>Primaire</em> à la place d'<em>Élémentaire</em>. Enfin, l'auto-complétion du navigateur est désormais désactivée sur l'ensemble des champs du formulaire.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.7.3</h2>
+      <span class="date">15 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.7.3 du projet <strong>gf-french-schools</strong> apporte un renommage de trois merge tags afin d'harmoniser leur appellation avec l'interface : <code>id</code> devient <code>identifiant</code>, <code>nature</code> devient <code>categorie</code> et <code>commune</code> devient <code>ville</code>. Les anciens noms de ces merge tags sont conservés et restent fonctionnels pour assurer la rétrocompatibilité avec les implémentations existantes.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.7.2</h2>
+      <span class="date">15 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.7.2 introduit le merge tag <code>autres_nom</code>, permettant d'accéder à la valeur saisie manuellement dans le champ "Nom de l'école (saisie manuelle)". Ce merge tag est désormais accessible directement depuis le menu déroulant des merge tags de Gravity Forms.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.7.1</h2>
+      <span class="date">11 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.7.1 corrige la recherche d'écoles pour les arrondissements de Paris, dont les espacements incohérents dans la base de données empêchaient une correspondance correcte. L'affichage des noms d'écoles parisiennes est amélioré par la suppression des préfixes de type E.M.PU, E.E.PU ou E.P.PR ainsi que des adresses qui y étaient accolés. La recherche via l'API passe désormais d'une méthode search() à une clause LIKE, permettant une meilleure prise en charge des correspondances partielles. Enfin, le mécanisme de cache est corrigé afin de distinguer correctement les résultats provenant de sources locales de ceux provenant de sources distantes.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.7.0</h2>
+      <span class="date">11 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.7.0 du plugin <em>gf-french-schools</em> introduit la prise en charge complète du thème Gravity Forms Orbital. Plusieurs corrections ont été apportées : le problème d'affichage du menu déroulant d'autocomplétion, qui était masqué par les champs suivants en raison d'un z-index insuffisant, a été résolu ; le gestionnaire d'événement <em>blur</em>, qui provoquait la disparition trop rapide des résultats, a également été corrigé ; le placeholder du champ département s'affiche désormais correctement lorsqu'un statut est présélectionné. Par ailleurs, l'icône associée au champ a été modifiée pour correspondre à celle utilisée sur la page de réglages (<em>dashicons-building</em>), et le bouton Annuler a été masqué dans l'éditeur de formulaire.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.6.1</h2>
+      <span class="date">10 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.6.1 du projet <strong>gf-french-schools</strong> apporte une amélioration majeure du processus de nettoyage des noms d'établissements scolaires, permettant un traitement plus fiable et plus précis des intitulés issus des données sources.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.6.0</h2>
+      <span class="date">10 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.6.0 du projet "gf-french-schools" apporte deux modifications. L'affichage des résultats dans la vue d'entrée (Entry View) a été revu afin de correspondre au style visuel du plugin Chained Selects. Par ailleurs, le champ "Éducation prioritaire" affiche désormais la valeur "Non" lorsqu'il n'est pas renseigné, au lieu de laisser le champ vide.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.4</h2>
+      <span class="date">9 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.5.4 introduit une réécriture complète du système de chargement des traductions afin de résoudre des problèmes de compatibilité. Le chargement repose désormais sur des chemins absolus via <code>load_textdomain()</code> en remplacement de <code>load_plugin_textdomain()</code>, et s'effectue sur plusieurs hooks successifs (<code>plugins_loaded</code>, <code>init</code>, <code>gform_pre_render</code>) afin de garantir le chargement des traductions quelle que soit l'étape d'initialisation. Un mécanisme de rechargement forcé a été ajouté pour les cas où la locale change entre ces hooks, ainsi qu'un système de repli sur la locale de base, permettant par exemple d'utiliser <code>fr</code> lorsque le fichier <code>fr_FR.mo</code> est absent.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.3</h2>
+      <span class="date">8 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.5.3 du projet "gf-french-schools" apporte deux modifications à l'interface des réglages. L'option "Local Only" utilise désormais un toggle à la place d'une case à cocher, afin d'harmoniser son apparence avec le style natif de Gravity Forms. Le style du bouton "Sync Now" a également été corrigé pour être cohérent avec celui des autres boutons présents dans les pages de réglages de Gravity Forms.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.2</h2>
+      <span class="date">7 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.5.2 du projet <strong>gf-french-schools</strong> introduit l'icône Dashicon <em>building</em> pour l'onglet French Schools dans les réglages Gravity Forms, et ajoute le fichier <code>uninstall.php</code> au projet.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.1</h2>
+      <span class="date">7 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.5.1 du projet <strong>gf-french-schools</strong> intègre la page de réglages directement dans l'onglet <em>Settings</em> de Gravity Forms via le framework <strong>GFAddOn</strong>, remplaçant l'ancien sous-menu indépendant. Le rendu et la sauvegarde des paramètres sont désormais entièrement délégués à ce framework, ce qui introduit le bouton natif de sauvegarde propre à l'interface Gravity Forms.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.5.0</h2>
+      <span class="date">7 février 2026</span>
+    </div>
+    <div class="content"><p>La version 1.5.0 introduit une base de données locale servant de filet de sécurité en cas d'indisponibilité de l'API distante, alimentée par un téléchargement mensuel automatique de l'annuaire complet d'environ 69 000 établissements via WP-Cron. L'import CSV repose désormais sur une table de staging qui garantit que les données existantes ne sont remplacées qu'après validation des nouvelles entrées. Le basculement vers la base locale s'effectue automatiquement en cas d'erreur API. Une nouvelle page de réglages est accessible sous Formulaires → French Schools ; elle propose un mode « Local Only » permettant de désactiver totalement l'appel à l'API distante, ainsi qu'un bouton de synchronisation manuelle accompagné d'un affichage du statut en temps réel. Le padding des champs a été corrigé pour être uniformément fixé à 16 pixels, et les fichiers de traduction française ont été mis à jour.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.4.0</h2>
+      <span class="date">27 janvier 2026</span>
+    </div>
+    <div class="content"><p>La version 1.4.0 introduit deux nouveaux champs par établissement : « Circonscription » et « Mail circo ». Le nom de la circonscription est automatiquement nettoyé par suppression du préfixe « Circonscription d'inspection du 1er degré de/du/d' ». L'adresse mail de la circonscription est générée dynamiquement à partir du code de la circonscription et du domaine académique de l'école concernée. Deux nouveaux merge tags sont désormais disponibles : <code>nom_circonscription</code> et <code>code_circonscription</code>.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.3.0</h2>
+      <span class="date">23 janvier 2026</span>
+    </div>
+    <div class="content"><p>La version 1.3.0 introduit un champ « Autre » permettant à l'utilisateur de saisir manuellement le nom de son école lorsqu'une recherche ne retourne aucun résultat ; ce champ n'apparaît qu'à l'issue d'une recherche infructueuse. Les valeurs saisies manuellement sont correctement enregistrées, affichées et incluses dans les exports avec la mention « Saisie manuelle ». Les fichiers de traduction en français ont également été mis à jour.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.2.0</h2>
+      <span class="date">18 janvier 2026</span>
+    </div>
+    <div class="content"><p>La version 1.2.0 du projet "gf-french-schools" introduit l'intégration du support Guilamu Bug Reporter ainsi que l'ajout d'un lien "Report a Bug" dans la liste des extensions.</p></div>
+    <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.2/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+</body>
+</html>
