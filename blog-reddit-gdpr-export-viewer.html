@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reddit-gdpr-export-viewer — Mises à jour</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
+    body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.7; }
+    .back-link { color: #8b949e; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--accent); }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    header h1 { color: var(--accent); margin-bottom: 0.5rem; }
+    header p { color: #8b949e; }
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag { background: #21262d; color: #8b949e; border: 1px solid #30363d; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+    article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .article-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .article-header h2 { color: white; font-size: 1.1rem; }
+    .date { font-size: 0.85rem; color: #8b949e; }
+    .content { color: #c9d1d9; font-size: 0.95rem; }
+    .content p { margin-bottom: 0.75rem; }
+    .btn-download { display: inline-block; margin-top: 1.25rem; background: #238636; color: white; text-decoration: none; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.875rem; }
+    .btn-download:hover { background: #2ea043; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link">← Retour aux projets</a>
+  <header>
+    <h1>reddit-gdpr-export-viewer</h1>
+    <p>Visualiseur moderne et autonome pour vos exports de données GDPR Reddit.</p>
+    <div class="tags"><span class="tag">Outils</span><span class="tag">Données</span></div>
+  </header>
+
+  
+  <article>
+    <div class="article-header">
+      <h2>Version v1.1</h2>
+      <span class="date">18 janvier 2026</span>
+    </div>
+    <div class="content"><p>La version 1.1 corrige le comportement du curseur de plage de dates, qui fonctionne désormais de manière indépendante pour chaque onglet (Publications, Commentaires, Messages) ; chaque onglet calcule ses bornes de dates uniquement à partir de son propre type de contenu.</p></div>
+    <a href="https://github.com/guilamu/reddit-gdpr-export-viewer/releases/download/v1.1/reddit-gdpr-export-viewer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.0</h2>
+      <span class="date">17 janvier 2026</span>
+    </div>
+    <div class="content"><p>La version 1.0 constitue la première publication du visualiseur autonome reddit-gdpr-export-viewer. Cette version introduit la prise en charge des publications, commentaires, messages, votes et éléments sauvegardés issus des exports RGPD Reddit. Une fonctionnalité de recherche globale ainsi qu'un système de filtrage avancé par date et par subreddit ont été intégrés. L'onglet de compte propose des statistiques générales et une disposition en deux colonnes égales. L'interface adopte un thème sombre moderne. L'ensemble du traitement des données s'effectue exclusivement en local, sans transfert vers un serveur distant.</p></div>
+    <a href="https://github.com/guilamu/reddit-gdpr-export-viewer/releases/download/v1.1/reddit-gdpr-export-viewer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+</body>
+</html>
