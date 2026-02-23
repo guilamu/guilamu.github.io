@@ -38,7 +38,7 @@
       <h2>Version v1.8.3</h2>
       <span class="date">23 février 2026</span>
     </div>
-    <div class="content"><p>La version 1.8.3 corrige l'avertissement WordPress 6.7 signalant un appel incorrect à <code>_load_textdomain_just_in_time</code> : le filtre <code>cron_schedules</code> pouvant s'exécuter avant le déclenchement de <code>plugins_loaded</code>, l'appel à <code>__()</code> qu'il contenait était prématuré et a été remplacé par une chaîne de libellé statique. Par ailleurs, la déclaration des actions de cron reposant sur <code>GF_Ecoles_Local_DB::CRON_HOOK</code> a été déplacée à l'intérieur du hook <code>plugins_loaded</code> afin de garantir que la classe n'est pas accédée avant que l'initialisation des traductions soit effectuée.</p></div>
+    <div class="content"><p>La version 1.8.3 corrige l'avertissement WordPress 6.7 « _load_textdomain_just_in_time called incorrectly » qui était déclenché par la présence d'un appel à la fonction <code>__()</code> dans la méthode <code>get_default_inputs()</code>. Cet appel provoquait le chargement prématuré du textdomain lors de la construction du champ, avant le hook <code>init</code>, via la chaîne <code>gform_loaded → plugins_loaded</code>. L'appel fautif a été supprimé et le chargement du textdomain est désormais effectué exclusivement sur le hook <code>init</code>, conformément aux recommandations en vigueur depuis WordPress 6.7.</p></div>
     <a href="https://github.com/guilamu/gf-french-schools/releases/download/v1.8.3/gf-french-schools.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
