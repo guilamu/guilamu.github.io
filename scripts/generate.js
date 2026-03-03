@@ -3,7 +3,7 @@ const fs = require('fs');
 const USERNAME = 'guilamu';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = 'gemini-flash-latest';
+const GEMINI_MODEL = 'gemini-pro-latest';
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
 const CACHE_FILE = 'ai_cache.json';
 const VALID_TAGS = ['Gravity Forms', 'IA', 'Wordpress', 'Outils', 'Données'];
@@ -23,34 +23,65 @@ async function apiGet(path) {
   return response.json();
 }
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Rate limiter: free tier = 5 RPM, so minimum 13s between calls
+let lastApiCall = 0;
+const MIN_DELAY_MS = 13000;
+const MAX_RETRIES = 3;
+
 async function geminiApiCall(messages) {
   if (!GEMINI_API_KEY) {
     console.warn('⚠️ GEMINI_API_KEY is missing. Skipping AI generation.');
     return null;
   }
 
-  try {
-    const response = await fetch(GEMINI_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${GEMINI_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ model: GEMINI_MODEL, messages, temperature: 0.5 })
-    });
+  // Rate limiting: wait if needed
+  const elapsed = Date.now() - lastApiCall;
+  if (lastApiCall > 0 && elapsed < MIN_DELAY_MS) {
+    const wait = MIN_DELAY_MS - elapsed;
+    console.log(`⏳ Rate limit: waiting ${Math.ceil(wait / 1000)}s...`);
+    await sleep(wait);
+  }
 
-    if (!response.ok) {
-      const err = await response.text();
-      console.error(`Gemini API Error: ${response.status}`, err);
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      lastApiCall = Date.now();
+      const response = await fetch(GEMINI_URL, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${GEMINI_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ model: GEMINI_MODEL, messages, temperature: 0.5 })
+      });
+
+      if (response.status === 429) {
+        const retryAfter = Math.pow(2, attempt) * 15; // 30s, 60s, 120s
+        console.warn(`⚠️ Rate limited (429). Retry ${attempt}/${MAX_RETRIES} in ${retryAfter}s...`);
+        await sleep(retryAfter * 1000);
+        continue;
+      }
+
+      if (!response.ok) {
+        const err = await response.text();
+        console.error(`Gemini API Error: ${response.status}`, err);
+        return null;
+      }
+
+      const data = await response.json();
+      return data.choices[0].message.content;
+    } catch (error) {
+      console.error(`Gemini API Request Failed (attempt ${attempt}/${MAX_RETRIES}):`, error);
+      if (attempt < MAX_RETRIES) {
+        await sleep(5000);
+        continue;
+      }
       return null;
     }
-
-    const data = await response.json();
-    return data.choices[0].message.content;
-  } catch (error) {
-    console.error('Gemini API Request Failed:', error);
-    return null;
   }
+  console.error('Gemini API: all retries exhausted.');
+  return null;
 }
 
 // --- CACHE ---
