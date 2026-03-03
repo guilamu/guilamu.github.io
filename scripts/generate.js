@@ -2,7 +2,9 @@ const fs = require('fs');
 
 const USERNAME = 'guilamu';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const POE_API_KEY = process.env.POE_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GEMINI_MODEL = 'gemini-pro-latest';
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
 const CACHE_FILE = 'ai_cache.json';
 const VALID_TAGS = ['Gravity Forms', 'IA', 'Wordpress', 'Outils', 'Données'];
 
@@ -21,91 +23,34 @@ async function apiGet(path) {
   return response.json();
 }
 
-async function poeApiCall(model, messages) {
-  if (!POE_API_KEY) {
-    console.warn('⚠️ POE_API_KEY is missing. Skipping AI generation.');
+async function geminiApiCall(messages) {
+  if (!GEMINI_API_KEY) {
+    console.warn('⚠️ GEMINI_API_KEY is missing. Skipping AI generation.');
     return null;
   }
 
   try {
-    const response = await fetch('https://api.poe.com/v1/chat/completions', {
+    const response = await fetch(GEMINI_URL, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${POE_API_KEY}`,
+        'Authorization': `Bearer ${GEMINI_API_KEY}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ model, messages, temperature: 0.5 })
+      body: JSON.stringify({ model: GEMINI_MODEL, messages, temperature: 0.5 })
     });
 
     if (!response.ok) {
       const err = await response.text();
-      console.error(`POE API Error: ${response.status}`, err);
+      console.error(`Gemini API Error: ${response.status}`, err);
       return null;
     }
 
     const data = await response.json();
     return data.choices[0].message.content;
   } catch (error) {
-    console.error('POE API Request Failed:', error);
+    console.error('Gemini API Request Failed:', error);
     return null;
   }
-}
-
-async function getLatestAIModel() {
-  if (!POE_API_KEY) return 'Claude-3-Haiku';
-
-  try {
-    const response = await fetch('https://api.poe.com/v1/models', {
-      headers: { 'Authorization': `Bearer ${POE_API_KEY}` }
-    });
-    if (!response.ok) throw new Error('Failed to fetch models');
-
-    const data = await response.json();
-    const haikuModels = data.data
-      .filter(m => m.metadata?.display_name?.includes('Claude') && m.metadata?.display_name?.includes('Haiku'))
-      .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
-
-    if (haikuModels.length > 0) {
-      console.log(`🤖 Using model: ${haikuModels[0].metadata.display_name} (${haikuModels[0].id})`);
-      return haikuModels[0].id;
-    }
-
-    const sonnetModels = data.data
-      .filter(m => m.metadata?.display_name?.includes('Claude') && m.metadata?.display_name?.includes('Sonnet'))
-      .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
-
-    if (sonnetModels.length > 0) {
-      console.log(`🤖 Using fallback model: ${sonnetModels[0].metadata.display_name}`);
-      return sonnetModels[0].id;
-    }
-  } catch (e) {
-    console.error('Error fetching models:', e);
-  }
-  return 'Claude-3-Haiku';
-}
-
-async function getLatestSonnetModel() {
-  if (!POE_API_KEY) return 'Claude-3-Sonnet';
-
-  try {
-    const response = await fetch('https://api.poe.com/v1/models', {
-      headers: { 'Authorization': `Bearer ${POE_API_KEY}` }
-    });
-    if (!response.ok) throw new Error('Failed to fetch models');
-
-    const data = await response.json();
-    const sonnetModels = data.data
-      .filter(m => m.metadata?.display_name?.includes('Claude') && m.metadata?.display_name?.includes('Sonnet'))
-      .sort((a, b) => b.metadata.display_name.localeCompare(a.metadata.display_name, undefined, { numeric: true, sensitivity: 'base' }));
-
-    if (sonnetModels.length > 0) {
-      console.log(`✍️ Blog model: ${sonnetModels[0].metadata.display_name}`);
-      return sonnetModels[0].id;
-    }
-  } catch (e) {
-    console.error('Error fetching Sonnet model:', e);
-  }
-  return 'Claude-3-Haiku'; // fallback
 }
 
 // --- CACHE ---
@@ -123,7 +68,7 @@ function saveCache(cache) {
 
 // --- AI GENERATION ---
 
-async function getProjectMetadata(repo, model, cache) {
+async function getProjectMetadata(repo, cache) {
   const cacheKey = `meta_${repo.id}`;
   if (cache[cacheKey]) return cache[cacheKey];
 
@@ -145,7 +90,7 @@ Réponds UNIQUEMENT avec ce JSON (pas d'autre texte) :
   `;
 
   try {
-    const content = await poeApiCall(model, [{ role: 'user', content: prompt }]);
+    const content = await geminiApiCall([{ role: 'user', content: prompt }]);
     if (!content) return { tags: ['Outils'], description_fr: repo.description || repo.name };
 
     const jsonMatch = content.match(/\{[\s\S]*\}/);
@@ -213,7 +158,7 @@ async function getReadmeChangelog(repo, tagName) {
   }
 }
 
-async function getReleasePost(repo, release, model, cache) {
+async function getReleasePost(repo, release, cache) {
   const cacheKey = `post_${release.id}`;
   if (cache[cacheKey]) return cache[cacheKey];
 
@@ -237,7 +182,7 @@ ${changelog}
 Rédige un unique paragraphe HTML (<p>...</p>) en français décrivant factuellement ce qui a changé dans cette version. Aucune formule de politesse, aucun emoji, aucune liste. Uniquement les faits.
   `;
 
-  const raw = await poeApiCall(model, [{ role: 'user', content: prompt }]);
+  const raw = await geminiApiCall([{ role: 'user', content: prompt }]);
   if (raw) {
     // Strip markdown code fences if the model wraps its response
     const content = raw.replace(/^```[\w]*\n?/m, '').replace(/\n?```$/m, '').trim();
@@ -282,9 +227,7 @@ function buildCard(repo, release, aiMeta) {
 async function main() {
   const cache = loadCache();
 
-  console.log('📥 Fetching repositories...');
-  const metaModel = await getLatestAIModel();
-  const blogModel = await getLatestSonnetModel();
+  console.log(`📥 Fetching repositories... (AI model: ${GEMINI_MODEL})`);
   let repos = await apiGet(`/users/${USERNAME}/repos?type=public&per_page=100&sort=updated`);
   repos = repos.filter(r => !r.fork);
 
@@ -301,12 +244,12 @@ async function main() {
         console.warn(`No releases for ${repo.name}: ${e.message}`);
       }
 
-      const aiMeta = await getProjectMetadata(repo, metaModel, cache);
+      const aiMeta = await getProjectMetadata(repo, cache);
 
       const blogPosts = [];
       for (const release of releases) {
         try {
-          const postContent = await getReleasePost(repo, release, blogModel, cache);
+          const postContent = await getReleasePost(repo, release, cache);
           if (postContent) {
             blogPosts.push({
               version: release.tag_name,
