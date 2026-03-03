@@ -32,7 +32,7 @@ jobs:
       - name: Generate index.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POE_API_KEY: ${{ secrets.POE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/generate.js
 
       - name: Commit AI Cache
