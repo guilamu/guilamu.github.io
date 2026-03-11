@@ -304,5 +304,6 @@
       "Données"
     ],
     "description_fr": "PWA de suivi des pollens et corrélation des symptômes allergiques pour faciliter les diagnostics."
-  }
+  },
+  "post_295782849": "<p>La version 1.2.3 introduit un événement de notification personnalisé dédié aux entrées expirantes, permettant de configurer des notifications Gravity Forms indépendantes de la soumission initiale pour les phases précédant, suivant ou accompagnant l'expiration. L'outil de traitement rétroactif a été optimisé pour n'afficher que les formulaires disposant d'un flux actif et intègre désormais un sélecteur de mode permettant de traiter uniquement les entrées sans horodatage ou de recalculer l'ensemble des entrées. Enfin, les textes descriptifs de cet outil ont été mis à jour pour tenir compte de ces nouvelles fonctionnalités de traitement.</p>"
 }
