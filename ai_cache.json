@@ -322,5 +322,13 @@
     ],
     "description_fr": "Autocomplétion d'adresses françaises pour Gravity Forms via l'API BAN, sans clé API requise."
   },
-  "post_296604292": "<p>Cette version initiale du projet gf-french-address-autocomplete introduit l'autocomplétion des adresses pour les champs Gravity Forms via l'API BAN, permettant la sauvegarde de la latitude, de la longitude et de l'objet complet du lieu en tant que méta-données de l'entrée lors de la soumission. Elle intègre un menu déroulant accessible conforme aux normes ARIA avec support de la navigation au clavier, ainsi que la prise en charge des mises à jour automatiques via GitHub.</p>"
+  "post_296604292": "<p>Cette version initiale du projet gf-french-address-autocomplete introduit l'autocomplétion des adresses pour les champs Gravity Forms via l'API BAN, permettant la sauvegarde de la latitude, de la longitude et de l'objet complet du lieu en tant que méta-données de l'entrée lors de la soumission. Elle intègre un menu déroulant accessible conforme aux normes ARIA avec support de la navigation au clavier, ainsi que la prise en charge des mises à jour automatiques via GitHub.</p>",
+  "meta_1184190487": {
+    "tags": [
+      "Outils",
+      "Données"
+    ],
+    "description_fr": "Créez et affichez des itinéraires de manifestations sur des cartes interactives avec planification et suivi de participation."
+  },
+  "post_297880049": "<p>La version 1.0.0 marque le lancement initial du projet avec l'introduction d'un constructeur de carte interactif permettant la gestion de points de passage par glisser-déposer et le calcul d'itinéraires piétons via OpenRouteService. Cette version intègre la recherche d'adresses par Nominatim, cinq types de points avec icônes SVG personnalisées, un compteur de participants avec protection par adresse IP et un système d'abonnement par e-mail en deux étapes incluant des notifications et une purge automatique des données après des délais définis. L'outil propose également le support de l'intégration par iframe, un shortcode dédié, un bloc Gutenberg, une superposition des lignes de métro parisiennes via les données IDFM et l'utilisation de fonds de carte CARTO Positron. L'ensemble est complété par une page de réglages dans l'administration, un système de mise à jour automatique via GitHub, l'intégration de Guilamu Bug Reporter et une traduction française complète.</p>"
 }
