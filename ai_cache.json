@@ -345,5 +345,6 @@
       "Outils"
     ],
     "description_fr": "Un script PowerShell pour ajouter l'écran de verrouillage Bing Spotlight à Windows 11 LTSC."
-  }
+  },
+  "post_300237759": "<p>La version 1.0.1 corrige un défaut d'affichage de la bordure inférieure de l'accordéon actif lorsque les sections relatives à la logique conditionnelle avancée ou à la logique conditionnelle native sont sélectionnées.</p>"
 }
