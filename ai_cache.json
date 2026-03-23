@@ -339,5 +339,11 @@
       "Données"
     ],
     "description_fr": "Guide et outils pour migrer ses données et dictionnaires de SwiftKey vers le clavier HeliBoard."
+  },
+  "meta_1188982244": {
+    "tags": [
+      "Outils"
+    ],
+    "description_fr": "Un script PowerShell pour ajouter l'écran de verrouillage Bing Spotlight à Windows 11 LTSC."
   }
 }
