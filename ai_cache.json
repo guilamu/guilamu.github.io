@@ -346,5 +346,14 @@
     ],
     "description_fr": "Un script PowerShell pour ajouter l'écran de verrouillage Bing Spotlight à Windows 11 LTSC."
   },
-  "post_300237759": "<p>La version 1.0.1 corrige un défaut d'affichage de la bordure inférieure de l'accordéon actif lorsque les sections relatives à la logique conditionnelle avancée ou à la logique conditionnelle native sont sélectionnées.</p>"
+  "post_300237759": "<p>La version 1.0.1 corrige un défaut d'affichage de la bordure inférieure de l'accordéon actif lorsque les sections relatives à la logique conditionnelle avancée ou à la logique conditionnelle native sont sélectionnées.</p>",
+  "meta_1189677587": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Rend les champs Gravity Forms obligatoires de manière conditionnelle selon les rôles, paramètres URL ou valeurs saisies."
+  },
+  "post_300258756": "<p>Cette version initiale du projet gf-require-if introduit des règles de validation conditionnelle utilisant une logique ET/OU basées sur diverses sources telles que les champs de formulaire, les rôles et métadonnées des utilisateurs, les identifiants de page, les paramètres d'URL ou des conditions personnalisées. Elle intègre une évaluation en temps réel côté client avec des indicateurs visuels dynamiques, complétée par une validation côté serveur via le crochet gform_pre_validation. L'interface utilisateur est nativement intégrée à l'éditeur de formulaires sous forme d'accordéons et de menus latéraux, et le projet inclut un système de mise à jour automatique via GitHub.</p>"
 }
