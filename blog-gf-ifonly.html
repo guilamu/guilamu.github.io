@@ -39,7 +39,7 @@
       <span class="date">23 mars 2026</span>
     </div>
     <div class="content"><p>La version 1.0.1 corrige un défaut d'affichage de la bordure inférieure de l'accordéon actif lorsque les sections relatives à la logique conditionnelle avancée ou à la logique conditionnelle native sont sélectionnées.</p></div>
-    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.1/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.2/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -47,7 +47,7 @@
       <span class="date">8 mars 2026</span>
     </div>
     <div class="content"><p>La version 1.0.0 du projet gf-ifonly supprime les opérateurs « in CSV » et « not in CSV », dont la logique doit désormais être reproduite via des groupes de conditions multiples, entraînant l'ignorance des anciennes règles configurées avec ces opérateurs. L'architecture évolue pour déléguer l'évaluation des règles individuelles au moteur natif gf_get_field_action de Gravity Forms afin de garantir la compatibilité avec les opérateurs tiers, tandis que l'implémentation de l'opérateur « ne contient pas » est alignée sur les standards de Gravity Wiz pour la validation et l'évaluation côté serveur.</p></div>
-    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.1/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.2/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -55,7 +55,7 @@
       <span class="date">8 mars 2026</span>
     </div>
     <div class="content"><p>La version 0.9.9 corrige un dysfonctionnement de la visibilité des champs en front-end causé par une mauvaise récupération des valeurs des boutons radio, où la fonction ciblait le conteneur structurel au lieu des éléments de formulaire ; le script vérifie désormais le type de balise pour ne lire la valeur que sur les champs de saisie, de sélection ou les zones de texte. Cette mise à jour résout également un problème d'état d'affichage initial lors du chargement de la page en déclenchant une réévaluation immédiate de la logique conditionnelle après l'enregistrement du filtre, palliant ainsi le délai d'exécution du script natif de Gravity Forms.</p></div>
-    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.1/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.2/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -63,7 +63,7 @@
       <span class="date">8 mars 2026</span>
     </div>
     <div class="content"><p>La version 0.9.8 du projet gf-ifonly apporte des corrections techniques majeures, notamment en synchronisant systématiquement l'état des règles avec les valeurs réelles du DOM après chaque rendu pour éviter que les champs à choix multiples ne conservent une valeur vide par défaut. Le système de traitement des confirmations a été intégralement réécrit pour empêcher l'affichage systématique des confirmations IfOnly lorsque les conditions ne sont pas remplies, en intégrant une fonction de secours vers la confirmation par défaut et une meilleure gestion des messages et redirections via un nouvel utilitaire de formatage. Enfin, la mise à jour élimine les conflits potentiels en désactivant et en masquant l'interface de la logique conditionnelle native de Gravity Forms dès que IfOnly est activé, tout en purgeant les données natives correspondantes lors de la sauvegarde pour garantir l'intégrité des traitements côté serveur.</p></div>
-    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.1/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.2/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -71,7 +71,7 @@
       <span class="date">8 mars 2026</span>
     </div>
     <div class="content"><p>La mise à jour v0.9.5 corrige un dysfonctionnement qui entraînait l'envoi de notifications même lorsque les conditions n'étaient pas remplies, en remplaçant la désactivation de l'état actif par une interruption de l'envoi via le filtre gform_pre_send_email. Elle résout également un problème d'affichage des règles après l'enregistrement des réglages de notification et de confirmation en forçant la lecture des données depuis la variable POST pour éviter les données obsolètes. L'ergonomie de l'éditeur de règles est améliorée par l'affichage systématique du bouton de suppression dès qu'un groupe possède plusieurs règles ou qu'il existe plusieurs groupes, tandis que l'affichage des apostrophes dans les traductions des opérateurs est corrigé en supprimant l'échappement HTML lors de la sérialisation JSON.</p></div>
-    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.1/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.2/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -79,7 +79,7 @@
       <span class="date">8 mars 2026</span>
     </div>
     <div class="content"><p>La version 0.9.1 corrige un dysfonctionnement visuel qui entraînait la disparition des groupes de règles lors de l'enregistrement d'un formulaire quand le volet de logique avancée était ouvert. Le rendu de ces groupes est désormais correctement effectué lors de l'appel de la fonction loadField() alors que le volet est déjà actif.</p></div>
-    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.1/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.2/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -87,7 +87,7 @@
       <span class="date">7 mars 2026</span>
     </div>
     <div class="content"><p>La version 0.9.0 constitue la première version publique du projet gf-ifonly et introduit une logique conditionnelle groupée permettant de combiner des conditions avec les opérateurs ET et OU, tout en étendant la prise en charge aux champs, aux boutons de navigation et d'envoi, ainsi qu'aux confirmations et notifications. Cette mise à jour intègre de nouveaux opérateurs de comparaison, la réévaluation systématique de la logique côté serveur lors de la soumission des formulaires, le support des mises à jour automatiques via GitHub et une traduction complète de l'interface en français.</p></div>
-    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.1/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-ifonly/releases/download/v1.0.2/gf-ifonly.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
 </body>
 </html>
