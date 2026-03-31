@@ -35,11 +35,19 @@
   
   <article>
     <div class="article-header">
+      <h2>Version v1.8.2</h2>
+      <span class="date">31 mars 2026</span>
+    </div>
+    <div class="content"><p>La version 1.8.2 apporte des améliorations à la bannière de la fenêtre contextuelle de détails du plugin en remplaçant l'image de fond par un motif géométrique CSS en noir et blanc et en adaptant le style du titre h2 pour qu'il corresponde à la présentation officielle des bannières sur WordPress.org.</p></div>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
       <h2>Version v1.8.1</h2>
       <span class="date">30 mars 2026</span>
     </div>
     <div class="content"><p>La version 1.8.1 introduit une réécriture complète du système de mise à jour automatique GitHub, permettant notamment à la fenêtre de détails de lire le fichier README.md local via Parsedown. Cette mise à jour intègre également des styles CSS pour les tableaux, ajoute des informations spécifiques à Gravity Forms dans la barre latérale, implémente le renommage automatique du dossier via le filtre upgrader_source_selection et garantit une compatibilité totale avec l'interface native de mise à jour de WordPress.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -47,7 +55,7 @@
       <span class="date">24 février 2026</span>
     </div>
     <div class="content"><p>La version 1.8.0 de <em>gf-chained-select-enhancer</em> apporte exclusivement des correctifs de sécurité. Une vulnérabilité XXE (XML External Entity) présente dans le parseur XLSX a été corrigée par l'ajout du drapeau <code>LIBXML_NONET</code> et une protection du chargeur d'entités. Le gestionnaire d'upload XLSX intègre désormais une vérification de capacité via <code>current_user_can</code>, le nonce seul ne constituant pas un contrôle d'autorisation suffisant. Deux vecteurs de type XSS ont été éliminés : l'un en sortie CSS, désormais assainie via <code>wp_strip_all_tags()</code>, l'autre dans le JavaScript d'administration où les manipulations <code>innerHTML</code> ont été remplacées par des méthodes DOM sécurisées. Les appels aux fonctions internes <code>wp_kses_hook()</code> et <code>wp_kses_split()</code> ont été remplacés par l'API publique <code>wp_kses()</code>. L'en-tête <code>Content-Type: application/json</code> est maintenant explicitement envoyé avec les réponses JSON de l'upload XLSX. L'export CSV bénéficie de l'assainissement du nom de fichier via <code>sanitize_file_name()</code> ainsi que de l'en-tête <code>X-Content-Type-Options: nosniff</code>. Une validation MIME des fichiers XLSX a été ajoutée, vérifiant la structure ZIP avant tout traitement. Enfin, le nonce et l'URL AJAX ne sont plus exposés que sur les pages de l'éditeur Gravity Forms.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -55,7 +63,7 @@
       <span class="date">5 février 2026</span>
     </div>
     <div class="content"><p>La version 1.7.2 de <em>gf-chained-select-enhancer</em> corrige trois anomalies. La compatibilité avec PHP 7.4 est rétablie dans le module de mise à jour GitHub : la fonction <code>str_ends_with()</code>, disponible uniquement à partir de PHP 8, a été remplacée par un appel à <code>substr()</code>. Une erreur de décalage d'indice dans la boucle de la fonction <code>array_values_recursive()</code>, utilisée lors de l'import de fichiers XLSX, a également été corrigée. Enfin, l'incohérence de licence entre l'en-tête du plugin et le fichier README a été résolue : la licence AGPL-3.0 est désormais indiquée uniformément dans les deux emplacements.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -63,7 +71,7 @@
       <span class="date">19 janvier 2026</span>
     </div>
     <div class="content">Aucun contenu de changelog n'a été fourni pour la version v1.7.1 du projet **gf-chained-select-enhancer**. Merci de fournir la liste des modifications associées à cette version afin que je puisse rédiger le paragraphe demandé.</div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -71,7 +79,7 @@
       <span class="date">17 janvier 2026</span>
     </div>
     <div class="content"><p>La version 1.7.0 du projet <strong>gf-chained-select-enhancer</strong> introduit l'intégration de <strong>Guilamu Bug Reporter</strong> pour faciliter le signalement de bugs, ajoute la prise en charge de l'importation de fichiers <strong>XLSX</strong> pour alimenter les choix des champs à sélection chaînée, et intègre un parseur XLSX natif basé sur la classe PHP <strong>ZipArchive</strong>, ne nécessitant aucune dépendance externe. Cette version apporte également des améliorations générales au niveau du nettoyage et de l'optimisation du code.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -79,7 +87,7 @@
       <span class="date">11 janvier 2026</span>
     </div>
     <div class="content"><p>La version 1.5.3 de <em>gf-chained-select-enhancer</em> corrige un problème d'espacement dans l'éditeur back-end qui se manifestait lorsque les étiquettes étaient masquées, se traduisant par une marge excessive. Cette correction fait suite à la mise à jour de l'extension principale vers la version 1.8.1.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -87,7 +95,7 @@
       <span class="date">3 janvier 2026</span>
     </div>
     <div class="content"><p>La version 1.5.2 de <strong>gf-chained-select-enhancer</strong> corrige un problème d'affichage affectant les champs de sélection chaînés en pleine largeur, qui ne s'affichaient pas correctement lors du chargement initial de l'éditeur de formulaire.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -95,7 +103,7 @@
       <span class="date">3 janvier 2026</span>
     </div>
     <div class="content"><p>La version 1.5.1 de <strong>gf-chained-select-enhancer</strong> corrige un dysfonctionnement affectant l'aperçu des champs de sélection chaînés en pleine largeur avec orientation verticale dans l'éditeur de formulaire, qui ne s'affichait pas correctement.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -103,7 +111,7 @@
       <span class="date">2 janvier 2026</span>
     </div>
     <div class="content"><p>Dans la version 1.5.0 de <strong>gf-chained-select-enhancer</strong>, l'apparence des interrupteurs à bascule (toggle switches) a été mise à jour afin de correspondre au style natif des toggles de Gravity Forms.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -111,7 +119,7 @@
       <span class="date">31 décembre 2025</span>
     </div>
     <div class="content"><p>La version 1.4.0 du projet <strong>gf-chained-select-enhancer</strong> introduit une architecture modulaire reposant sur des fichiers de classes séparés, ainsi qu'une externalisation des ressources CSS et JavaScript. La sécurité a été renforcée par l'ajout d'une gestion appropriée des nonces et une sanitisation des données. Les performances ont été améliorées grâce au chargement conditionnel du CSS, limité aux pages qui affichent effectivement des formulaires, et par la mise en cache des appels à l'API GitHub via un transient d'une durée de douze heures. L'export CSV a par ailleurs été corrigé afin de diffuser les données en flux direct, supprimant ainsi tout stockage de fichiers dans l'espace public du serveur.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -119,7 +127,7 @@
       <span class="date">26 novembre 2025</span>
     </div>
     <div class="content"><p>La version 1.3 du plugin <strong>gf-chained-select-enhancer</strong>, publiée le 26 novembre 2025, introduit un système de mises à jour automatiques depuis le dépôt GitHub. Le plugin est désormais capable de détecter et d'installer les nouvelles versions sans intervention manuelle, grâce à l'ajout d'un champ <code>Update URI</code> dans l'en-tête du plugin, qui permet l'intégration native avec le mécanisme de mise à jour de WordPress.</p></div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -127,7 +135,7 @@
       <span class="date">6 novembre 2025</span>
     </div>
     <div class="content">Je ne suis pas en mesure d'accéder à l'URL GitHub fournie, car je n'ai pas la capacité de naviguer sur internet. Pour rédiger ce paragraphe avec précision, merci de me communiquer directement le contenu du changelog (liste des commits ou notes de version).</div>
-    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.1/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/gf-chained-select-enhancer/releases/download/v1.8.2/gf-chained-select-enhancer.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
 </body>
 </html>
