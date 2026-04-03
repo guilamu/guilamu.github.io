@@ -35,6 +35,14 @@
   
   <article>
     <div class="article-header">
+      <h2>Version v1.1.0</h2>
+      <span class="date">3 avril 2026</span>
+    </div>
+    <div class="content"><p>La version 1.1.0 du projet quick-entry renforce la sécurité globale en implémentant le hachage SHA-256 pour les jetons et l'utilisation de wp_hash_password pour les codes de vérification, garantissant qu'aucune donnée sensible brute ne persiste en base de données. La génération de données aléatoires repose désormais sur des fonctions cryptographiquement sûres, tandis que la gestion des sessions abandonne PHP au profit de limitations de débit par transients et de cookies d'authentification non persistants pour prévenir la fixation de session. Cette mise à jour introduit également une protection contre le flood d'e-mails, des messages d'erreur génériques pour limiter la divulgation d'informations, des en-têtes HTTP de contrôle de cache et de référent restrictifs, ainsi que la correction de vulnérabilités XSS via l'usage de textContent dans le code JavaScript. Enfin, l'intégration de l'action wp_login assure la compatibilité avec les journaux d'audit, complétée par un nettoyage automatisé des jetons expirés via WP-Cron et la sécurisation des requêtes SQL lors de la désinstallation.</p></div>
+    <a href="https://github.com/guilamu/quick-entry/releases/download/v1.1.0/quick-entry.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
       <h2>Version v1.0.0</h2>
       <span class="date">2 avril 2026</span>
     </div>
