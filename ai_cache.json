@@ -466,5 +466,6 @@
       "Outils"
     ],
     "description_fr": "Évaluation de 14 modèles d'IA sur une tâche de plugin WordPress, analysant leur utilisation de l'interface native."
-  }
+  },
+  "post_313601402": "<p>La version 1.0.3 du projet gf-live-search introduit un badge de raccourci accompagné d'une fenêtre contextuelle pour configurer l'action des touches Ctrl/Cmd+F, qui activent désormais par défaut la recherche native du navigateur sauf si l'utilisateur choisit de cibler le champ de recherche. Cette mise à jour remplace également l'utilisation de la fonction PHP 8 str_ends_with() par une vérification de suffixe compatible avec PHP 7.4 au sein du système de mise à jour afin d'élargir la compatibilité logicielle.</p>"
 }
