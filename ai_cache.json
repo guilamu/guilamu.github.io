@@ -467,5 +467,14 @@
     ],
     "description_fr": "Évaluation de 14 modèles d'IA sur une tâche de plugin WordPress, analysant leur utilisation de l'interface native."
   },
-  "post_313601402": "<p>La version 1.0.3 du projet gf-live-search introduit un badge de raccourci accompagné d'une fenêtre contextuelle pour configurer l'action des touches Ctrl/Cmd+F, qui activent désormais par défaut la recherche native du navigateur sauf si l'utilisateur choisit de cibler le champ de recherche. Cette mise à jour remplace également l'utilisation de la fonction PHP 8 str_ends_with() par une vérification de suffixe compatible avec PHP 7.4 au sein du système de mise à jour afin d'élargir la compatibilité logicielle.</p>"
+  "post_313601402": "<p>La version 1.0.3 du projet gf-live-search introduit un badge de raccourci accompagné d'une fenêtre contextuelle pour configurer l'action des touches Ctrl/Cmd+F, qui activent désormais par défaut la recherche native du navigateur sauf si l'utilisateur choisit de cibler le champ de recherche. Cette mise à jour remplace également l'utilisation de la fonction PHP 8 str_ends_with() par une vérification de suffixe compatible avec PHP 7.4 au sein du système de mise à jour afin d'élargir la compatibilité logicielle.</p>",
+  "meta_1227740546": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils"
+    ],
+    "description_fr": "Approbations Gravity Forms par e-mail sécurisé avec suivi natif du statut des entrées dans WordPress."
+  },
+  "post_316806841": "<p>La version v0.1.0 introduit le flux de travail initial d'approbation par e-mail pour les entrées Gravity Forms ainsi que la gestion des mises à jour automatiques via GitHub, une fenêtre de détails de l'extension et l'intégration de Guilamu Bug Reporter. L'interface d'administration est améliorée par l'ajout d'actions natives dans les détails des entrées, de filtres de liste, de colonnes de statut et d'actions groupées. La sécurité est renforcée par l'implémentation de jetons de décision hachés à usage unique, de protections par nonce pour les actions d'administration et de vérifications de permissions pour les changements de statut.</p>"
 }
