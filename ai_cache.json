@@ -564,5 +564,6 @@
       "Outils"
     ],
     "description_fr": "Outil de dimensionnement et de placement optimal de brasseurs d'air, basé sur les recommandations de l'ADEME."
-  }
+  },
+  "post_332941609": "<p>La mise à jour v1.3.4 du projet \"gf-conditional-compass\" corrige une erreur fatale (<code>Call to undefined method Parsedown::setSafeMode()</code>) qui se produisait lorsqu'un autre plugin chargeait une version antérieure de la bibliothèque Parsedown ne disposant pas de la méthode <code>setSafeMode</code>.</p>"
 }
