@@ -582,5 +582,6 @@
   "post_335545586": "<p>La mise à jour v1.0.0 du projet gf-missing-extensions-notice correspond au lancement initial et à la première publication officielle du logiciel.</p>",
   "post_335563016": "<p>La version 1.0.0 du projet « gf-missing-extensions-notice » correspond au lancement initial et à la première publication officielle du projet.</p>",
   "post_335563593": "<p>La version 1.0.0 du projet « gf-missing-extensions-notice » correspond au lancement initial et à la première publication officielle du logiciel.</p>",
-  "post_335565590": "<p>La version v1.0.0 du projet « gf-missing-extensions-notice » correspond au lancement initial et à la première publication officielle de ce programme.</p>"
+  "post_335565590": "<p>La version v1.0.0 du projet « gf-missing-extensions-notice » correspond au lancement initial et à la première publication officielle de ce programme.</p>",
+  "post_335945740": "<p>La version 1.0.1 du projet \"gf-missing-extensions-notice\" résout un dysfonctionnement du système de mise à jour GitHub qui empêchait l'affichage de la version requise de Gravity Forms, et supprime les fonctions de code mort inutilisées get_form_from_request() et get_requested_page().</p>"
 }
