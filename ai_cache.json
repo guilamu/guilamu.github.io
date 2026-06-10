@@ -590,5 +590,7 @@
       "Outils"
     ],
     "description_fr": "Ajoute automatiquement des icônes SVG personnalisables aux liens de fichiers (PDF, Word, Excel, etc.)."
-  }
+  },
+  "post_337238266": "<p>La mise à jour v1.0.1 du projet \"file-type-icons\" introduit une fonctionnalité d'aperçu des liens en direct dans le panneau des paramètres généraux et met à jour les fichiers sources de traduction POT et PO afin d'y intégrer l'ensemble des chaînes de caractères localisées manquantes.</p>",
+  "post_337220704": "<p>La mise à jour v1.0.0 du projet \"file-type-icons\" correspond au lancement officiel de la première version stable de cette bibliothèque.</p>"
 }
