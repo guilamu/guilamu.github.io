@@ -599,5 +599,6 @@
   "post_337403872": "<p>La version 1.0.3 du projet « file-type-icons » intègre le sélecteur de couleurs moderne Coloris dans la page des paramètres d'administration.</p>",
   "post_337284167": "<p>La version 1.0.2 du projet « file-type-icons » ajoute le Style 3, un préréglage de badge dégradé arrondi nommé « Rounded », qui prend désormais en charge la prévisualisation en temps réel sur la page des paramètres.</p>",
   "post_337271754": "<p>La version 1.0.1 du projet \"file-type-icons\" ajoute une fonctionnalité de prévisualisation en direct des liens dans le panneau des paramètres généraux.</p>",
-  "post_337478798": "<p>La mise à jour v1.0.4 du projet « file-type-icons » introduit des effets de survol de souris personnalisables, à savoir la surélévation et le zoom, pour les icônes de liens de fichiers sur l'interface publique, accompagnés d'un aperçu interactif en direct lors de leur configuration.</p>"
+  "post_337478798": "<p>La mise à jour v1.0.4 du projet « file-type-icons » introduit des effets de survol de souris personnalisables, à savoir la surélévation et le zoom, pour les icônes de liens de fichiers sur l'interface publique, accompagnés d'un aperçu interactif en direct lors de leur configuration.</p>",
+  "post_337484017": "<p>La version 1.0.4 du projet « file-type-icons » introduit des effets de survol de souris personnalisables, à savoir l'élévation et le zoom, pour les icônes des liens de fichiers côté frontend, accompagnés d'un aperçu interactif en direct pour configurer ces réglages.</p>"
 }
