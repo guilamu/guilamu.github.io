@@ -600,5 +600,12 @@
   "post_337284167": "<p>La version 1.0.2 du projet « file-type-icons » ajoute le Style 3, un préréglage de badge dégradé arrondi nommé « Rounded », qui prend désormais en charge la prévisualisation en temps réel sur la page des paramètres.</p>",
   "post_337271754": "<p>La version 1.0.1 du projet \"file-type-icons\" ajoute une fonctionnalité de prévisualisation en direct des liens dans le panneau des paramètres généraux.</p>",
   "post_337478798": "<p>La mise à jour v1.0.4 du projet « file-type-icons » introduit des effets de survol de souris personnalisables, à savoir la surélévation et le zoom, pour les icônes de liens de fichiers sur l'interface publique, accompagnés d'un aperçu interactif en direct lors de leur configuration.</p>",
-  "post_337484017": "<p>La version 1.0.4 du projet « file-type-icons » introduit des effets de survol de souris personnalisables, à savoir l'élévation et le zoom, pour les icônes des liens de fichiers côté frontend, accompagnés d'un aperçu interactif en direct pour configurer ces réglages.</p>"
+  "post_337484017": "<p>La version 1.0.4 du projet « file-type-icons » introduit des effets de survol de souris personnalisables, à savoir l'élévation et le zoom, pour les icônes des liens de fichiers côté frontend, accompagnés d'un aperçu interactif en direct pour configurer ces réglages.</p>",
+  "post_337906468": "<p>La mise à jour v1.0.5 du projet « file-type-icons » corrige les métadonnées de mise à jour pour afficher de manière cohérente la version de WordPress testée, tout en renforçant la sécurité de la fonctionnalité de désactivation par article et de la gestion des jetons (nonces). Elle nettoie également l'option d'effet de survol lors de la désinstallation, synchronise la version des ressources de l'administration avec celle de l'extension, et harmonise les références de licence documentées avec le fichier de licence AGPL fourni.</p>",
+  "meta_1265913120": {
+    "tags": [
+      "Outils"
+    ],
+    "description_fr": "Un outil simple pour collecter, organiser et partager des idées créatives."
+  }
 }
