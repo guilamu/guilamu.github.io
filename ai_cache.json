@@ -607,5 +607,7 @@
       "Outils"
     ],
     "description_fr": "Un outil simple pour collecter, organiser et partager des idées créatives."
-  }
+  },
+  "post_337936543": "<p>La mise à jour v1.0.7 du projet « file-type-icons » intègre désormais localement les icônes de l'interface d'administration, ce qui élimine la dépendance de cette interface utilisateur vis-à-vis d'un CDN externe pour l'affichage de ces éléments.</p>",
+  "post_337913311": "<p>La mise à jour v1.0.6 du projet « file-type-icons » ajoute une explication concernant l'utilisation du shortcode [no_fti] dans la section des paramètres dédiée aux exclusions de classes.</p>"
 }
