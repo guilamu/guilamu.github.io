@@ -620,5 +620,6 @@
   },
   "post_339252026": "<p>La version 1.0.0 du projet gf-carddav-server introduit la version initiale du serveur CardDAV conçu pour gérer les entrées du plugin Gravity Forms.</p>",
   "post_339378477": "<p>La version v1.0.0 du projet gf-carddav-server marque le lancement initial de ce serveur CardDAV, conçu pour permettre l'accès et la synchronisation des entrées issues du plugin Gravity Forms.</p>",
-  "post_339383690": "<p>La mise à jour v1.0.1 du projet gf-carddav-server résout un dysfonctionnement du lien de visualisation des détails sur la page des extensions de WordPress, en garantissant que les données renvoyées par l'API d'information du plugin ne soient plus altérées par les filtres du cœur de WordPress.</p>"
+  "post_339383690": "<p>La mise à jour v1.0.1 du projet gf-carddav-server résout un dysfonctionnement du lien de visualisation des détails sur la page des extensions de WordPress, en garantissant que les données renvoyées par l'API d'information du plugin ne soient plus altérées par les filtres du cœur de WordPress.</p>",
+  "post_339385830": "<p>La version 1.0.8 du projet « file-type-icons » corrige un dysfonctionnement du lien « Voir les détails » sur la page des extensions, en garantissant que les données de l'API d'informations du plugin ne soient plus altérées par les filtres du cœur de WordPress.</p>"
 }
