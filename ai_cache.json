@@ -618,5 +618,6 @@
     ],
     "description_fr": "Expose les entrées de Gravity Forms sous forme de carnet d'adresses CardDAV natif."
   },
-  "post_339252026": "<p>La version 1.0.0 du projet gf-carddav-server introduit la version initiale du serveur CardDAV conçu pour gérer les entrées du plugin Gravity Forms.</p>"
+  "post_339252026": "<p>La version 1.0.0 du projet gf-carddav-server introduit la version initiale du serveur CardDAV conçu pour gérer les entrées du plugin Gravity Forms.</p>",
+  "post_339378477": "<p>La version v1.0.0 du projet gf-carddav-server marque le lancement initial de ce serveur CardDAV, conçu pour permettre l'accès et la synchronisation des entrées issues du plugin Gravity Forms.</p>"
 }
