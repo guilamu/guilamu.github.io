@@ -663,5 +663,6 @@
       "Données"
     ],
     "description_fr": "Convertit les fichiers XLSX téléversés via Gravity Forms en CSV et les joint aux notifications du formulaire."
-  }
+  },
+  "post_349491686": "<p>La version 1.0.5 du projet « simple-membership-manager » ajoute un menu déroulant de filtrage par niveau d'adhésion sur la page d'administration des adhésions, permettant de filtrer la liste selon le niveau d'abonnement. Ce nouveau filtre se combine avec la recherche et les vues par statut, et reste actif lors de la navigation entre ces différentes vues de statut.</p>"
 }
