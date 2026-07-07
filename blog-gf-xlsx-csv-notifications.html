@@ -35,6 +35,14 @@
   
   <article>
     <div class="article-header">
+      <h2>Version v1.1.3</h2>
+      <span class="date">6 juillet 2026</span>
+    </div>
+    <div class="content"><p>La version 1.1.3 corrige un problème où les fichiers XLSX restaient attachés aux notifications pour les champs configurés sur « CSV uniquement (supprimer XLSX) », en raison de l'option native de Gravity Forms « Joindre les fichiers téléchargés à la notification » qui s'exécutait après le filtre du plugin et réintégrait le fichier. Pour résoudre cela, un nouveau crochet <code>gform_pre_send_email</code> s'exécute désormais en dernier afin de supprimer le fichier XLSX pour les champs concernés et d'éliminer les pièces jointes en double juste avant l'envoi de l'e-mail.</p></div>
+    <a href="https://github.com/guilamu/gf-xlsx-csv-notifications/releases/download/v1.1.3/gf-xlsx-csv-notifications.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
       <h2>Version v1.1.1</h2>
       <span class="date">6 juillet 2026</span>
     </div>
