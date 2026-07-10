@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gwcopycat-ui — Mises à jour</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --border: #30363d; --text: #c9d1d9; --accent: #58a6ff; }
+    body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.7; }
+    .back-link { color: #8b949e; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--accent); }
+    header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    header h1 { color: var(--accent); margin-bottom: 0.5rem; }
+    header p { color: #8b949e; }
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .tag { background: #21262d; color: #8b949e; border: 1px solid #30363d; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; }
+    article { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .article-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+    .article-header h2 { color: white; font-size: 1.1rem; }
+    .date { font-size: 0.85rem; color: #8b949e; }
+    .content { color: #c9d1d9; font-size: 0.95rem; }
+    .content p { margin-bottom: 0.75rem; }
+    .btn-download { display: inline-block; margin-top: 1.25rem; background: #238636; color: white; text-decoration: none; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.875rem; }
+    .btn-download:hover { background: #2ea043; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-link">← Retour aux projets</a>
+  <header>
+    <h1>gwcopycat-ui</h1>
+    <p>Configuration visuelle de la copie de champs Gravity Forms via des menus déroulants plutôt que des classes CSS.</p>
+    <div class="tags"><span class="tag">Gravity Forms</span><span class="tag">Wordpress</span><span class="tag">Outils</span></div>
+  </header>
+
+  
+  <article>
+    <div class="article-header">
+      <h2>Version v1.1.0</h2>
+      <span class="date">10 juillet 2026</span>
+    </div>
+    <div class="content"><p>La mise à jour v1.1.0 du projet "gwcopycat-ui" apporte des améliorations ergonomiques et fonctionnelles, notamment dans la vue globale où chaque règle affiche désormais un résumé textuel explicite mis à jour en temps réel sous ses menus déroulants, et où ces derniers disposent d'étiquettes individuelles sur les écrans étroits. De plus, les règles incomplètes ne disparaissent plus lors de la sauvegarde mais sont mises en évidence et bloquent l'enregistrement jusqu'à leur finalisation ou leur suppression, tandis que les règles faisant référence à un champ supprimé restent visibles et signalées par leur identifiant orphelin au lieu d'être ignorées silencieusement. Enfin, l'accessibilité est renforcée grâce aux sélecteurs de champs qui exposent désormais des noms accessibles pour les lecteurs d'écran.</p></div>
+    <a href="https://github.com/guilamu/gwcopycat-ui/releases/download/v1.1.0/gwcopycat-ui.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.0.1</h2>
+      <span class="date">9 juillet 2026</span>
+    </div>
+    <div class="content"><p>La mise à jour v1.0.1 du projet gwcopycat-ui apporte la traduction en français (fr_FR) et introduit un modèle de traduction (gwcopycat-ui.pot) tout en rendant l'intégralité des chaînes de caractères prête pour de futures traductions.</p></div>
+    <a href="https://github.com/guilamu/gwcopycat-ui/releases/download/v1.1.0/gwcopycat-ui.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
+      <h2>Version v1.0.0</h2>
+      <span class="date">9 juillet 2026</span>
+    </div>
+    <div class="content"><p>La version initiale v1.0.0 du projet gwcopycat-ui introduit la configuration visuelle des règles de copie grâce à un panneau « Advanced → Copy Cat » par champ et à une page globale de paramètres de formulaire. Cette mouture prend en charge les champs complets, les saisies individuelles ainsi que les colonnes de listes multicolonnes comme sources ou cibles, tout en intégrant des conditions optionnelles de présence de valeur et une option de copie d'étiquette pour les champs de choix. De plus, un importateur en un clic permet de convertir les anciennes classes CSS « copy-* » en règles d'interface utilisateur au niveau des champs ou du formulaire, tandis que l'éditeur affiche désormais des badges indicateurs pour identifier les déclencheurs, sources et cibles. Enfin, le système intègre des mises à jour automatiques basées sur GitHub, accompagnées d'une fenêtre de détails native.</p></div>
+    <a href="https://github.com/guilamu/gwcopycat-ui/releases/download/v1.1.0/gwcopycat-ui.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+</body>
+</html>
