@@ -729,5 +729,6 @@
       "Outils"
     ],
     "description_fr": "Une bulle de chat en direct pour utilisateurs connectés, gérée directement depuis un groupe Telegram."
-  }
+  },
+  "post_364789314": "<p>La version 1.0.0 du projet live-chat-for-telegram constitue la première publication officielle et introduit une bulle de messagerie restreinte aux utilisateurs WordPress connectés, associée à un sujet de forum Telegram permanent par membre. Elle prend en charge les échanges bidirectionnels de textes et de pièces jointes (images, documents, messages vocaux et vidéos), un indicateur de saisie, des accusés de lecture, ainsi qu'une gestion des heures d'ouverture affichant un avis de fermeture hors des plages définies. La mise à jour intègre la récupération des données membres depuis leur compte WordPress ou un formulaire Gravity Forms via un explorateur de champs dédié, un sélecteur d'emojis désactivable, des sélecteurs de variables de remplacement pour les champs personnalisables, la sélection d'avatar via la médiathèque WordPress, l'ajout de la traduction française, ainsi que le support des mises à jour automatiques via GitHub et l'intégration de Guilamu Bug Reporter.</p>"
 }
