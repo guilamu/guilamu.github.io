@@ -768,5 +768,15 @@
   },
   "post_375972838": "<p>La mise à jour v1.0.1 sépare la gestion de l'affichage de celle du filtrage, permettant désormais d'utiliser les champs administratifs comme filtres de partage même lorsqu'ils sont exclus de la vue principale. L'application d'un filtre sur ces données n'expose aucune information puisqu'elles ne sont pas générées sous forme de colonnes dans l'interface, et les entrées administratives sont désormais explicitement identifiées comme telles dans le sélecteur.</p>",
   "post_375225078": "<p>La version 1.1.0 introduit une case à cocher dans la modale classique d'insertion de lien pour exclure individuellement un lien en lui appliquant la classe <code>no-fti</code>. Les performances sont améliorées grâce à l'envoi ciblé des règles CSS limitées aux types de fichiers présents sur la page et à un encodage allégé en URI de données, ce qui supprime la requête de feuille de style front-end et réduit le poids du CSS sous la barre du kilooctet. Le code court <code>[no_fti]</code> prend désormais en charge le format sans attribut, tandis que la fenêtre de détails indique la version actuelle de WordPress pour éviter les faux avertissements d'incompatibilité. Cette mise à jour corrige également le dégradé de prévisualisation du style arrondi, harmonise les cinq types de fichiers activés par défaut lors d'une nouvelle installation, supprime dix-huit fichiers SVG inutilisés ainsi que la feuille de style front-end résiduelle, et déduplique les structures de données partagées.</p>",
-  "post_376171509": "<p>Dans la version 1.0.2, la modification en ligne des filtres a été retirée du tableau de partage. Les trois commandes d'édition sont désormais remplacées par un résumé en lecture seule du filtre actif, permettant de visualiser la portée du lien en un coup d'œil sans encombrer la ligne. Les filtres sont désormais définis uniquement lors de la création du lien, et toute modification nécessite d'en générer un nouveau.</p>"
+  "post_376171509": "<p>Dans la version 1.0.2, la modification en ligne des filtres a été retirée du tableau de partage. Les trois commandes d'édition sont désormais remplacées par un résumé en lecture seule du filtre actif, permettant de visualiser la portée du lien en un coup d'œil sans encombrer la ligne. Les filtres sont désormais définis uniquement lors de la création du lien, et toute modification nécessite d'en générer un nouveau.</p>",
+  "meta_1349360811": {
+    "tags": [
+      "Gravity Forms",
+      "Wordpress",
+      "Outils",
+      "Données"
+    ],
+    "description_fr": "Réassignez facilement des entrées Gravity Forms d'un compte utilisateur à un autre sur WordPress."
+  },
+  "post_378304755": "<p>Cette version corrige l'erreur affichant « Plugin not found » lors du clic sur le lien des détails de l'extension en reconstruisant les informations nécessaires via le filtre <code>plugins_api_result</code> afin de garantir l'affichage de la fenêtre modale même en cas de conflit avec d'autres extensions. Elle améliore également le système de mise à jour en résolvant dynamiquement le fichier et le dossier du plugin à partir de la constante <code>SMM_PLUGIN_FILE</code>, permettant aux mises à jour et à la modale de détails de continuer à fonctionner même si le répertoire de l'extension a été renommé.</p>"
 }
