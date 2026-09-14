@@ -793,5 +793,11 @@
       "Données"
     ],
     "description_fr": "Conversion bidirectionnelle entre CSV et XLSX directement depuis le menu contextuel de Windows."
+  },
+  "meta_1367067470": {
+    "tags": [
+      "Outils"
+    ],
+    "description_fr": "Script ajoutant une piste audio stéréo avec voix claires et explosions atténuées pour vos vidéos."
   }
 }
