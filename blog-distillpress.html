@@ -39,7 +39,7 @@
       <span class="date">1 octobre 2026</span>
     </div>
     <div class="content"><p>La version 1.5.0 de distillpress ajoute la méthode publique <code>distillpress()->generate( $content, $args )</code>, permettant aux autres extensions de générer un résumé ou une accroche sans passer par l'éditeur en configurant les arguments souhaités. Le bouton de l'éditeur utilise désormais cette même méthode pour son fonctionnement.</p></div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -47,7 +47,7 @@
       <span class="date">30 septembre 2026</span>
     </div>
     <div class="content"><p>La version 1.4.1 de DistillPress apporte la prise en charge de Divi 5 en extrayant le contenu textuel des blocs Divi 5 pour le résumé, l'accroche et la catégorisation, à l'exception des modules de code qui sont ignorés. De plus, les shortcodes issus de Divi 4 sont désormais supprimés du contenu envoyé à l'intelligence artificielle.</p></div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -55,7 +55,7 @@
       <span class="date">23 août 2026</span>
     </div>
     <div class="content"><p>La version 1.4.0 de DistillPress introduit un paramètre d'effort de raisonnement pour les modèles compatibles et définit DeepSeek-V4-Flash comme modèle POE par défaut. Elle corrige l'affichage des modèles POE sans liste de points de terminaison déclarée, le fonctionnement des boutons d'affichage des clés API dans les interfaces traduites, la numérotation continue des règles du prompt système, la compatibilité PHP 7.4 du système de mise à jour GitHub et le moment d'application du filtre <code>distillpress_supported_post_types</code>. La désinstallation supprime désormais l'intégralité des journaux et des options sur l'ensemble des sites d'un réseau. De plus, les erreurs d'API affichent désormais les messages retournés par les fournisseurs, le journal des requêtes consigne le prestataire ainsi que le motif de l'appel sans se charger sur chaque page, la gestion des API est unifiée dans une classe unique avec suppression du code mort, et les métadonnées du plugin ainsi que le fichier README ont été alignés sur les références Guilamu.</p></div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -63,7 +63,7 @@
       <span class="date">23 août 2026</span>
     </div>
     <div class="content"><p>La version 1.3.2 de distillpress corrige l'actualisation des modèles en interrogeant directement l'API POE sans passer par le cache d'une heure, tout en affichant désormais les erreurs de chargement à côté du bouton concerné. La liste filtre les modèles multimédias incompatibles avec la génération textuelle et ne propose que la version la plus récente de chaque modèle, en incluant systématiquement le numéro de version dans son libellé. Enfin, les modèles peuvent être récupérés dès la saisie de la clé API avant l'enregistrement des paramètres, et le modèle préalablement sélectionné dans les réglages demeure disponible même si une version plus récente est apparue.</p></div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -71,7 +71,7 @@
       <span class="date">31 mars 2026</span>
     </div>
     <div class="content"><p>La version 1.3.1 du projet distillpress améliore le système de mise à jour via GitHub en analysant le fichier README.md local pour générer les onglets d'information de l'extension et ajoute un lien de consultation des détails dans les métadonnées de la liste des extensions. L'objet de mise à jour intègre désormais tous les champs nécessaires à une compatibilité complète avec WordPress, tandis que l'injection de CSS via le crochet admin_head assure le style des fenêtres modales. Cette version introduit également la dépendance Parsedown.php pour la conversion du Markdown en HTML et transforme les tableaux Markdown en structures div et span afin de garantir leur affichage après le nettoyage par la fonction wp_kses.</p></div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -79,7 +79,7 @@
       <span class="date">21 février 2026</span>
     </div>
     <div class="content"><p>La version 1.3.0 de distillpress introduit la prise en charge de l'API Google Gemini comme fournisseur d'IA alternatif à POE, avec un sélecteur de fournisseur dans les paramètres, un champ de clé API Gemini accompagné d'un bouton d'affichage/masquage et d'un lien vers Google AI Studio, ainsi qu'un sélecteur de modèle permettant de choisir entre gemini-flash-latest et gemini-pro-latest. La constante <code>DISTILLPRESS_GEMINI_API_KEY</code> peut désormais être définie directement dans le fichier <code>wp-config.php</code>. La page de paramètres affiche et masque dynamiquement les champs propres à chaque fournisseur, et les messages d'erreur génériques ne font plus référence à un fournisseur spécifique.</p></div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -87,7 +87,7 @@
       <span class="date">29 décembre 2025</span>
     </div>
     <div class="content">Aucun contenu de changelog n'a été fourni pour la version v1.2.0 du projet **distillpress**. Merci de coller le détail des modifications (notes de version, liste des commits, diff, etc.) afin que je puisse rédiger le paragraphe demandé.</div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -95,7 +95,7 @@
       <span class="date">28 décembre 2025</span>
     </div>
     <div class="content">Aucun contenu de changelog n'a été fourni au-delà du numéro de version `v1.1.2`. Merci de fournir les notes de mise à jour (corrections, ajouts, modifications, suppressions, etc.) afin que je puisse rédiger le paragraphe demandé.</div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -103,7 +103,7 @@
       <span class="date">28 décembre 2025</span>
     </div>
     <div class="content">Il semble que le contenu du changelog n'ait pas été fourni — seul le numéro de version `v1.1.1` est présent. Pourriez-vous fournir les modifications, corrections ou ajouts associés à cette version afin que je puisse rédiger le paragraphe demandé ?</div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -113,7 +113,7 @@
     <div class="content">Le contenu du changelog que vous avez fourni est vide — seul le numéro de version `v1.1.0` apparaît, sans aucune entrée décrivant les modifications.
 
 Merci de fournir les notes de version (corrections, nouvelles fonctionnalités, changements de comportement, etc.) afin que je puisse rédiger le paragraphe demandé.</div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
   <article>
     <div class="article-header">
@@ -121,7 +121,7 @@ Merci de fournir les notes de version (corrections, nouvelles fonctionnalités, 
       <span class="date">28 décembre 2025</span>
     </div>
     <div class="content"><p>La version 1.0.0 constitue la première version officielle du projet distillpress. Aucun détail sur les fonctionnalités, correctifs ou modifications introduits dans cette version n'a été fourni dans le changelog.</p></div>
-    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.0/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+    <a href="https://github.com/guilamu/distillpress/releases/download/v1.6.1/distillpress.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
   </article>
 </body>
 </html>
