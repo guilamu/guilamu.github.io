@@ -35,6 +35,14 @@
   
   <article>
     <div class="article-header">
+      <h2>Version v1.2.1</h2>
+      <span class="date">15 octobre 2026</span>
+    </div>
+    <div class="content"><p>La version 1.2.1 corrige un dysfonctionnement de la synchronisation CardDAV causé par l'extension WP Super Cache, qui renvoyait la page d'accueil mise en cache avec un code 200 au lieu d'une réponse 207 Multi-Status lors de requêtes PROPFIND sur la racine du site. Le plugin déploie désormais un module complémentaire pour WP Super Cache qui désactive la mise en cache des pages pour toute méthode autre que GET ou HEAD ainsi que pour les URL ciblant /carddav/ et /.well-known/carddav, géré automatiquement à l'activation, à la désactivation et lors du chargement de l'administration. Enfin, les réponses CardDAV intègrent désormais des en-têtes interdisant la mise en cache et définissent la constante DONOTCACHEPAGE afin de prévenir tout stockage par des systèmes tiers de cache de page.</p></div>
+    <a href="https://github.com/guilamu/gf-carddav-server/releases/download/v1.2.1/gf-carddav-server.zip" class="btn-download" target="_blank">Télécharger la dernière version</a>
+  </article>
+  <article>
+    <div class="article-header">
       <h2>Version v1.2.0</h2>
       <span class="date">8 juillet 2026</span>
     </div>
