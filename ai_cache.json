@@ -859,5 +859,6 @@
       "Wordpress"
     ],
     "description_fr": "Passerelle de paiement non officielle Monetico pour Gravity Forms avec support 3D Secure 2 et remboursements."
-  }
+  },
+  "post_429228640": "<p>La mise à jour v0.1.2 améliore l'explication des erreurs en précisant, lorsqu'un remboursement est refusé avec le code -30, que l'adresse IP du serveur n'est probablement pas autorisée à effectuer des remboursements auprès de Monetico.</p>"
 }
