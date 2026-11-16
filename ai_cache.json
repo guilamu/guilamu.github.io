@@ -860,5 +860,6 @@
     ],
     "description_fr": "Passerelle de paiement non officielle Monetico pour Gravity Forms avec support 3D Secure 2 et remboursements."
   },
-  "post_429228640": "<p>La mise à jour v0.1.2 améliore l'explication des erreurs en précisant, lorsqu'un remboursement est refusé avec le code -30, que l'adresse IP du serveur n'est probablement pas autorisée à effectuer des remboursements auprès de Monetico.</p>"
+  "post_429228640": "<p>La mise à jour v0.1.2 améliore l'explication des erreurs en précisant, lorsqu'un remboursement est refusé avec le code -30, que l'adresse IP du serveur n'est probablement pas autorisée à effectuer des remboursements auprès de Monetico.</p>",
+  "post_447056783": "<p>La version 1.11.0 introduit la prise en charge d'une clé d'API, désormais exigée par data.education.gouv.fr pour les recherches et la synchronisation locale, configurable dans les réglages de l'extension, via la constante GF_FRENCH_SCHOOLS_API_KEY ou par le filtre gf_french_schools_api_key. Pour permettre l'envoi de l'en-tête d'authentification, le téléchargement de l'export CSV n'utilise plus la fonction download_url(). Cette mise à jour apporte également des messages d'erreur explicites en cas de réponses HTTP 401 et 403 dans les journaux et le statut de synchronisation, intègre la documentation relative à la création du compte et de la clé d'accès, et ajoute sept nouvelles chaînes traduites en français.</p>"
 }
